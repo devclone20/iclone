@@ -44,7 +44,7 @@ jobs:
           # ANTHROPIC_API_KEY  → console.anthropic.com/settings/keys
           # VIRTUALS_API_KEY   → obtained after creating agent on app.virtuals.io
           # VIRTUALS_AGENT_ID  → obtained after creating agent on app.virtuals.io
-          # AGENT_WALLET_ADDRESS → 0x743665952ec1240D62A3e580e5DC2c9e421d0537
+          # AGENT_WALLET_ADDRESS → 0x44cc25d55a4291b92f52062ba023ca1f14206664
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           VIRTUALS_API_KEY: ${{ secrets.VIRTUALS_API_KEY }}
           VIRTUALS_AGENT_ID: ${{ secrets.VIRTUALS_AGENT_ID }}
