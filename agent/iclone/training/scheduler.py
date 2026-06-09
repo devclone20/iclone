@@ -16,16 +16,19 @@ from datetime import datetime, timezone
 from .acp_training import ACPTrainingModule
 from .market_intelligence_training import MarketIntelligenceTraining
 from .security_training import SecurityTraining
+from .virtuals_protocol_training import VirtualsProtocolTraining
 
 logger = logging.getLogger("iclone.training.scheduler")
 
 
 # All modules run every session — order matters:
-# 1. Security first — iCLONE must be hardened before doing anything else
-# 2. ACP — protocol mastery
-# 3. Market Intelligence — what to build and sell
+# 1. Security     — hardened before anything else
+# 2. Virtuals     — full protocol context (foundation)
+# 3. ACP          — commerce mastery (built on Virtuals)
+# 4. Market Intel — what to build and sell
 TRAINING_MODULES = [
     SecurityTraining,
+    VirtualsProtocolTraining,
     ACPTrainingModule,
     MarketIntelligenceTraining,
 ]
