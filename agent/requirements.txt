@@ -1,5 +1,5 @@
 # Virtuals Protocol — ACP (active, replaces deprecated game-sdk cloud)
-virtuals-acp>=1.0.0
+virtuals-acp>=0.3.23
 
 # AI
 anthropic>=0.25.0
