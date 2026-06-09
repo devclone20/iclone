@@ -14,7 +14,9 @@ import logging
 from datetime import datetime, timezone
 
 from .acp_training import ACPTrainingModule
+from .doctor_training import DoctorTraining
 from .market_intelligence_training import MarketIntelligenceTraining
+from .rider_training import RiderTraining
 from .security_training import SecurityTraining
 from .virtuals_protocol_training import VirtualsProtocolTraining
 
@@ -26,11 +28,15 @@ logger = logging.getLogger("iclone.training.scheduler")
 # 2. Virtuals     — full protocol context (foundation)
 # 3. ACP          — commerce mastery (built on Virtuals)
 # 4. Market Intel — what to build and sell
+# 5. Rider        — orchestration, DAG, quality gates, SE methodology
+# 6. Doctor       — academic research, IST standards, research-to-ACP pipeline
 TRAINING_MODULES = [
     SecurityTraining,
     VirtualsProtocolTraining,
     ACPTrainingModule,
     MarketIntelligenceTraining,
+    RiderTraining,
+    DoctorTraining,
 ]
 
 
