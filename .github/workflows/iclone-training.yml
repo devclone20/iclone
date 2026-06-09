@@ -1,0 +1,58 @@
+name: iCLONE Daily Training
+
+on:
+  schedule:
+    # Morning session — 07:00 UTC
+    - cron: '0 7 * * *'
+    # Evening session — 19:00 UTC
+    - cron: '0 19 * * *'
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+    inputs:
+      session_note:
+        description: 'Optional note for this training session'
+        required: false
+        default: 'Manual trigger'
+
+jobs:
+  train:
+    name: iCLONE Training Session
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          cd agent
+          pip install -r requirements.txt
+
+      - name: Run training scheduler
+        env:
+          GAME_API_KEY: ${{ secrets.GAME_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VIRTUALS_AGENT_ID: ${{ secrets.VIRTUALS_AGENT_ID }}
+          AGENT_WALLET_ADDRESS: ${{ secrets.AGENT_WALLET_ADDRESS }}
+          NODE_ENV: production
+        run: |
+          python -m agent.iclone.training.scheduler
+
+      - name: Run TDD suite after training
+        run: |
+          cd agent
+          pip install -r requirements-dev.txt
+          pytest ../agent/iclone/tests/ -v --tb=short
+
+      - name: Log training completion
+        if: always()
+        run: |
+          echo "Training session completed at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "Session: ${{ github.event.inputs.session_note || 'Scheduled' }}"
