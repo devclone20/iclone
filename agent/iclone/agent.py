@@ -13,7 +13,7 @@ import logging
 from dotenv import load_dotenv
 
 from .config import AgentConfig
-from .skills import BaseSkill, CryptoSkill, PlatformSkill, SkillResult
+from .skills import BaseSkill, CryptoSkill, PlatformSkill, ACPSkill, SkillResult
 
 load_dotenv()
 
@@ -32,9 +32,10 @@ class ICloneAgent:
       - BaseSkill     : communication, research, Q&A
       - CryptoSkill   : crypto markets, wallet, DeFi research
       - PlatformSkill : CLONE platform governance and onboarding
+      - ACPSkill      : Virtuals Protocol ACP provider (offerings, jobs, escrow)
     """
 
-    VERSION = "0.1.0"
+    VERSION = "0.2.0"
 
     def __init__(self, config: AgentConfig):
         self.config = config
@@ -44,12 +45,14 @@ class ICloneAgent:
         self.base = BaseSkill(agent_name=self.name)
         self.crypto = CryptoSkill(wallet_address=config.wallet_address)
         self.platform = PlatformSkill()
+        self.acp = ACPSkill()
 
         # Registry of all loaded skills
         self._skills: dict[str, object] = {
             self.base.SKILL_ID: self.base,
             self.crypto.SKILL_ID: self.crypto,
             self.platform.SKILL_ID: self.platform,
+            self.acp.SKILL_ID: self.acp,
         }
 
         logger.info(
@@ -82,6 +85,27 @@ class ICloneAgent:
     def deploy_skill(self, skill_id: str, agent_id: str) -> SkillResult:
         """Guide skill deployment to an agent."""
         return self.platform.guide_skill_deployment(skill_id, agent_id)
+
+    # ACP — Agentic Commerce Protocol
+    def list_acp_offerings(self) -> list:
+        """Return all active ACP offerings."""
+        return self.acp.list_offerings()
+
+    def accept_acp_job(self, job_id: str, offering_id: str, client_id: str, requirements: dict) -> SkillResult:
+        """Accept an incoming ACP job from a client agent."""
+        return self.acp.accept_job(job_id, offering_id, client_id, requirements)
+
+    def deliver_acp_job(self, job_id: str, content: str, url: str) -> SkillResult:
+        """Submit deliverable for an ACP job."""
+        return self.acp.submit_deliverable(job_id, content, url)
+
+    def complete_acp_job(self, job_id: str) -> SkillResult:
+        """Complete ACP job and collect USDC payment."""
+        return self.acp.complete_job(job_id)
+
+    def acp_stats(self) -> SkillResult:
+        """Return ACP provider statistics."""
+        return self.acp.get_provider_stats()
 
     def status(self) -> dict:
         """Return agent status."""
