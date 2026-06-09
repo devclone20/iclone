@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 
 from .acp_training import ACPTrainingModule
 from .doctor_training import DoctorTraining
+from .hermes_training import HermesTraining
 from .market_intelligence_training import MarketIntelligenceTraining
 from .rider_training import RiderTraining
 from .security_training import SecurityTraining
@@ -30,6 +31,7 @@ logger = logging.getLogger("iclone.training.scheduler")
 # 4. Market Intel — what to build and sell
 # 5. Rider        — orchestration, DAG, quality gates, SE methodology
 # 6. Doctor       — academic research, IST standards, research-to-ACP pipeline
+# 7. Hermes       — full CLI + ACP + DegenClaw + slash commands
 TRAINING_MODULES = [
     SecurityTraining,
     VirtualsProtocolTraining,
@@ -37,6 +39,7 @@ TRAINING_MODULES = [
     MarketIntelligenceTraining,
     RiderTraining,
     DoctorTraining,
+    HermesTraining,
 ]
 
 
