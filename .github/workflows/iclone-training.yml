@@ -1,12 +1,17 @@
 name: iCLONE Daily Training
 
+# GAME Cloud — DEPRECATED (June 2026)
+# Agent creation: app.virtuals.io → Create Agent
+# ACP SDK: virtuals-acp (PyPI) — active replacement
+# API key obtained after registering agent on app.virtuals.io
+
 on:
   schedule:
     # Morning session — 07:00 UTC
     - cron: '0 7 * * *'
     # Evening session — 19:00 UTC
     - cron: '0 19 * * *'
-  # Allow manual trigger from GitHub UI
+  # Manual trigger from GitHub UI (Actions tab → Run workflow)
   workflow_dispatch:
     inputs:
       session_note:
@@ -31,28 +36,32 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: |
-          cd agent
-          pip install -r requirements.txt
+        run: pip install -r agent/requirements.txt
 
       - name: Run training scheduler
         env:
-          GAME_API_KEY: ${{ secrets.GAME_API_KEY }}
+          # Add these in: GitHub → Settings → Secrets → Actions
+          # ANTHROPIC_API_KEY  → console.anthropic.com/settings/keys
+          # VIRTUALS_API_KEY   → obtained after creating agent on app.virtuals.io
+          # VIRTUALS_AGENT_ID  → obtained after creating agent on app.virtuals.io
+          # AGENT_WALLET_ADDRESS → 0x743665952ec1240D62A3e580e5DC2c9e421d0537
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VIRTUALS_API_KEY: ${{ secrets.VIRTUALS_API_KEY }}
           VIRTUALS_AGENT_ID: ${{ secrets.VIRTUALS_AGENT_ID }}
           AGENT_WALLET_ADDRESS: ${{ secrets.AGENT_WALLET_ADDRESS }}
           NODE_ENV: production
-        run: |
-          python -m agent.iclone.training.scheduler
+        run: python -m agent.iclone.training.scheduler
+
+      - name: Install dev dependencies
+        run: pip install -r agent/requirements-dev.txt
 
       - name: Run TDD suite after training
-        run: |
-          cd agent
-          pip install -r requirements-dev.txt
-          pytest ../agent/iclone/tests/ -v --tb=short
+        run: pytest agent/iclone/tests/ -v --tb=short
 
       - name: Log training completion
         if: always()
         run: |
-          echo "Training session completed at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+          echo "=================================="
+          echo "iCLONE Training — $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
           echo "Session: ${{ github.event.inputs.session_note || 'Scheduled' }}"
+          echo "=================================="
