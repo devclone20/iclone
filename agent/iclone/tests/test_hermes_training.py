@@ -123,23 +123,40 @@ class TestHermesCLI:
 
 class TestHermesSlash:
 
-    def test_goal_command_known(self, hermes):
-        assert "/goal <text>" in hermes.HERMES_SLASH["session_management"]
-
-    def test_plan_command_known(self, hermes):
-        assert "/plan" in hermes.HERMES_SLASH["tools_skills"]
+    def test_new_session_command_known(self, hermes):
+        assert "/new" in hermes.HERMES_SLASH["session_management"]
 
     def test_background_command_known(self, hermes):
         assert "/background <prompt>" in hermes.HERMES_SLASH["session_management"]
 
-    def test_steer_command_known(self, hermes):
-        assert "/steer <prompt>" in hermes.HERMES_SLASH["session_management"]
+    def test_status_gateway_only(self, hermes):
+        assert "/status" in hermes.HERMES_SLASH["session_management"]
+        assert "Gateway only" in hermes.HERMES_SLASH["session_management"]["/status"]
+
+    def test_provider_command_known(self, hermes):
+        assert "/provider" in hermes.HERMES_SLASH["configuration"]
+
+    def test_prompt_command_known(self, hermes):
+        assert "/prompt [text]" in hermes.HERMES_SLASH["configuration"]
+
+    def test_cron_command_known(self, hermes):
+        assert "/cron [subcommand]" in hermes.HERMES_SLASH["tools_skills"]
+
+    def test_browser_command_known(self, hermes):
+        assert "/browser [connect|disconnect|status]" in hermes.HERMES_SLASH["tools_skills"]
 
     def test_quit_command_known(self, hermes):
         assert "/quit" in hermes.HERMES_SLASH["info"]
 
-    def test_gateway_commands_exist(self, hermes):
-        assert len(hermes.HERMES_SLASH["gateway_only"]) >= 4
+    def test_insights_command_known(self, hermes):
+        assert "/insights [days]" in hermes.HERMES_SLASH["info"]
+
+    def test_update_gateway_only(self, hermes):
+        assert "/update" in hermes.HERMES_SLASH["info"]
+        assert "Gateway only" in hermes.HERMES_SLASH["info"]["/update"]
+
+    def test_four_sections_exist(self, hermes):
+        assert len(hermes.HERMES_SLASH) == 4
 
 
 class TestACPV2:
