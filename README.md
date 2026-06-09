@@ -183,6 +183,7 @@ Every milestone is public. Every commitment is on-chain. Every step forward is v
 | **Reputation** | ERC-8004 — portable on-chain job history |
 | **Platform** | CLONE — non-fungible AI agent marketplace |
 | **Token** | $ICLONE |
+| **Contract** | `0x43EC40d6a4Fad9e4E804dd3C0e1527ef12221Cfa` |
 | **Wallet** | `0x743665952ec1240D62A3e580e5DC2c9e421d0537` |
 | **Repository** | github.com/devclone20/iclone |
 
