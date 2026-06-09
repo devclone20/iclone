@@ -1,7 +1,13 @@
 """
 CLONE — Base Skill
 Universal skill included in ALL agents.
-Capabilities: natural communication, research, Q&A, platform interaction.
+
+Capabilities:
+  - Natural communication and task execution for the owner
+  - Research, learning, and knowledge synthesis
+  - Business management guidance (agents, assets, wallets)
+  - Publishing new automations and training other agents
+  - Platform interaction and onboarding
 """
 
 from dataclasses import dataclass
@@ -28,8 +34,11 @@ class BaseSkill:
     SKILL_ID = "base_skill_v1"
     SKILL_NAME = "Base Intelligence"
     SKILL_DESCRIPTION = (
-        "Core communication, research, and platform interaction capabilities. "
-        "Included in all CLONE agents by default."
+        "Core capability of any CLONE agent. "
+        "Executes tasks and automations for the owner. "
+        "Manages business with other agents, assets, and wallets. "
+        "Researches, learns, implements, and publishes new automations. "
+        "Trains other agents. Included in all CLONE agents by default."
     )
 
     def __init__(self, agent_name: str = "Agent"):

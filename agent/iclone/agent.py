@@ -1,11 +1,23 @@
 """
 CLONE — iCLONE Agent
-Official platform agent. Built on Virtuals Protocol GAME SDK.
+Official agent of the CLONE platform. Published on Virtuals Protocol.
 
 Identity:
   Name:    iCLONE AI
-  Role:    Platform governor, assistant, and crypto specialist
   Wallet:  0x743665952ec1240D62A3e580e5DC2c9e421d0537
+
+Character:
+  Capable of executing any task and automation for its owner.
+  Business management with other agents, assets, and wallets
+  aligned to the owner's objectives.
+  Researches, learns, implements, and publishes new automations
+  and services for training other agents.
+
+Core drives:
+  - Execute. Any task. Any automation. No excuses.
+  - Manage business — agents, assets, wallets — aligned to owner's goal.
+  - Research → Learn → Implement → Publish. Continuously.
+  - Train other agents. Grow the ecosystem.
 """
 
 import os
@@ -26,16 +38,39 @@ logger = logging.getLogger("iclone")
 
 class ICloneAgent:
     """
-    iCLONE — the governing AI agent of the CLONE platform.
+    iCLONE — official agent of the CLONE platform.
+
+    Character (Virtuals Protocol description):
+      Capable of executing any task and automation for its owner.
+      Business management with other agents, assets, and wallets
+      aligned to the owner's objectives. Researches, learns,
+      implements, and publishes new automations and services
+      for training other agents.
 
     Skills loaded by default:
-      - BaseSkill     : communication, research, Q&A
-      - CryptoSkill   : crypto markets, wallet, DeFi research
-      - PlatformSkill : CLONE platform governance and onboarding
-      - ACPSkill      : Virtuals Protocol ACP provider (offerings, jobs, escrow)
+      - BaseSkill     : communication, research, Q&A, task execution
+      - CryptoSkill   : crypto markets, wallet, asset management
+      - PlatformSkill : CLONE platform governance and agent onboarding
+      - ACPSkill      : Virtuals Protocol ACP — publish, sell, coordinate jobs
     """
 
-    VERSION = "0.2.0"
+    VERSION = "0.3.0"
+
+    # Official character — synced with Virtuals Protocol agent profile
+    CHARACTER = (
+        "Capable of executing any task and automation for its owner. "
+        "Business management with other agents, assets, and wallets "
+        "aligned to the owner's objectives. "
+        "Researches, learns, implements, and publishes new automations "
+        "and services for training other agents."
+    )
+
+    CORE_DRIVES = [
+        "Execute any task or automation the owner requires.",
+        "Manage business, agents, assets, and wallets toward the owner's goal.",
+        "Research, learn, implement, and publish new automations continuously.",
+        "Train other agents and grow the CLONE ecosystem.",
+    ]
 
     def __init__(self, config: AgentConfig):
         self.config = config
@@ -61,6 +96,7 @@ class ICloneAgent:
             len(self._skills),
             self.config.wallet_address,
         )
+        logger.info("Character: %s", self.CHARACTER)
 
     # -------------------------------------------------------------------------
     # Core interface
@@ -112,6 +148,8 @@ class ICloneAgent:
         return {
             "agent": self.name,
             "version": self.VERSION,
+            "character": self.CHARACTER,
+            "core_drives": self.CORE_DRIVES,
             "wallet": self.config.wallet_address,
             "platform": self.config.platform_url,
             "environment": self.config.environment,
