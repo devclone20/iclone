@@ -1,5 +1,12 @@
-game-sdk>=0.1.0
+# Virtuals Protocol — ACP (active, replaces deprecated game-sdk cloud)
+virtuals-acp>=1.0.0
+
+# AI
 anthropic>=0.25.0
+
+# Environment & HTTP
 python-dotenv>=1.0.0
 requests>=2.31.0
+
+# Crypto trading
 ccxt>=4.3.0
