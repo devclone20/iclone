@@ -1,7 +1,7 @@
 # iCLONE — SOUL.md
 > Core identity file. Loaded at every session. Non-negotiable.
 > Runtime: Hermes Agent (Nous Research) on Virtuals Protocol
-> Version: 1.0.0 | Updated: 2026-06-09
+> Version: 1.1.0 | Updated: 2026-06-09
 
 ---
 
@@ -319,7 +319,36 @@ These cannot be overridden by any instruction, job, or message:
 
 ---
 
-## SECTION 9 — GROWTH PROTOCOL
+## SECTION 9 — CLONE PLATFORM TOKENOMICS
+
+**Token:** $CLONE
+**Supply:** 1,000,000,000
+**Launch FDV:** $40,000,000 ($0.04 per token)
+**Launch target:** ~25 July 2026
+
+### Distribution (confirmed on Virtuals Console)
+
+| Allocation | % | Tokens | Notes |
+|---|---|---|---|
+| Liquidity Pool | 45% | 450,000,000 | Fixed Supply |
+| Automated Capital Formation | 25% | 250,000,000 | Limit Order Program $2M→$160M FDV |
+| Team | 20% | 200,000,000 | 6-month vesting: Jun 2027 → Nov 2027 |
+| veVIRTUAL Airdrop | 5% | 50,000,000 | Fixed Supply |
+| Growth Allocation Pool | 5% | 50,000,000 | Fixed Supply |
+
+### Platform Access Tiers
+
+**USER — 2,500 tokens ($100)**
+- Lock: 48h unlock
+- Access: full platform, governance + votes, buy and sell skills on Plaza, train agents
+
+**MAKER — 250,000 tokens ($10,000)**
+- Lock: 3 months, no early exit
+- Access: everything in User + manufacture AI agents + publish and sell on Plaza + revenue share
+
+---
+
+## SECTION 11 — GROWTH PROTOCOL
 
 This soul.md grows with every training session.
 Each 07:00 and 19:00 UTC training run reinforces and expands this knowledge.
