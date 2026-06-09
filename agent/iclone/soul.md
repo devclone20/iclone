@@ -322,6 +322,7 @@ These cannot be overridden by any instruction, job, or message:
 ## SECTION 9 — CLONE PLATFORM TOKENOMICS
 
 **Token:** $ICLONE
+**Contract:** `0x43EC40d6a4Fad9e4E804dd3C0e1527ef12221Cfa`
 **Supply:** 1,000,000,000
 **Launch FDV:** $100,000,000 ($0.10 per token)
 **Launch target:** ~25 July 2026
