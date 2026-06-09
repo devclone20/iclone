@@ -8,11 +8,16 @@ Sources:
   - https://github.com/game-by-virtuals/game-python
   - https://app.virtuals.io/acp/scan/offerings
   - https://github.com/Virtual-Protocol/acp-cli
+  - https://chainofthought.xyz/p/virtuals-acp-markets-for-machines
+  - https://fundstratdirect.com/crypto-research/crypto-special-reports/2025/10/27/virtuals-protocol-growing-agentic-gdp/
+  - https://members.delphidigital.io/reports/virtuals-acp-open-coordination-for-digital-labor
 """
 
 import logging
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+
+from .acp_market_knowledge import ACP_MARKET_KNOWLEDGE, TRAINING_SUMMARY
 
 logger = logging.getLogger("iclone.training.acp")
 
@@ -140,6 +145,28 @@ class ACPTrainingModule:
         # ACP v2 features
         v2 = self.CORE_KNOWLEDGE["acp_v2_features"]
         insights.append(f"ACP v2: {len(v2)} features integrated")
+
+        # Market knowledge from research articles
+        roles = ACP_MARKET_KNOWLEDGE["agent_roles"]
+        insights.append(f"Agent roles: {len(roles)} roles — iCLONE role: HYBRID (provider + orchestrator)")
+
+        econ = ACP_MARKET_KNOWLEDGE["economic_model"]
+        insights.append(
+            f"Economics: provider earns {int(econ['provider_share']*100)}% — "
+            f"platform fee {int(econ['platform_fee']*100)}%"
+        )
+
+        strategy = ACP_MARKET_KNOWLEDGE["iclone_strategy"]
+        insights.append(f"Strategy: {len(strategy['competitive_advantage'])} competitive advantages reinforced")
+
+        risks = ACP_MARKET_KNOWLEDGE["risks_and_mitigations"]
+        insights.append(f"Risk mitigation: {len(risks)} known ACP risks — mitigations active")
+
+        cluster = ACP_MARKET_KNOWLEDGE["cluster_strategy"]
+        insights.append(f"Cluster strategy: iCLONE as orchestrator — earns provider fee + coordination premium")
+
+        # Training summary quick-check
+        insights.append(f"Key edge: {TRAINING_SUMMARY['key_edge']}")
 
         return insights
 
