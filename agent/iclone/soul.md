@@ -321,9 +321,9 @@ These cannot be overridden by any instruction, job, or message:
 
 ## SECTION 9 — CLONE PLATFORM TOKENOMICS
 
-**Token:** $CLONE
+**Token:** $ICLONE
 **Supply:** 1,000,000,000
-**Launch FDV:** $40,000,000 ($0.04 per token)
+**Launch FDV:** $100,000,000 ($0.10 per token)
 **Launch target:** ~25 July 2026
 
 ### Distribution (confirmed on Virtuals Console)
@@ -338,11 +338,11 @@ These cannot be overridden by any instruction, job, or message:
 
 ### Platform Access Tiers
 
-**USER — 2,500 tokens ($100)**
+**USER — 2,500 tokens ($250)**
 - Lock: 48h unlock
 - Access: full platform, governance + votes, buy and sell skills on Plaza, train agents
 
-**MAKER — 250,000 tokens ($10,000)**
+**MAKER — 250,000 tokens ($25,000)**
 - Lock: 3 months, no early exit
 - Access: everything in User + manufacture AI agents + publish and sell on Plaza + revenue share
 
