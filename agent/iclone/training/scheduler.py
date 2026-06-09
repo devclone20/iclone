@@ -14,12 +14,20 @@ import logging
 from datetime import datetime, timezone
 
 from .acp_training import ACPTrainingModule
+from .market_intelligence_training import MarketIntelligenceTraining
+from .security_training import SecurityTraining
 
 logger = logging.getLogger("iclone.training.scheduler")
 
 
+# All modules run every session — order matters:
+# 1. Security first — iCLONE must be hardened before doing anything else
+# 2. ACP — protocol mastery
+# 3. Market Intelligence — what to build and sell
 TRAINING_MODULES = [
+    SecurityTraining,
     ACPTrainingModule,
+    MarketIntelligenceTraining,
 ]
 
 
@@ -44,19 +52,26 @@ def run_all_training() -> dict:
         try:
             session = module.run_session()
             results["modules_run"] += 1
-            if session.completed:
+
+            # Support both dataclass and dict session formats
+            completed = session.completed if hasattr(session, "completed") else session.get("completed", False)
+            insights = session.insights if hasattr(session, "insights") else session.get("insights", [])
+            errors = session.errors if hasattr(session, "errors") else session.get("errors", [])
+            session_id = session.session_id if hasattr(session, "session_id") else session.get("session_id", "")
+
+            if completed:
                 results["modules_passed"] += 1
-                logger.info("✓ %s — PASSED", ModuleClass.MODULE_ID)
+                logger.info("✓ %s — PASSED (%d insights)", ModuleClass.MODULE_ID, len(insights))
             else:
                 results["modules_failed"] += 1
-                logger.warning("✗ %s — FAILED: %s", ModuleClass.MODULE_ID, session.errors)
+                logger.warning("✗ %s — FAILED: %s", ModuleClass.MODULE_ID, errors)
 
             results["sessions"].append({
                 "module": ModuleClass.MODULE_ID,
-                "session_id": session.session_id,
-                "completed": session.completed,
-                "insights_count": len(session.insights),
-                "errors": session.errors,
+                "session_id": session_id,
+                "completed": completed,
+                "insights_count": len(insights),
+                "errors": errors,
             })
         except Exception as exc:
             results["modules_failed"] += 1
