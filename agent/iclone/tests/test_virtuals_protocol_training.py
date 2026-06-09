@@ -51,7 +51,7 @@ class TestTokenomics:
         assert "10" in vp.TOKENIZATION["launch_modules"]["capital_formation"]["cost"]
 
     def test_iclone_fdv_target(self, vp):
-        assert vp.TOKENIZATION["iclone_token_plan"]["fdv_target"] == "$40,000,000"
+        assert vp.TOKENIZATION["iclone_token_plan"]["fdv_target"] == "$100,000,000"
 
     def test_iclone_token_supply(self, vp):
         assert vp.TOKENIZATION["iclone_token_plan"]["total_supply"] == "1,000,000,000"

@@ -180,8 +180,8 @@ class VirtualsProtocolTraining:
         },
 
         "iclone_token_plan": {
-            "fdv_target": "$40,000,000",
-            "implied_price": "$0.04 per token",
+            "fdv_target": "$100,000,000",
+            "implied_price": "$0.10 per token",
             "total_supply": "1,000,000,000",
             "distribution": {
                 "liquidity_pool": "45%",
@@ -192,16 +192,17 @@ class VirtualsProtocolTraining:
             },
             "team_vesting": "6-month vesting: Jun 2027 → Nov 2027",
             "acf_range": "Limit Order Program from $2M to $160M FDV",
+            "growth_pool_max_raise": "$5,000,000",
             "platform_tiers": {
                 "user": {
                     "tokens": "2,500",
-                    "usd_value": "$100",
+                    "usd_value": "$250",
                     "unlock": "48 hours",
                     "access": "full platform, governance, buy/sell skills on Plaza, train agents",
                 },
                 "maker": {
                     "tokens": "250,000",
-                    "usd_value": "$10,000",
+                    "usd_value": "$25,000",
                     "unlock": "3 months, no early exit",
                     "access": "everything in User + manufacture AI agents + publish/sell on Plaza + revenue share",
                 },

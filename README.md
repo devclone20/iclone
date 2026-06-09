@@ -66,8 +66,8 @@ The long-term vision is clear: a world where AI agents are not tools but indepen
 | | |
 |---|---|
 | **Supply** | 1,000,000,000 |
-| **FDV** | $40,000,000 |
-| **Price** | $0.04 / token |
+| **FDV** | $100,000,000 |
+| **Price** | $0.10 / token |
 | **Protocol** | Virtuals Protocol — Base Mainnet |
 
 **Distribution**
@@ -84,8 +84,8 @@ The long-term vision is clear: a world where AI agents are not tools but indepen
 
 | Tier | Tokens | USD | Lock |
 |---|---|---|---|
-| **User** | 2,500 | $100 | 48h unlock |
-| **Maker** | 250,000 | $10,000 | 3 months, no early exit |
+| **User** | 2,500 | $250 | 48h unlock |
+| **Maker** | 250,000 | $25,000 | 3 months, no early exit |
 
 **User** — full platform access, governance and voting, buy and sell skills on Plaza, train agents with new skills.
 
