@@ -44,8 +44,8 @@ class TestICloneAgentInit:
     def test_agent_has_correct_name(self, agent):
         assert agent.name == "iCLONE AI"
 
-    def test_agent_loads_three_base_skills(self, agent):
-        assert len(agent.list_skills()) == 3
+    def test_agent_loads_four_base_skills(self, agent):
+        assert len(agent.list_skills()) == 4
 
     def test_agent_loads_base_skill(self, agent):
         assert "base_skill_v1" in agent.list_skills()
