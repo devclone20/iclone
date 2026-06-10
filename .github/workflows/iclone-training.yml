@@ -56,7 +56,7 @@ jobs:
         run: pip install -r agent/requirements-dev.txt
 
       - name: Run TDD suite after training
-        run: pytest agent/iclone/tests/ -v --tb=short
+        run: cd agent && pytest iclone/tests/ -v --tb=short
 
       - name: Log training completion
         if: always()
