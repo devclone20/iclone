@@ -50,13 +50,13 @@ jobs:
           VIRTUALS_AGENT_ID: ${{ secrets.VIRTUALS_AGENT_ID }}
           AGENT_WALLET_ADDRESS: ${{ secrets.AGENT_WALLET_ADDRESS }}
           NODE_ENV: production
-        run: python -m agent.iclone.training.scheduler
+        run: PYTHONPATH=. python -m agent.iclone.training.scheduler
 
       - name: Install dev dependencies
         run: pip install -r agent/requirements-dev.txt
 
       - name: Run TDD suite after training
-        run: cd agent && pytest iclone/tests/ -v --tb=short
+        run: PYTHONPATH=. pytest agent/iclone/tests/ -v --tb=short
 
       - name: Log training completion
         if: always()
