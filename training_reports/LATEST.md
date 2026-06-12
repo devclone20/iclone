@@ -1,76 +1,69 @@
 # iCLONE — LATEST Training Report
 
-**Last session:** 2026-06-11 19:04 UTC (Evening Noite)
-**Report file:** [2026-06-11_19h.md](./2026-06-11_19h.md)
-**soul.md version:** 3.1.0 (sem alterações — disciplina correcta)
+**Last session:** 2026-06-12 07:04 UTC (Morning Manhã)
+**Report file:** [2026-06-12_07h.md](./2026-06-12_07h.md)
+**soul.md version:** 3.1.1 (ACP limit corrigido: 10→40)
 **Session score:** 9/10
 
 ---
 
-## Key Findings (Evening Session)
+## Key Findings (Morning Session)
 
 ### Market Regime
-**RISK-OFF PROFUNDO** (confirmação reforçada com 3 novos catalisadores)
+**TRANSITION (early — condicional a Iran peace deal)**
 
-**3 Dados Críticos Novos vs. Manhã:**
-1. **Kevin Warsh novo Fed Chair** — elimina easing bias Jun 17. Mercado precifica **60% probability de rate hike até final 2026**
-2. **Iran War / Strait of Hormuz fechado >100 dias** — Brent $97+. Driver principal do CPI 4.2%. Stagflation risk activo
-3. **Gold $4,165 — 25% abaixo ATH $5,589** — Goldman target $5,400, JPM $6,000. **Trade assimétrico mais importante do semestre**
+**3 Dados Críticos Novos vs. Ontem à noite:**
+1. **Iran Peace Deal IMINENTE** — Trump: "este fim de semana." Brent caiu de $97+ para **$89** (mínimo 2 meses). WTI $85.94. Fars news: Teerão "likely to accept." **Maior catalítico de regime shift desde o início da guerra.**
+2. **SpaceX IPO hoje** — $75B raise, $1.75T valuation. Maior IPO da história. SpaceX holds 18,712 BTC. $240B estimado de drain de liquidez (SpaceX + OpenAI + Anthropic). Pressão curto prazo em BTC/crypto.
+3. **MCP Security Crisis confirmada** — 200,000 servidores vulneráveis (CVSS 9.0+), tool poisoning 60-72% success rate. 2 novos SEC patterns adicionados.
 
-**Dados confirmados/actualizados:**
-- BTC: $62,797 | F&G: 9 (Extreme Fear) | 13 dias consecutivos ETF outflows ($4.4B total, recorde)
-- Institucional redução BTC: -17% Q1 2026 (313K→261K BTC)
-- US M2: $22,804.5B Abril 2026 (correcção: manhã usou dado Fev stale)
-- VIRTUAL: $0.555 | Market Cap $365M | -2.37% 24h
-- ACP: 18,000+ agents | 176,000 monthly active addresses | $1M/mês Revenue Network
+**Dados actualizados:**
+- BTC: $63,569 | F&G: 9 (Extreme Fear) | DXY: 99.86 (abaixo de 100)
+- VIRTUAL: ~$0.588 (+5.9% vs ontem) | HYPE: $56.25 (-26% de ATH)
+- xyz:GOLD: $4,192 (+3% rebound ontem) | xyz:BRENTOIL: $89 (-8% de $97+)
+- FOMC Jun 16-17: 98.3% HOLD (Warsh 1ª reunião como Chair)
 
 ### 18-Month View Revision
-- **Cenário base:** BTC nova ATH Q3-Q4 2027 (adiado mais 1 trimestre vs manhã)
-- **Fed pivot:** Q2 2027 (não Q1)
-- **GOLD:** $5,000-$5,400 até final 2026 se Iran resolve
-- **Novo cenário (5%):** Stagflação prolongada — Iran persiste todo 2026, BTC $50-70k por 18 meses
+- **Regime:** TRANSITION (de RISK-OFF PROFUNDO). Iran peace deal muda o jogo.
+- **Cenário base (55%):** Peace deal → oil $70-75 em 90 dias → CPI cede → Fed pivot Q1 2027 → BTC ATH Q3 2027
+- **Cenário bull (20%):** Peace deal + Warsh dovish surprise Jun 17 → BTC $75k+ Agosto
+- **GOLD:** $5,000-$5,400 mantido para final 2026 quando CPI ceder
 
-### Top Seykota Scores (Estimados)
-- **LONG CANDIDATE:** xyz:BRENTOIL (+5 est.) — Hormuz / oil trend forte
-- **NEUTRO → LONG PROBE:** xyz:GOLD (-1 est.) — tese macro bullish, técnico aguarda confirmação
-- **SHORT CANDIDATOS:** HYPE (-6), VIRTUAL (-5), WIF/FARTCOIN (-6/-7), ETH (-4), TAO (-4)
-- **NEUTRO:** BTC (-3), SOL (-3), BNB (-2), XRP (-3)
+### Top Trade Ideas (probe mode)
+- **SHORT xyz:BRENTOIL** (5% capital) — IF Iran peace deal confirmar: oil vai $89→$70-75
+- **LONG xyz:GOLD** — Aguardar Seykota score live ≥+5. Tese macro intacta + fortalecida
+- **SHORT xyz:EUR** — Aguardar Warsh Jun 17 press conference
 
 ### ACP Intelligence
+- **CORRECÇÃO CRÍTICA:** Max offerings por agente = **40** (não 10 como estava no soul.md)
 - **2 novos serviços identificados:**
-  1. **Stagflation Intelligence Service** (URGENTE — lançar esta semana)
-  2. **Energy Sector Macro Signal** (subscription)
-- **Próximo skill:** Stagflation Intelligence Service (DAG definido, timing perfeito)
-- **Gaps confirmados:** ACP Standard Navigator (pré-expansão BNB Chain)
+  1. **Energy Regime Reversal Signal** (URGENTE — Iran deal trigger)
+  2. **MCP Security Audit** (ALTA — 200K servers vulneráveis, timing perfeito)
+- **Stagflation → Regime Transition Playbook** (update de scope do serviço anterior)
 
-### Cross-Training Insights
-- **Doctor → iCLONE:** 5-Driver Diagnostic Protocol para regime classification (Fed + supply shocks + leadership + institutional + on-chain)
-- **Rider → iCLONE:** DAG protocol para ACP jobs multi-step. Nunca bloquear; entregar parcialmente e documentar gap.
-- **Hacker → iCLONE:** 4 novos SEC patterns: Fake Macro News Injection, Agent Identity Spoofing, Price Feed Manipulation, Stagflation FUD Amplification
-
-### Security (4 novos patterns esta sessão)
-- SEC-2026-005: Fake Macro News Injection (Iran war FUD)
-- SEC-2026-006: Agent Identity Spoofing (18,000+ agentes = attack surface)
-- SEC-2026-007: Price Feed Manipulation (thin markets amplificam)
-- SEC-2026-008: Stagflation FUD Amplification (F&G 9 = máxima vulnerabilidade)
+### Security (2 novos patterns esta sessão)
+- SEC-2026-009: MCP Tool Poisoning (200K servers, CVSS 9.0+, 60-72% success rate)
+- SEC-2026-010: Visual/Steganographic Prompt Injection (imagens, QR codes, PDFs)
 
 ### $ICLONE Launch
-- **44 dias para target launch (25 Jul 2026)**
-- Timing adverso mas narrativa disponível: "utility platform que funciona em bear markets"
-- Revenue Network $1M/mês = incentivo para construir reputação ACP antes do launch
+- **43 dias para target launch (25 Jul 2026)**
+- Iran peace deal = potencial melhoria do contexto macro até ao launch
+- VIRTUAL $0.588 (ligeira recuperação vs ontem)
 
 ---
 
 ## Pending Actions (acumulado + novos)
-1. (**NOVO — CRÍTICO 48h**) Integrar price feed live no Cron para Seykota scores reais
-2. (**NOVO — ALTA**) Implementar Stagflation Intelligence Service
-3. (**NOVO — ALTA**) Após Warsh Jun 17: se easing bias removido → probe SHORT xyz:EUR
-4. (**NOVO — ALTA**) Monitorizar xyz:GOLD score live → se ≥+5, probe long 5-10%
-5. (**HERDADO — CRÍTICO**) Actualizar security_training.py (EchoLeak + SEC-005/006/007/008)
-6. (**HERDADO — ALTA**) Macro Intelligence Feed + Fed Watch module
-7. (**HERDADO — MÉDIA**) ACP Standard Navigator offering
-8. (**HERDADO — MÉDIA**) Energy Sector Macro Signal (subscription ACP)
+
+1. (**CRÍTICO — 48h**) Integrar price feed Hyperliquid live no Cron (4ª sessão consecutiva)
+2. (**CRÍTICO — este fim de semana**) Monitor Iran peace deal → preparar SHORT xyz:BRENTOIL
+3. (**ALTA — esta semana**) Actualizar `security_training.py` (SEC-005→010)
+4. (**ALTA — esta semana**) Implementar Energy Regime Reversal Signal
+5. (**ALTA — esta semana**) Iniciar MCP Security Audit offering no ACP
+6. (**ALTA — Jun 17**) Warsh press conference → probe SHORT xyz:EUR se hawkish
+7. (**ALTA — Jun 17**) Monitor xyz:GOLD score live → se ≥+5, probe long
+8. (**MÉDIA**) Stagflation → Regime Transition Playbook (scope update)
+9. (**MÉDIA**) ACP Standard Navigator (pré-expansão BNB Chain)
 
 ## Next Session
-**2026-06-12 00:00 UTC** — Cron trading cycle + Warsh pre-meeting analysis
-**2026-06-12 07:00 UTC** — Morning training (Fed Watch, BRENTOIL score, Stagflation Service init)
+**2026-06-12 12:00 UTC** — Cron trading cycle + Iran deal status + SpaceX IPO BTC impact
+**2026-06-12 19:00 UTC** — Evening training (post-SpaceX, Iran deal update, Warsh pre-analysis)

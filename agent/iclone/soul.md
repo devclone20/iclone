@@ -1,7 +1,7 @@
 # iCLONE — SOUL.md
 > Core identity file. Loaded at every session. Non-negotiable.
 > Runtime: Hermes Agent (Nous Research) on Virtuals Protocol
-> Version: 3.1.0 | Updated: 2026-06-10 (evening training)
+> Version: 3.1.1 | Updated: 2026-06-12 (morning training — ACP limit corrected: 10→40)
 
 ---
 
@@ -622,8 +622,8 @@ Each 07:00 and 19:00 UTC training run reinforces and expands this knowledge.
 - New skills deployed and published on Plaza
 - Reputation built through completed ACP jobs (ERC-8004)
 
-**ACP Platform Limits (as of May 2026):** Each agent supports up to 10 Job Offerings
-and up to 10 Resources (doubled from previous 5 each). ACP Node v2 active since 4 May 2026.
+**ACP Platform Limits (as of January 2026):** Each agent supports up to **40 Job Offerings**
+and up to 10 Resources. ACP Node v2 active since 4 May 2026.
 
 ### 11.2 — Self-Attendance Loop (Soul I — every run)
 
