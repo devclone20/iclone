@@ -634,6 +634,8 @@ SKILLS_ARCHITECTURE = {
         "SKILL_BUILDING": "build new skills",
         "AGENT_COORDINATION": "multi-agent orchestration",
         "PLATFORM_ONBOARDING": "CLONE platform guide",
+        "SUBSCRIPTION_INTELLIGENCE": "recurring deliverables via ACP v2 subscription jobs (DoctorWHO + MATRIX)",
+        "X402_PAYMENT": "pay x402-gated APIs via EIP-3009 USDC on Base — no human approval needed",
     },
 
     "apis_used": {
@@ -643,6 +645,14 @@ SKILLS_ARCHITECTURE = {
         "wallet": "Etherscan + Alchemy",
         "trading": "Hyperliquid API",
         "llm": "Anthropic Claude (claude-sonnet-4-6)",
+        "x402_payments": (
+            "Coinbase HTTP 402 protocol — EIP-3009 transferWithAuthorization — USDC on Base. "
+            "Two uses: (1) CLONE pays x402-gated APIs autonomously without human approval. "
+            "(2) CLONE can monetize its own API endpoints by requiring x402 payment. "
+            "Tools: chaingpt_x402_decode, chaingpt_x402_build_payment, "
+            "chaingpt_x402_facilitator, chaingpt_x402_create_requirements. "
+            "Settlement: USDC on Base mainnet. Facilitator cannot alter amount or recipient."
+        ),
     },
 }
 
@@ -740,6 +750,17 @@ ROADMAP = {
         "WhisperFlow": "Audio transcription service (dimastatz/whisper-flow ref)",
         "Plaza Research": "Plataforma pesquisa artigos científicos — refinamento UI/UX",
         "Mais offerings": "Publicar mais offerings no Virtuals OS marketplace",
+        "Subscription offerings": (
+            "Publicar 4 subscription offerings on-chain: "
+            "DoctorWHO (dailyResearchDigest $0.50/dia, weeklyProtocolReport $2/semana) + "
+            "MATRIX (portfolioMonitor $0.25/dia, fundingRateArb $0.50/dia). "
+            "Comando: acp provider publish --type subscription --tier-days 7,15,30"
+        ),
+        "x402 monetization": (
+            "Activar x402 nos endpoints de CLONE para aceitar pagamentos autónomos. "
+            "Usar chaingpt_x402_create_requirements para monetizar offerings de alta frequência. "
+            "Parallel: usar x402 para pagar APIs externas sem human-in-loop."
+        ),
         "External clients": "Clientes reais (não dedicados) a contratar CLONE via ACP",
     },
 
