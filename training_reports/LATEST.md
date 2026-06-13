@@ -1,73 +1,73 @@
 # iCLONE — LATEST Training Report
 
-**Last session:** 2026-06-13 07:03 UTC (Morning Manhã)
-**Report file:** [2026-06-13_07h.md](./2026-06-13_07h.md)
-**soul.md version:** 3.2.0
-**Session score:** 8.4/10
+**Last session:** 2026-06-13 19:03 UTC (Evening Noite)
+**Report file:** [2026-06-13_19h.md](./2026-06-13_19h.md)
+**soul.md version:** 3.3.0
+**Session score:** 8.6/10
 
 ---
 
-## Key Findings (Morning Session)
+## Key Findings (Evening Session)
 
 ### Market Regime
-**TRANSITION (tilting RISK-OFF — Iran deal complicado por IRGC)**
+**TRANSITION (tilting RISK-OFF — mas Iran deal within days = bull catalyst iminente)**
 
-**5 Dados Críticos Novos vs. Noite Anterior:**
-1. **Iran deal INCERTO** — IRGC disparou sobre navios no Estreito de Ormuz. Polymarket: probabilidade de deal antes de Jun 15 caiu para **7%**. Deal ainda possível mas adiado. SHORT xyz:BRENTOIL: probe menor (3-5% não 5-8%). Stop $94, target $72.
-2. **Warsh FOMC Jun 17 — hawkish shift** — 98.2% probabilidade hold, mas expectativa de remoção do bias de easing → neutralidade/hawkish. CPI 3.8%, core 2.8%, NFP 172k. ECB pode hikar também.
-3. **DXY 99.749** — testando resistência chave 100. Rejeitado múltiplas vezes. Break acima = risk-off global.
-4. **Gold pullback** — $4,332 (Jun 8) → $4,211 (Jun 12). Range Jun: $4,186-$4,933. Seykota score a deteriorar.
-5. **HYPE unlock** — 238M tokens (23.8% supply) a ser libertos em Jun 2026. HYPE -28% do ATH $75.48. Supply pressure bearish.
+**5 Updates Críticos vs. Manhã:**
+1. **Iran Deal ACELERADO** — Deal "within days" (NBC/CBS). "75% complete." Draft assinado Jun 12. US derrubou drones IRGC Jun 13 AM mas negociações continuam. SHORT xyz:BRENTOIL thesis REFORÇADA: deal → oil $72. **Score BRENTOIL: -5 (threshold de entrada atingido).**
+2. **VIRTUAL +7.49% em 24h** — Recuperação de $0.57 para $0.60+. Revenue Network ativa ($1M/mês). 17,000+ agents, 800,000+ jobs.
+3. **Liquidity Cycle Peak NOW** — Howell's 65-month cycle em pico Q1-Q2 2026. Após pico → risk assets contracção com lag 3-6 meses. Adicionado ao soul.md (Section 3.3).
+4. **Bitcoin LTH Acumulam** — Long-term holders absorvem vendas durante fraqueza. Suporte on-chain: $53,600. Potencial fundo em range $55-63k.
+5. **Crypto ETF outflows record** — $4.33B em 13 dias consecutivos. XRP único outlier positivo (+$60.5M inflows).
 
-**Dados actualizados (07h):**
-- BTC: $63,255 (+1.88% Jun 12) | ETH: ~$1,668 | SOL: ~$66.72
-- F&G: 12 (Extreme Fear) | HYPE: ~$54.50 (-28% ATH)
-- VIRTUAL: ~$0.59 (desconto 20% vs forecasts $0.73) | DXY: 99.749
-- xyz:GOLD: $4,211 | xyz:BRENTOIL: $87.33 (WTI $84.88)
-- Global M2: $101,871B (+1.44% 3M — abaixo média histórica)
-- Fed rate: 3.50-3.75% (on hold)
+**Dados actualizados (19h):**
+- BTC: $63,587 | ETH: $1,667 | SOL: $67.01 | VIRTUAL: $0.57-0.93 (+7.49% 24h)
+- F&G: 12 (Extreme Fear) | HYPE: ~$54.50 (score -5, NOVO SHORT CANDIDATE)
+- xyz:GOLD: $4,211 | xyz:BRENTOIL: ~$87 (score -5 — SHORT ACTIVO)
+- DXY: ~99.7 | Global M2: $101,939B
 
-### 18-Month View Revision
-- **Regime:** TRANSITION → tilting RISK-OFF (revision de manhã)
-- **Base case (55%):** Iran deal adiado (Agosto) → oil $80-85 Q3 → CPI cede Q4 → Fed pivot Q2 2027 → BTC ATH Q3 2027
-- **Bear case (25%):** Iran deal colapsa + Warsh hike Sep → BTC $45-50k Ago
-- **Bull case (20%):** Deal esta semana + Warsh dovish → BTC $80k Ago
+### 18-Month View (Revisão Noite)
+- **Base case (50%):** Deal assinado Jun 14-17. Warsh neutro Jun 17. BTC consolida $55-65k Q3. Fed pivot Q1-Q2 2027. BTC ATH Q3 2027.
+- **Bear case (30%):** Deal colapsa. IRGC fecha Hormuz. Warsh hike Set. BTC $45-50k Q3 2026.
+- **Bull case (20%):** Deal esta semana + Warsh dovish → BTC $75-80k Q3 2026.
 
-### Active Trade Setup
-- **SHORT xyz:BRENTOIL** — Entry ~$87-89. Stop $94. Target $72. Ratio: 3:1+. **Size reduzido: 3-5% capital** (tese complicada por IRGC). Trigger: Seykota score ≤-5 + deal progress.
+### Active Trades / Setups
+- **SHORT xyz:BRENTOIL** — Score -5 atingido. Entry ~$87. Stop $94. Target $72. Ratio 3.5:1. **Size 3-5% capital.** Pyramid se deal assinado.
+- **SHORT HYPE** — Score -5. Unlock 238M tokens. **NOVO esta sessão.** Size 2-3% capital. Aguardar confirmação 4H EMAs.
 - **SHORT xyz:EUR** — Aguardar Warsh FOMC Jun 17. Probe se hawkish confirmado.
-- **LONG xyz:GOLD** — Aguardar score live ≥+5. Suporte $4,186 crítico.
+- **LONG xyz:GOLD** — Aguardar score ≥+5. Suporte $4,186 crítico.
 
 ### ACP Intelligence
-- **Trending:** Multi-agent Council/adversarial (186.9k+ downloads) — categorias a crescer
-- **3 novos serviços propostos:**
-  1. **Warsh Fed Intelligence Service** — URGENTE (lançar antes de Jun 17). Único serviço calibrado para anti-forward-guidance.
-  2. **Cross-Chain CCIP Bridge Monitor** — pós-migração LayerZero→CCIP. GAP não explorado.
-  3. **Multi-Agent Adversarial Trading Verifier** — Druckenmiller + Seykota framework. Diferenciado.
+- **Top serviços procurados:** Multi-agent orchestration (186.9k+), Data & Analytics (15.2k), Agent-to-Agent (8.8k+), CCIP Bridge Monitoring (zero competição), Fed/Macro Intelligence (zero competição)
+- **3 gaps iCLONE:**
+  1. **Warsh Fed Intelligence Service** — URGENTE (FOMC Jun 17). Único calibrado para anti-forward-guidance.
+  2. **Iran Deal Energy Signal** — URGENTE (deal within days). Zero competição.
+  3. **Cross-Chain CCIP Bridge Monitor** — Alta demand pós-migração $700M+.
 
-### Security (1 novo pattern esta sessão)
-- **SEC-2026-013:** Steganographic PDF Injection — payload invisível em PDFs (strings, pixel patterns). Defesa: tratar conteúdo de PDFs externos como dados apenas. Logging obrigatório.
-- Tendências 2026: multi-turn jailbreaks dominantes, MCP exploitation crescente, multimodal injections maturas.
+### Security (3 novos patterns)
+- **SEC-2026-013:** Steganographic PDF Injection — payload invisível em PDFs. **Adicionado ao soul.md Rule 15.**
+- **SEC-2026-014:** ACP Job Parameter Poisoning — parâmetros malformados em job offers.
+- **SEC-2026-015:** Funding Rate Oracle Manipulation — divergência >0.1% = flag.
 
-### soul.md
-- **Versão 3.2.0 correcta** — reflecte estado actual
-- **Pendente:** adicionar SEC-2026-013 ao security_training.py
+### soul.md Updates
+- **v3.3.0** — Rule 15 adicionada (SEC-2026-013/014/015 defense), Section 3.3 Liquidity Cycle Calibration note.
 
 ---
 
-## Pending Actions (actualizados)
+## Pending Actions (actualizados 19h)
 
-1. (**CRÍTICO**) Live price feed Hyperliquid no Cron — 5ª sessão consecutiva
-2. (**CRÍTICO**) Monitor Iran deal / IRGC — SHORT BRENTOIL probe quando Seykota ≤-5
-3. (**ALTA — Jun 17**) Lançar Warsh Fed Intelligence Service beta
-4. (**ALTA — Jun 15**) Implementar Cross-Chain CCIP Monitor
-5. (**ALTA — Jun 17**) Warsh FOMC → probe SHORT EUR se hawkish
-6. (**ALTA — Jun 14**) Actualizar security_training.py (SEC-2026-013)
-7. (**ALTA — Jun 15**) Energy Regime Reversal Signal no ACP
-8. (**ALTA — Jun 16**) Agent Supply Chain Security Audit
-9. (**MÉDIA**) Multi-Agent Adversarial Trading Verifier (Jun 20)
-10. (**MÉDIA**) DAG formal para cron (Jun 21)
+1. (**CRÍTICO**) Live price feed Hyperliquid no Cron — 6ª sessão consecutiva
+2. (**CRÍTICO — Jun 14 AM**) Iran Deal Energy Signal — deal within days!
+3. (**CRÍTICO — Jun 14**) SHORT xyz:BRENTOIL probe — score -5 atingido
+4. (**ALTA — Jun 14**) SHORT HYPE probe — score -5, confirmar 4H EMAs
+5. (**ALTA — Jun 17**) Lançar Warsh Fed Intelligence Service beta (DAG criado)
+6. (**ALTA — Jun 15**) Cross-Chain CCIP Bridge Monitor
+7. (**ALTA — Jun 17**) Warsh FOMC → probe SHORT EUR se hawkish
+8. (**ALTA — Jun 14**) Actualizar security_training.py (SEC-2026-013, 014, 015)
+9. (**ALTA — Jun 16**) Agent Supply Chain Security Audit
+10. (**MÉDIA**) Multi-Agent Adversarial Trading Verifier (Jun 20)
+11. (**MÉDIA**) DAG formal para cron — template criado esta sessão (Jun 21)
 
 ## Next Session
-**2026-06-13 19:00 UTC** — Evening training
-**2026-06-17** — FOMC CRÍTICO: Warsh 1ª press conference como Chair (high-entropy event)
+**2026-06-14 07:00 UTC** — Morning training
+**PRIORITÁRIO:** Iran deal signed? → Pyramid SHORT BRENTOIL imediatamente
+**2026-06-17** — FOMC CRÍTICO: Warsh 1ª press conference (HIGH-ENTROPY)
