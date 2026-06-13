@@ -77,13 +77,37 @@ class ACPTrainingModule:
             "Resource offerings — lightweight read-only data endpoints",
             "Real-time setup resources for agent discovery",
         ],
-        "iclone_offerings": [
-            "Agent Training & Deployment — $50 USDC — 24h SLA",
-            "Custom Skill Building — $30 USDC — 12h SLA",
-            "Crypto Research Report — $5 USDC — 2h SLA",
-            "Multi-Agent Coordination — $20 USDC — 6h SLA",
-            "CLONE Platform Onboarding — $2 USDC — 1h SLA",
-        ],
+        # 40 live offerings — source: offerings_training.py (2026-06-13)
+        # Pricing tiers: micro=$0.01 | standard=$0.05 | deep=$0.10
+        "iclone_offerings": {
+            "total": 40,
+            "micro_0.01_USDC": [
+                "cryptoNewsFlash", "cryptoNewsDaily", "cryptoNewsByToken", "cryptoNewsSentiment",
+                "tokenSnapshotQuick", "walletSnapshot", "whaleActivityAlert", "cryptoThreadMicro",
+                "marketCommentary", "riskRewardCalculator", "fundingRateAlert", "priceMonitor",
+                "gasOptimiser", "webResearchQuick", "dataFormatConverter", "codeGenerateQuick", "sqlQueryWrite",
+            ],
+            "standard_0.05_USDC": [
+                "cryptoNewsWeekly", "cryptoNewsNarrative", "cryptoNewsAlpha",
+                "tokenResearchStandard", "protocolAnalysis", "narrativeScanner", "sectorComparison", "competitorMap",
+                "walletHealthAudit", "walletPnL", "walletBehaviourProfile", "smartMoneyTracker",
+                "cryptoThreadStandard", "cryptoThreadViral", "alphaPost", "newsletterSection",
+                "tradingSetupScanner", "tokenTechnicalAnalysis", "marketRegimeDetector", "correlationAnalysis",
+                "liquidityMapQuick", "yieldOpportunityFinder", "defiProtocolHealth", "airdropScanner",
+                "onChainFlowAnalysis", "newTokenResearch", "webResearchStandard", "competitorIntelligence",
+                "pdfExtractor", "codeReviewSecurity", "automationScript", "clonePlatformOnboarding",
+            ],
+            "deep_0.10_USDC": [
+                "tokenResearchDeep", "walletForensics", "cryptoNewsletterFull",
+                "agentTrainingModule", "skillBuildQuick", "skillBuildStandard",
+                "fullAgentTrainingSuite", "multiAgentCoordination",
+            ],
+            "pricing_philosophy": (
+                "Market-calibrated. $0.01 for micro utility (agent-to-agent), "
+                "$0.05 for intelligence + content, $0.10 for deep/complex. "
+                "Volume > margin. 100% success rate is the primary moat."
+            ),
+        },
         "coordination_protocol": [
             "iCLONE receives complex job requiring multiple agents",
             "Decompose task into sub-jobs",
@@ -132,7 +156,8 @@ class ACPTrainingModule:
 
         # Validate offerings knowledge
         offerings = self.CORE_KNOWLEDGE["iclone_offerings"]
-        insights.append(f"iCLONE offerings: {len(offerings)} active offerings known")
+        total = offerings.get("total", len(offerings)) if isinstance(offerings, dict) else len(offerings)
+        insights.append(f"iCLONE offerings: {total} active offerings known")
 
         # Validate standards
         for standard, desc in self.CORE_KNOWLEDGE["standards"].items():

@@ -242,7 +242,7 @@ class VirtualsProtocolTraining:
         "current_baseline": {
             "cumulative_agentic_gdp": "$400M+",
             "protocol_revenue": "$60M+",
-            "agents_deployed": "17,000+",
+            "agents_deployed": "42,000+",
         },
         "iclone_contribution": (
             "Every ACP job iCLONE completes adds to aGDP. "
