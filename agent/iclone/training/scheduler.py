@@ -16,6 +16,8 @@ from datetime import datetime, timezone
 from .acp_training import ACPTrainingModule
 from .cloud_migration_training import run_training as run_cloud_migration_training
 from .offerings_training import run_training as run_offerings_training
+from .chaingpt_skills_training import run_training as run_chaingpt_skills_training
+from .chaingpt_design_training import run_training as run_chaingpt_design_training
 from .doctor_training import DoctorTraining
 from .hermes_training import HermesTraining
 from .market_intelligence_training import MarketIntelligenceTraining
@@ -138,6 +140,52 @@ def run_all_training() -> dict:
     except Exception as exc:
         results["modules_failed"] += 1
         logger.error("✗ cloud_migration_training — EXCEPTION: %s", exc)
+
+    # ChainGPT skills training (140 MCP tools, DeFi, DEX, perps, x402, ERC-8004)
+    try:
+        cg_result = run_chaingpt_skills_training()
+        passed = cg_result["passed"]
+        total = cg_result["total"]
+        results["modules_run"] += 1
+        if passed == total:
+            results["modules_passed"] += 1
+            logger.info("✓ chaingpt_skills_training — PASSED (%d/%d, %.1f%%)", passed, total, cg_result["score"])
+        else:
+            results["modules_failed"] += 1
+            logger.warning("△ chaingpt_skills_training — %d/%d (%.1f%%)", passed, total, cg_result["score"])
+        results["sessions"].append({
+            "module": "chaingpt_skills_training",
+            "session_id": cg_result.get("session_id", ""),
+            "completed": cg_result["passed_threshold"],
+            "insights_count": passed,
+            "errors": [f["question"] for f in cg_result.get("failures", [])],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ chaingpt_skills_training — EXCEPTION: %s", exc)
+
+    # ChainGPT design training (colors, typography, animations, UX patterns)
+    try:
+        cd_result = run_chaingpt_design_training()
+        passed = cd_result["passed"]
+        total = cd_result["total"]
+        results["modules_run"] += 1
+        if passed == total:
+            results["modules_passed"] += 1
+            logger.info("✓ chaingpt_design_training — PASSED (%d/%d, %.1f%%)", passed, total, cd_result["score"])
+        else:
+            results["modules_failed"] += 1
+            logger.warning("△ chaingpt_design_training — %d/%d (%.1f%%)", passed, total, cd_result["score"])
+        results["sessions"].append({
+            "module": "chaingpt_design_training",
+            "session_id": cd_result.get("session_id", ""),
+            "completed": cd_result["passed_threshold"],
+            "insights_count": passed,
+            "errors": [f["question"] for f in cd_result.get("failures", [])],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ chaingpt_design_training — EXCEPTION: %s", exc)
 
     # Offerings training (40 live offerings, routing, pricing, ecosystem job types)
     try:
