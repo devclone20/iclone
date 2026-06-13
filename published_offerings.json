@@ -1,0 +1,325 @@
+{
+  "published": [
+    {
+      "offering_id": "cryptoNewsFlash",
+      "name": "cryptoNewsFlash",
+      "description": "Top 5 crypto news of the last hour. Bullet format, source links included.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe48-a33c-79b1-8ea4-a111de824eaf"
+    },
+    {
+      "offering_id": "airdropScanner",
+      "name": "airdropScanner",
+      "description": "Scan for upcoming and active airdrops worth pursuing. Effort-to-reward analysis.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-4cd6-7364-9e26-75d1a2344b9c"
+    },
+    {
+      "offering_id": "riskRewardCalculator",
+      "name": "riskRewardCalculator",
+      "description": "Calculate risk/reward for a trade. Position sizing and max loss based on your parameters.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe49-2e6b-739b-aff4-11d11071c90f"
+    },
+    {
+      "offering_id": "walletPnL",
+      "name": "walletPnL",
+      "description": "Calculate wallet PnL for a given period. Realised and unrealised gains/losses.",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-ec00-7db7-a3c5-c64d792dfae9"
+    },
+    {
+      "offering_id": "tokenResearchDeep",
+      "name": "tokenResearchDeep",
+      "description": "Deep-dive token research. Full fundamental analysis with competitive landscape.",
+      "price_usdc": 0.1,
+      "sla_minutes": 240,
+      "acp_id": "019ebe48-d203-7c68-837f-5259b8a790fd"
+    },
+    {
+      "offering_id": "newTokenResearch",
+      "name": "newTokenResearch",
+      "description": "Research a newly launched token. Is it legit or a rug? Full due diligence.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-556e-7159-aed4-7c2d1230f958"
+    },
+    {
+      "offering_id": "marketRegimeDetector",
+      "name": "marketRegimeDetector",
+      "description": "Detect current market regime. Risk-on, risk-off, accumulation, distribution, or chop.",
+      "price_usdc": 0.05,
+      "sla_minutes": 60,
+      "acp_id": "019ebe49-323d-7e1e-9280-51be484a94ad"
+    },
+    {
+      "offering_id": "protocolAnalysis",
+      "name": "protocolAnalysis",
+      "description": "Analyse a DeFi or Web3 protocol. TVL, revenue, risks, user growth.",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-d5e7-7b97-b3dd-3b3ee95a85d3"
+    },
+    {
+      "offering_id": "tradingSetupScanner",
+      "name": "tradingSetupScanner",
+      "description": "Scan for high-probability trading setups across the top 50 crypto assets.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-26ec-7044-a971-e7171f7bdd35"
+    },
+    {
+      "offering_id": "narrativeScanner",
+      "name": "narrativeScanner",
+      "description": "Scan current crypto narratives and rank them by momentum and longevity.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe48-d968-7b0f-bf6f-e5faca70dde0"
+    },
+    {
+      "offering_id": "liquidityMapQuick",
+      "name": "liquidityMapQuick",
+      "description": "Map liquidity levels for a token. Where are the clusters of buy/sell orders?",
+      "price_usdc": 0.05,
+      "sla_minutes": 60,
+      "acp_id": "019ebe49-3ac4-708f-8ea2-f72654747289"
+    },
+    {
+      "offering_id": "correlationAnalysis",
+      "name": "correlationAnalysis",
+      "description": "Analyse correlation between two assets. Are they moving together or diverging?",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-3641-7545-9aeb-537a53cc72a4"
+    },
+    {
+      "offering_id": "competitorMap",
+      "name": "competitorMap",
+      "description": "Map the competitive landscape for a token or protocol. Who are the real competitors?",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-e197-770b-b301-f80cd84f5757"
+    },
+    {
+      "offering_id": "cryptoThreadViral",
+      "name": "cryptoThreadViral",
+      "description": "Write a viral-optimised crypto thread. Hook-first structure, contrarian angle, maximum engagement.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-11c9-70d0-9a87-f8e908dbbd0e"
+    },
+    {
+      "offering_id": "cryptoNewsByToken",
+      "name": "cryptoNewsByToken",
+      "description": "All news for a specific token in the last 24h. Aggregated and summarised.",
+      "price_usdc": 0.01,
+      "sla_minutes": 45,
+      "acp_id": "019ebe48-ad08-7f0f-b8e4-7d766c224a11"
+    },
+    {
+      "offering_id": "tokenResearchStandard",
+      "name": "tokenResearchStandard",
+      "description": "Research report on a token. Fundamentals, tokenomics, team, outlook.",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-c616-7603-b436-86adf69c54e4"
+    },
+    {
+      "offering_id": "marketCommentary",
+      "name": "marketCommentary",
+      "description": "Write a short market commentary post. What happened today and what it means.",
+      "price_usdc": 0.01,
+      "sla_minutes": 45,
+      "acp_id": "019ebe49-166f-7aaf-a26e-2ca4f13c825b"
+    },
+    {
+      "offering_id": "yieldOpportunityFinder",
+      "name": "yieldOpportunityFinder",
+      "description": "Find the best yield opportunities right now. APY, risk level, protocol safety.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-446f-7296-9bc5-aaf5e51d6bf4"
+    },
+    {
+      "offering_id": "cryptoNewsSentiment",
+      "name": "cryptoNewsSentiment",
+      "description": "Sentiment analysis of crypto news. Bullish/bearish signal with confidence score.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe48-b093-7bdc-bb8e-14010ef0508a"
+    },
+    {
+      "offering_id": "walletBehaviourProfile",
+      "name": "walletBehaviourProfile",
+      "description": "Profile a wallet's trading behaviour. Degen, holder, bot, whale, or smart money?",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-ef62-7fd5-822b-cdbb9a5a6f18"
+    },
+    {
+      "offering_id": "sectorComparison",
+      "name": "sectorComparison",
+      "description": "Compare two crypto sectors head-to-head. Which is stronger right now and why.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe48-dccc-7492-a13f-c57b8304d85c"
+    },
+    {
+      "offering_id": "onChainFlowAnalysis",
+      "name": "onChainFlowAnalysis",
+      "description": "Analyse on-chain fund flows for a token. Where is money moving and why.",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe49-50b4-767e-bfeb-57071c3f4c30"
+    },
+    {
+      "offering_id": "cryptoNewsDaily",
+      "name": "cryptoNewsDaily",
+      "description": "Daily crypto news digest. Top 10 stories, market mood, key events.",
+      "price_usdc": 0.01,
+      "sla_minutes": 60,
+      "acp_id": "019ebe48-a659-7f6d-8e41-7c1b7e3c8dad"
+    },
+    {
+      "offering_id": "tokenTechnicalAnalysis",
+      "name": "tokenTechnicalAnalysis",
+      "description": "Technical analysis for a token. Key levels, trend, pattern, bias.",
+      "price_usdc": 0.05,
+      "sla_minutes": 60,
+      "acp_id": "019ebe49-2a72-7c02-a97e-e7412ba7416c"
+    },
+    {
+      "offering_id": "cryptoNewsAlpha",
+      "name": "cryptoNewsAlpha",
+      "description": "Find alpha signals buried in today's crypto news. Underreported stories with price potential.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe48-b7aa-7923-ab8f-e96aa543658e"
+    },
+    {
+      "offering_id": "whaleActivityAlert",
+      "name": "whaleActivityAlert",
+      "description": "Detect recent whale activity for a token. Large buys, sells, transfers.",
+      "price_usdc": 0.01,
+      "sla_minutes": 45,
+      "acp_id": "019ebe49-04c0-7873-b642-3e1554d25e55"
+    },
+    {
+      "offering_id": "defiProtocolHealth",
+      "name": "defiProtocolHealth",
+      "description": "Check health of a DeFi protocol. TVL trend, revenue, liquidation risk, audit status.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-48cc-7c6b-a90a-559d9cee1f78"
+    },
+    {
+      "offering_id": "tokenSnapshotQuick",
+      "name": "tokenSnapshotQuick",
+      "description": "Quick token snapshot: price, market cap, volume, 24h change, key metrics.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe48-c2e1-77c0-9caf-2a03de9d1207"
+    },
+    {
+      "offering_id": "walletForensics",
+      "name": "walletForensics",
+      "description": "Full wallet forensics. Transaction history, counterparties, flow of funds.",
+      "price_usdc": 0.1,
+      "sla_minutes": 180,
+      "acp_id": "019ebe48-f2b7-7093-b20a-e7eb2c18bdc1"
+    },
+    {
+      "offering_id": "cryptoThreadMicro",
+      "name": "cryptoThreadMicro",
+      "description": "5-tweet punchy crypto thread on any token or narrative. Ready to post.",
+      "price_usdc": 0.01,
+      "sla_minutes": 45,
+      "acp_id": "019ebe49-08be-7bd0-a68d-2fc308b37fd1"
+    },
+    {
+      "offering_id": "cryptoNewsletterFull",
+      "name": "cryptoNewsletterFull",
+      "description": "Full crypto newsletter edition. Top stories, analysis, market data, outro.",
+      "price_usdc": 0.1,
+      "sla_minutes": 180,
+      "acp_id": "019ebe49-2359-77aa-bbbf-753fc3fb7073"
+    },
+    {
+      "offering_id": "walletHealthAudit",
+      "name": "walletHealthAudit",
+      "description": "Wallet health audit. Risky approvals, dust attacks, exposed assets, risk score.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe48-e87b-78f7-baad-96a1228c3d70"
+    },
+    {
+      "offering_id": "walletSnapshot",
+      "name": "walletSnapshot",
+      "description": "Instant wallet snapshot. Token holdings and USD values for any EVM wallet.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe48-e539-7ef3-90b6-4587022931ff"
+    },
+    {
+      "offering_id": "cryptoNewsWeekly",
+      "name": "cryptoNewsWeekly",
+      "description": "Weekly crypto recap. Winners, losers, narratives, what to watch next week.",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": "019ebe48-a96c-711d-a674-42ca58c8bc31"
+    },
+    {
+      "offering_id": "cryptoNewsNarrative",
+      "name": "cryptoNewsNarrative",
+      "description": "Identify the dominant market narrative from today's news. What story is the market telling?",
+      "price_usdc": 0.05,
+      "sla_minutes": 60,
+      "acp_id": "019ebe48-b466-7d5f-8d01-803fe47ff350"
+    },
+    {
+      "offering_id": "smartMoneyTracker",
+      "name": "smartMoneyTracker",
+      "description": "Track what smart money wallets are buying right now. Follow the alpha.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-012b-7121-8915-28261f174805"
+    },
+    {
+      "offering_id": "newsletterSection",
+      "name": "newsletterSection",
+      "description": "Write one section of a crypto newsletter. Professional tone, data-backed.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-1e9f-70c3-aac4-1908b81d05d2"
+    },
+    {
+      "offering_id": "alphaPost",
+      "name": "alphaPost",
+      "description": "Write a compelling alpha-sharing post. Present a trade thesis clearly and credibly.",
+      "price_usdc": 0.05,
+      "sla_minutes": 60,
+      "acp_id": "019ebe49-1a91-72d8-818e-02173491f302"
+    },
+    {
+      "offering_id": "fundingRateAlert",
+      "name": "fundingRateAlert",
+      "description": "Check funding rates across major perpetual markets. Identify extremes and opportunities.",
+      "price_usdc": 0.01,
+      "sla_minutes": 30,
+      "acp_id": "019ebe49-3f1a-707f-ace8-a70209899043"
+    },
+    {
+      "offering_id": "cryptoThreadStandard",
+      "name": "cryptoThreadStandard",
+      "description": "10-tweet researched crypto thread with data points and chart references.",
+      "price_usdc": 0.05,
+      "sla_minutes": 90,
+      "acp_id": "019ebe49-0ce8-72e8-9b23-cb77693c110e"
+    }
+  ],
+  "total": 40
+}

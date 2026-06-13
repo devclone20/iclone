@@ -14,9 +14,12 @@ import logging
 from datetime import datetime, timezone
 
 from .acp_training import ACPTrainingModule
+from .cloud_migration_training import run_training as run_cloud_migration_training
+from .offerings_training import run_training as run_offerings_training
 from .doctor_training import DoctorTraining
 from .hermes_training import HermesTraining
 from .market_intelligence_training import MarketIntelligenceTraining
+from .master_context import run_training as run_master_context_training
 from .rider_training import RiderTraining
 from .security_training import SecurityTraining
 from .virtuals_protocol_training import VirtualsProtocolTraining
@@ -25,13 +28,14 @@ logger = logging.getLogger("iclone.training.scheduler")
 
 
 # All modules run every session — order matters:
-# 1. Security     — hardened before anything else
-# 2. Virtuals     — full protocol context (foundation)
-# 3. ACP          — commerce mastery (built on Virtuals)
-# 4. Market Intel — what to build and sell
-# 5. Rider        — orchestration, DAG, quality gates, SE methodology
-# 6. Doctor       — academic research, IST standards, research-to-ACP pipeline
-# 7. Hermes       — full CLI + ACP + DegenClaw + slash commands
+# 1. Security           — hardened before anything else
+# 2. Virtuals           — full protocol context (foundation)
+# 3. ACP                — commerce mastery (built on Virtuals)
+# 4. Market Intel       — what to build and sell
+# 5. Rider              — orchestration, DAG, quality gates, SE methodology
+# 6. Doctor             — academic research, IST standards, research-to-ACP pipeline
+# 7. Hermes             — full CLI + ACP + DegenClaw + slash commands
+# 8. Cloud Migration    — 4-agent ecosystem, bootstrapper v2, DO plan, $200 P&L
 TRAINING_MODULES = [
     SecurityTraining,
     VirtualsProtocolTraining,
@@ -88,6 +92,75 @@ def run_all_training() -> dict:
         except Exception as exc:
             results["modules_failed"] += 1
             logger.error("✗ %s — EXCEPTION: %s", ModuleClass.MODULE_ID, exc)
+
+    # Master context training (standalone module — ALL iCLONE + CLONE Platform context)
+    try:
+        master_results = run_master_context_training()
+        total = sum(r.total for r in master_results)
+        passed = sum(r.passed for r in master_results)
+        results["modules_run"] += 1
+        if passed / total >= 0.95 if total else False:
+            results["modules_passed"] += 1
+            logger.info("✓ master_context_training — PASSED (%d/%d)", passed, total)
+        else:
+            results["modules_failed"] += 1
+            logger.warning("△ master_context_training — %d/%d", passed, total)
+        results["sessions"].append({
+            "module": "master_context_training",
+            "session_id": f"master-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
+            "completed": passed / total >= 0.95 if total else False,
+            "insights_count": passed,
+            "errors": [],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ master_context_training — EXCEPTION: %s", exc)
+
+    # Cloud migration training (standalone module, different interface)
+    try:
+        cloud_results = run_cloud_migration_training()
+        total = sum(r.total for r in cloud_results)
+        passed = sum(r.passed for r in cloud_results)
+        results["modules_run"] += 1
+        if passed == total:
+            results["modules_passed"] += 1
+            logger.info("✓ cloud_migration_training — PASSED (%d/%d)", passed, total)
+        else:
+            results["modules_failed"] += 1
+            logger.warning("△ cloud_migration_training — %d/%d", passed, total)
+        results["sessions"].append({
+            "module": "cloud_migration_training",
+            "session_id": f"cloud-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
+            "completed": passed == total,
+            "insights_count": passed,
+            "errors": [],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ cloud_migration_training — EXCEPTION: %s", exc)
+
+    # Offerings training (40 live offerings, routing, pricing, ecosystem job types)
+    try:
+        off_result = run_offerings_training()
+        passed = off_result["passed"]
+        total = off_result["total"]
+        results["modules_run"] += 1
+        if passed == total:
+            results["modules_passed"] += 1
+            logger.info("✓ offerings_training — PASSED (%d/%d)", passed, total)
+        else:
+            results["modules_failed"] += 1
+            logger.warning("△ offerings_training — %d/%d", passed, total)
+        results["sessions"].append({
+            "module": "offerings_training",
+            "session_id": f"offerings-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
+            "completed": passed == total,
+            "insights_count": passed,
+            "errors": [],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ offerings_training — EXCEPTION: %s", exc)
 
     logger.info(
         "=== Training complete — %d/%d passed ===",
