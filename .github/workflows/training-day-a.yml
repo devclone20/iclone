@@ -1,0 +1,150 @@
+name: Training — Day A
+
+on:
+  schedule:
+    - cron: '0 5 * * 1,3,5'
+  workflow_dispatch:
+    inputs:
+      note:
+        description: 'Nota opcional'
+        required: false
+        default: 'Manual'
+
+jobs:
+  train-iclone:
+    name: iCLONE
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install deps
+        run: pip install -r agent/requirements.txt 2>/dev/null || pip install anthropic
+      - name: Run training
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          VIRTUALS_API_KEY: ${{ secrets.VIRTUALS_API_KEY }}
+        run: |
+          if [ -f agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          else
+            echo "SKIP — no training script found"
+          fi
+      - name: Report
+        if: always()
+        run: echo "iCLONE training — $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+  train-vegeta:
+    name: VEGETA
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: devclone20/vegeta
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install anthropic 2>/dev/null || true
+      - name: Run training
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -f agent/vegeta/training/scheduler.py ]; then
+            PYTHONPATH=. python agent/vegeta/training/scheduler.py
+          elif [ -f ops/train.py ]; then
+            PYTHONPATH=. python ops/train.py
+          else
+            echo "SKIP — no training script"
+          fi
+      - name: Report
+        if: always()
+        run: echo "VEGETA training — $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+  train-doctor:
+    name: DoctorWHO
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: devclone20/doctorwho
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install anthropic 2>/dev/null || true
+      - name: Run training
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -f agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          else
+            echo "SKIP — no training script"
+          fi
+      - name: Report
+        if: always()
+        run: echo "DoctorWHO training — $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+  train-forense:
+    name: Forense AI
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: devclone20/forense-ai
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install anthropic 2>/dev/null || true
+      - name: Run training
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -f agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          else
+            echo "SKIP — no training script"
+          fi
+      - name: Report
+        if: always()
+        run: echo "Forense AI training — $(date -u '+%Y-%m-%d %H:%M UTC')"
+
+  train-akita:
+    name: Akita Agent
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: devclone20/akitaai20
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install anthropic 2>/dev/null || true
+      - name: Run training
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -f agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          elif [ -f train.py ]; then
+            python train.py
+          else
+            echo "SKIP — no training script"
+          fi
+      - name: Report
+        if: always()
+        run: echo "Akita training — $(date -u '+%Y-%m-%d %H:%M UTC')"
