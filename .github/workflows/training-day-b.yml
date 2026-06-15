@@ -26,16 +26,17 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 - <<'EOF'
-import anthropic, json
-client = anthropic.Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=512,
-    messages=[{"role":"user","content":"You are the Rider orchestrator agent. Run a self-diagnostic: confirm you can coordinate Hacker and Engineer agents on a minimal task. Reply with: status=PASS or FAIL and reason."}]
-)
-print(msg.content[0].text)
-EOF
+          cat > /tmp/rider_test.py << 'PYEOF'
+          import anthropic
+          client = anthropic.Anthropic()
+          msg = client.messages.create(
+              model="claude-sonnet-4-6",
+              max_tokens=512,
+              messages=[{"role":"user","content":"You are the Rider orchestrator agent. Run a self-diagnostic: confirm you can coordinate Hacker and Engineer agents on a minimal task. Reply with: status=PASS or FAIL and reason."}]
+          )
+          print(msg.content[0].text)
+          PYEOF
+          python3 /tmp/rider_test.py
       - name: Report
         if: always()
         run: echo "Rider test — $(date -u '+%Y-%m-%d %H:%M UTC')"
@@ -55,16 +56,17 @@ EOF
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 - <<'EOF'
-import anthropic
-client = anthropic.Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=512,
-    messages=[{"role":"user","content":"You are the Hacker security agent. Run a self-diagnostic: check your security scanning capabilities (secrets detection, OWASP Top 10, dependency audit). Reply with: status=PASS or FAIL and a brief capability list."}]
-)
-print(msg.content[0].text)
-EOF
+          cat > /tmp/hacker_test.py << 'PYEOF'
+          import anthropic
+          client = anthropic.Anthropic()
+          msg = client.messages.create(
+              model="claude-sonnet-4-6",
+              max_tokens=512,
+              messages=[{"role":"user","content":"You are the Hacker security agent. Run a self-diagnostic: check your security scanning capabilities (secrets detection, OWASP Top 10, dependency audit). Reply with: status=PASS or FAIL and a brief capability list."}]
+          )
+          print(msg.content[0].text)
+          PYEOF
+          python3 /tmp/hacker_test.py
       - name: Report
         if: always()
         run: echo "Hacker test — $(date -u '+%Y-%m-%d %H:%M UTC')"
@@ -84,16 +86,17 @@ EOF
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 - <<'EOF'
-import anthropic
-client = anthropic.Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=512,
-    messages=[{"role":"user","content":"You are the Designer UI/UX agent. Run a self-diagnostic: confirm your design review capabilities (dark-first, Linear/Stripe/Vercel aesthetic, typography, component audit). Reply with: status=PASS or FAIL."}]
-)
-print(msg.content[0].text)
-EOF
+          cat > /tmp/designer_test.py << 'PYEOF'
+          import anthropic
+          client = anthropic.Anthropic()
+          msg = client.messages.create(
+              model="claude-sonnet-4-6",
+              max_tokens=512,
+              messages=[{"role":"user","content":"You are the Designer UI/UX agent. Run a self-diagnostic: confirm your design review capabilities (dark-first, Linear/Stripe/Vercel aesthetic, typography, component audit). Reply with: status=PASS or FAIL."}]
+          )
+          print(msg.content[0].text)
+          PYEOF
+          python3 /tmp/designer_test.py
       - name: Report
         if: always()
         run: echo "Designer test — $(date -u '+%Y-%m-%d %H:%M UTC')"
@@ -113,16 +116,17 @@ EOF
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 - <<'EOF'
-import anthropic
-client = anthropic.Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=512,
-    messages=[{"role":"user","content":"You are the Engineer full-stack agent. Run a self-diagnostic: confirm your code review capabilities (security, architecture, performance, TypeScript strictness). Reply with: status=PASS or FAIL."}]
-)
-print(msg.content[0].text)
-EOF
+          cat > /tmp/engineer_test.py << 'PYEOF'
+          import anthropic
+          client = anthropic.Anthropic()
+          msg = client.messages.create(
+              model="claude-sonnet-4-6",
+              max_tokens=512,
+              messages=[{"role":"user","content":"You are the Engineer full-stack agent. Run a self-diagnostic: confirm your code review capabilities (security, architecture, performance, TypeScript strictness). Reply with: status=PASS or FAIL."}]
+          )
+          print(msg.content[0].text)
+          PYEOF
+          python3 /tmp/engineer_test.py
       - name: Report
         if: always()
         run: echo "Engineer test — $(date -u '+%Y-%m-%d %H:%M UTC')"
@@ -142,16 +146,17 @@ EOF
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          python3 - <<'EOF'
-import anthropic
-client = anthropic.Anthropic()
-msg = client.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=512,
-    messages=[{"role":"user","content":"You are the Architect systems agent. Run a self-diagnostic: confirm your architecture review capabilities (risk assessment, component mapping, SPOF detection, scalability analysis). Reply with: status=PASS or FAIL."}]
-)
-print(msg.content[0].text)
-EOF
+          cat > /tmp/architect_test.py << 'PYEOF'
+          import anthropic
+          client = anthropic.Anthropic()
+          msg = client.messages.create(
+              model="claude-sonnet-4-6",
+              max_tokens=512,
+              messages=[{"role":"user","content":"You are the Architect systems agent. Run a self-diagnostic: confirm your architecture review capabilities (risk assessment, component mapping, SPOF detection, scalability analysis). Reply with: status=PASS or FAIL."}]
+          )
+          print(msg.content[0].text)
+          PYEOF
+          python3 /tmp/architect_test.py
       - name: Report
         if: always()
         run: echo "Architect test — $(date -u '+%Y-%m-%d %H:%M UTC')"
