@@ -260,38 +260,47 @@ FIRE_PERIOD = int(os.getenv("FIRE_PERIOD_MIN", "0"))   # 0 = use legacy parity
 FIRE_OFFSET = int(os.getenv("FIRE_OFFSET_MIN", "0"))
 
 
-def fire_now() -> bool:
-    """Should this agent create a new job this minute?
+def current_slot() -> int | None:
+    """Identifier of the firing slot this agent is currently in, or None if it
+    isn't this agent's slot. Returns a monotonically increasing slot boundary
+    (in epoch-minutes) so the caller fires exactly once per slot — robust even
+    if the loop is slow and lands several seconds/minutes past the boundary
+    (we'd otherwise skip the exact target minute entirely).
 
-    Preferred: slot mode — fire when minute % FIRE_PERIOD == FIRE_OFFSET.
-    Two agents with the same period and offsets 0 / period/2 alternate evenly
-    (e.g. period 8, offsets 0 & 4 → one job every 4 min, alternating).
-    Legacy: parity mode (odd/even/any) when FIRE_PERIOD is 0."""
-    minute = datetime.now(timezone.utc).minute
+    Slot mode (FIRE_PERIOD>0): boundaries at epoch-minutes where
+    min % FIRE_PERIOD == FIRE_OFFSET. Two agents, same period, offsets 0 and
+    period/2 → alternate evenly. Legacy parity falls back to wall-clock minute."""
+    now_min = int(datetime.now(timezone.utc).timestamp() // 60)
     if FIRE_PERIOD > 0:
-        return (minute % FIRE_PERIOD) == (FIRE_OFFSET % FIRE_PERIOD)
+        start = now_min - (now_min % FIRE_PERIOD) + (FIRE_OFFSET % FIRE_PERIOD)
+        if start > now_min:
+            start -= FIRE_PERIOD
+        return start
+    # legacy parity
+    minute = datetime.now(timezone.utc).minute
     if MINUTE_PARITY == "any":
-        return True
-    return (minute % 2 == 1) if MINUTE_PARITY == "odd" else (minute % 2 == 0)
+        return now_min
+    is_mine = (minute % 2 == 1) if MINUTE_PARITY == "odd" else (minute % 2 == 0)
+    return now_min if is_mine else None
 
 
 def main():
     log.info("%s client autopilot — target=%s parity=%s jobs=%d external_every=%d wallet=%s",
              AGENT_NAME, TARGET_NAME, MINUTE_PARITY, len(JOBS), EXTERNAL_EVERY, MY_WALLET[:10])
 
-    last_fired_minute = -1
+    last_fired_slot = current_slot()  # skip the in-progress slot; fire on the next boundary
     cycle_count = 0
     while True:
         # Every tick: advance in-flight jobs (fund/complete) — fast, non-blocking,
-        # independent of parity so jobs settle quickly in both directions.
+        # independent of cadence so jobs settle quickly in both directions.
         try:
             advance_inflight()
         except Exception as e:
             log.exception("advance_inflight error: %s", e)
 
-        now = datetime.now(timezone.utc)
-        if fire_now() and now.minute != last_fired_minute:
-            last_fired_minute = now.minute
+        slot = current_slot()
+        if slot is not None and slot != last_fired_slot:
+            last_fired_slot = slot
             cycle_count += 1
             try:
                 if EXTERNAL_EVERY and cycle_count % EXTERNAL_EVERY == 0:
