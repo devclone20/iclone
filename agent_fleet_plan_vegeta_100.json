@@ -1,0 +1,722 @@
+{
+  "account": "VEGETA",
+  "owner": "0x743665952ec1240d62a3e580e5dc2c9e421d0537",
+  "agent_wallet": "0xe09f40114af6c78788a8003da127c49c56158584",
+  "total": 100,
+  "live": 1,
+  "theme": "anime characters",
+  "tracks": [
+    "DeFi & Trading",
+    "Market Intelligence",
+    "Developer Tools & Code",
+    "Research & Knowledge",
+    "Content & Media",
+    "Robotics & Physical AI",
+    "Security & Audit",
+    "Creative & Art",
+    "Gaming & Virtual Worlds",
+    "Commerce, Payments & Oracles"
+  ],
+  "agents": [
+    {
+      "name": "LELOUCH",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "swap base / multi-chain",
+      "status": "planned"
+    },
+    {
+      "name": "LIGHT",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "DEX aggregation",
+      "status": "planned"
+    },
+    {
+      "name": "DIO",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "yield optimizer",
+      "status": "planned"
+    },
+    {
+      "name": "DOFLAMINGO",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "lending & borrowing",
+      "status": "planned"
+    },
+    {
+      "name": "HISOKA",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "arbitrage & MEV",
+      "status": "planned"
+    },
+    {
+      "name": "MERUEM",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "treasury & portfolio",
+      "status": "planned"
+    },
+    {
+      "name": "AIZEN",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "cross-chain bridging",
+      "status": "planned"
+    },
+    {
+      "name": "KAIDO",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "perps & funding",
+      "status": "planned"
+    },
+    {
+      "name": "BIGMOM",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "stablecoins & cash",
+      "status": "planned"
+    },
+    {
+      "name": "CROCODILE",
+      "track": "DeFi & Trading",
+      "track_id": 0,
+      "subtopic": "dark pools",
+      "status": "planned"
+    },
+    {
+      "name": "L",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "token research",
+      "status": "planned"
+    },
+    {
+      "name": "NEAR",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "market strategy",
+      "status": "planned"
+    },
+    {
+      "name": "MELLO",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "risk & crash signals",
+      "status": "planned"
+    },
+    {
+      "name": "SHIKAMARU",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "forecasts",
+      "status": "planned"
+    },
+    {
+      "name": "KURAPIKA",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "on-chain insight",
+      "status": "planned"
+    },
+    {
+      "name": "ARMIN",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "whale tracking",
+      "status": "planned"
+    },
+    {
+      "name": "NORMAN",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "fundamentals",
+      "status": "planned"
+    },
+    {
+      "name": "RAY",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "sentiment",
+      "status": "planned"
+    },
+    {
+      "name": "CHROLLO",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "macro overview",
+      "status": "planned"
+    },
+    {
+      "name": "KANEKI",
+      "track": "Market Intelligence",
+      "track_id": 1,
+      "subtopic": "overnight sessions",
+      "status": "planned"
+    },
+    {
+      "name": "EDWARD",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "code generation",
+      "status": "planned"
+    },
+    {
+      "name": "ALPHONSE",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "scaffolding & arch",
+      "status": "planned"
+    },
+    {
+      "name": "GENOS",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "algorithms & logic",
+      "status": "planned"
+    },
+    {
+      "name": "FRANKY",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "programming",
+      "status": "planned"
+    },
+    {
+      "name": "WINRY",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "infrastructure",
+      "status": "planned"
+    },
+    {
+      "name": "BULMA",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "build systems",
+      "status": "planned"
+    },
+    {
+      "name": "CHROME",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "optimization",
+      "status": "planned"
+    },
+    {
+      "name": "HEERO",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "system design",
+      "status": "planned"
+    },
+    {
+      "name": "AMURO",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "data structures",
+      "status": "planned"
+    },
+    {
+      "name": "TETSUO",
+      "track": "Developer Tools & Code",
+      "track_id": 2,
+      "subtopic": "automation / CI",
+      "status": "planned"
+    },
+    {
+      "name": "SENKU",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "research",
+      "status": "planned"
+    },
+    {
+      "name": "ROBIN",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "systematization",
+      "status": "planned"
+    },
+    {
+      "name": "HANGE",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "quantitative data",
+      "status": "planned"
+    },
+    {
+      "name": "VEGAPUNK",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "first principles",
+      "status": "planned"
+    },
+    {
+      "name": "OROCHIMARU",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "critical analysis",
+      "status": "planned"
+    },
+    {
+      "name": "TSUNADE",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "theory & ideas",
+      "status": "planned"
+    },
+    {
+      "name": "MAYURI",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "science domains",
+      "status": "planned"
+    },
+    {
+      "name": "KABUTO",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "historical research",
+      "status": "planned"
+    },
+    {
+      "name": "FAUST",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "measurement",
+      "status": "planned"
+    },
+    {
+      "name": "STEIN",
+      "track": "Research & Knowledge",
+      "track_id": 3,
+      "subtopic": "modeling & maps",
+      "status": "planned"
+    },
+    {
+      "name": "NARUTO",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "content",
+      "status": "planned"
+    },
+    {
+      "name": "LUFFY",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "storytelling",
+      "status": "planned"
+    },
+    {
+      "name": "GON",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "long-form",
+      "status": "planned"
+    },
+    {
+      "name": "NATSU",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "short-form social",
+      "status": "planned"
+    },
+    {
+      "name": "TANJIRO",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "blog & editorial",
+      "status": "planned"
+    },
+    {
+      "name": "DEKU",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "memes & viral",
+      "status": "planned"
+    },
+    {
+      "name": "YUJI",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "marketing copy",
+      "status": "planned"
+    },
+    {
+      "name": "ASTA",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "education",
+      "status": "planned"
+    },
+    {
+      "name": "MELIODAS",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "persuasion",
+      "status": "planned"
+    },
+    {
+      "name": "ICHIGO",
+      "track": "Content & Media",
+      "track_id": 4,
+      "subtopic": "threads & oratory",
+      "status": "planned"
+    },
+    {
+      "name": "VEGETA",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "embodied automaton",
+      "status": "live"
+    },
+    {
+      "name": "GOKU",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "foundation policy",
+      "status": "planned"
+    },
+    {
+      "name": "BROLY",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "sim-to-real",
+      "status": "planned"
+    },
+    {
+      "name": "JIREN",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "mobile robots",
+      "status": "planned"
+    },
+    {
+      "name": "SAITAMA",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "drones & flight",
+      "status": "planned"
+    },
+    {
+      "name": "GUTS",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "heavy manipulation",
+      "status": "planned"
+    },
+    {
+      "name": "ALLMIGHT",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "navigation",
+      "status": "planned"
+    },
+    {
+      "name": "KENPACHI",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "path planning",
+      "status": "planned"
+    },
+    {
+      "name": "GAROU",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "control systems",
+      "status": "planned"
+    },
+    {
+      "name": "ESCANOR",
+      "track": "Robotics & Physical AI",
+      "track_id": 5,
+      "subtopic": "humanoids",
+      "status": "planned"
+    },
+    {
+      "name": "LEVI",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "access & firewall",
+      "status": "planned"
+    },
+    {
+      "name": "ERWIN",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "monitoring",
+      "status": "planned"
+    },
+    {
+      "name": "MIKASA",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "protection",
+      "status": "planned"
+    },
+    {
+      "name": "ITACHI",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "threat response",
+      "status": "planned"
+    },
+    {
+      "name": "ZORO",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "compliance",
+      "status": "planned"
+    },
+    {
+      "name": "GIYU",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "honeypot detection",
+      "status": "planned"
+    },
+    {
+      "name": "NANAMI",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "forensics",
+      "status": "planned"
+    },
+    {
+      "name": "JONATHAN",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "exploit defense",
+      "status": "planned"
+    },
+    {
+      "name": "ROY",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "tx screening",
+      "status": "planned"
+    },
+    {
+      "name": "BANG",
+      "track": "Security & Audit",
+      "track_id": 6,
+      "subtopic": "audit integrity",
+      "status": "planned"
+    },
+    {
+      "name": "SAI",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "creative direction",
+      "status": "planned"
+    },
+    {
+      "name": "TENGEN",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "generative poetry",
+      "status": "planned"
+    },
+    {
+      "name": "Shinobu",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "music generation",
+      "status": "planned"
+    },
+    {
+      "name": "GIORNO",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "motion & anim",
+      "status": "planned"
+    },
+    {
+      "name": "JOSUKE",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "drama & video",
+      "status": "planned"
+    },
+    {
+      "name": "GRIFFITH",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "voice & audio",
+      "status": "planned"
+    },
+    {
+      "name": "Nezuko",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "generative visuals",
+      "status": "planned"
+    },
+    {
+      "name": "Yor",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "ambient / sound",
+      "status": "planned"
+    },
+    {
+      "name": "Anya",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "visual design",
+      "status": "planned"
+    },
+    {
+      "name": "DABI",
+      "track": "Creative & Art",
+      "track_id": 7,
+      "subtopic": "branding art",
+      "status": "planned"
+    },
+    {
+      "name": "KIRITO",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "game characters",
+      "status": "planned"
+    },
+    {
+      "name": "ASUNA",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "combat AI",
+      "status": "planned"
+    },
+    {
+      "name": "SINON",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "balancing",
+      "status": "planned"
+    },
+    {
+      "name": "SHIRO",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "dynamic events",
+      "status": "planned"
+    },
+    {
+      "name": "SORA",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "entertainment",
+      "status": "planned"
+    },
+    {
+      "name": "AINZ",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "world simulation",
+      "status": "planned"
+    },
+    {
+      "name": "DIABLO",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "idle systems",
+      "status": "planned"
+    },
+    {
+      "name": "KAZUMA",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "magic & RNG",
+      "status": "planned"
+    },
+    {
+      "name": "RIMURU",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "NPC transform",
+      "status": "planned"
+    },
+    {
+      "name": "Megumin",
+      "track": "Gaming & Virtual Worlds",
+      "track_id": 8,
+      "subtopic": "game loops",
+      "status": "planned"
+    },
+    {
+      "name": "MAKIMA",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "ledgers & records",
+      "status": "planned"
+    },
+    {
+      "name": "REIGEN",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "data feeds",
+      "status": "planned"
+    },
+    {
+      "name": "IZAYA",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "prediction markets",
+      "status": "planned"
+    },
+    {
+      "name": "MERLIN",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "oracle services",
+      "status": "planned"
+    },
+    {
+      "name": "KAKASHI",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "escrow & custody",
+      "status": "planned"
+    },
+    {
+      "name": "SHANKS",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "e-commerce supply",
+      "status": "planned"
+    },
+    {
+      "name": "RAYLEIGH",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "indexing",
+      "status": "planned"
+    },
+    {
+      "name": "KATAKURI",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "payments / x402",
+      "status": "planned"
+    },
+    {
+      "name": "JIRAIYA",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "base data",
+      "status": "planned"
+    },
+    {
+      "name": "MUGEN",
+      "track": "Commerce, Payments & Oracles",
+      "track_id": 9,
+      "subtopic": "settlement",
+      "status": "planned"
+    }
+  ]
+}
