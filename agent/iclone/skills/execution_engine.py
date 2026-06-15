@@ -71,11 +71,30 @@ def _claude_json(
     model: str = "claude-haiku-4-5-20251001",
     max_tokens: int = 2048,
 ) -> dict:
-    """Call Claude and parse JSON from the response."""
+    """Call Claude and parse JSON from the response. Tolerant of truncation."""
     raw = _claude(prompt, system=system, model=model, max_tokens=max_tokens)
-    # Strip any accidental markdown fences
     clean = re.sub(r"```(?:json)?\s*|\s*```", "", raw).strip()
-    return json.loads(clean)
+    try:
+        return json.loads(clean)
+    except json.JSONDecodeError:
+        # Response was truncated — extract whatever valid JSON we have
+        # Find last complete closing brace
+        depth = 0
+        end = -1
+        for i, ch in enumerate(clean):
+            if ch == '{':
+                depth += 1
+            elif ch == '}':
+                depth -= 1
+                if depth == 0:
+                    end = i
+        if end > 0:
+            try:
+                return json.loads(clean[:end + 1])
+            except json.JSONDecodeError:
+                pass
+        # Last resort: return as plain text result
+        return {"summary": clean[:2000], "truncated": True, "confidence": 50}
 
 
 def _ok(output: str, data: dict) -> SkillResult:
@@ -129,14 +148,13 @@ Provide real, accurate information based on your training data.""",
                 f"""Conduct a {depth}-depth research report on: "{query}"
 
 Return a JSON object with:
-- report: string (300-400 words, structured)
-- sources: array of 10+ objects each {{title, url, type, key_point}}
-- findings: array of structured findings each {{category, finding, evidence, confidence}}
+- report: string (200-300 words, structured)
+- sources: array of 5 objects each {{title, url, key_point}}
+- findings: array of 3-5 findings each {{category, finding, confidence}}
 - confidence: number 0-100
-- recommendations: array of 3-5 actionable strings
-- research_gaps: array of areas that need more investigation""",
-                model="claude-sonnet-4-5",
-                max_tokens=3000,
+- recommendations: array of 3 actionable strings""",
+                model="claude-haiku-4-5-20251001",
+                max_tokens=2000,
             )
             return _ok(f"Standard research complete: {query[:60]}", data)
         except Exception as e:
@@ -1598,23 +1616,23 @@ class ExecutionEngine:
             "cryptoNewsNarrative":  lambda: self.research.web_research_standard("dominant crypto market narrative today trading thesis", "standard"),
             "cryptoNewsAlpha":      lambda: self.research.web_research_deep("crypto alpha signals underreported news price potential today", r.get("focus", "")),
 
-            # Crypto Research
-            "tokenSnapshotQuick":   lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", "BTC"))),
-            "tokenResearchStandard":lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", ""))),
-            "tokenResearchDeep":    lambda: self.wallet.crypto_research_deep(r.get("token", r.get("asset_or_protocol", "")), r.get("focus", "comprehensive")),
-            "protocolAnalysis":     lambda: self.wallet.crypto_research_deep(r.get("protocol", r.get("token", "")), "protocol tvl revenue users security"),
-            "narrativeScanner":     lambda: self.research.web_research_standard("top crypto narratives momentum ranking 2026 which sectors leading", "standard"),
-            "sectorComparison":     lambda: self.research.web_research_standard(f"crypto sector comparison {r.get('sectors', 'DeFi vs L2')} metrics momentum risk", "standard"),
-            "competitorMap":        lambda: self.research.web_research_standard(f"{r.get('token', r.get('protocol', ''))} crypto competitors landscape market share moat", "standard"),
+            # Crypto Research — all accept token/asset_symbol OR topic/query as fallback
+            "tokenSnapshotQuick":   lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", ""))) if (r.get("token") or r.get("asset_symbol")) else self.research.web_research_quick(r.get("topic", r.get("query", "crypto market snapshot"))),
+            "tokenResearchStandard":lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", ""))) if (r.get("token") or r.get("asset_symbol")) else self.research.web_research_standard(r.get("topic", r.get("query", "crypto market overview")), "standard"),
+            "tokenResearchDeep":    lambda: self.wallet.crypto_research_deep(r.get("token", r.get("asset_or_protocol", r.get("topic", r.get("query", "")))), r.get("focus", "comprehensive")),
+            "protocolAnalysis":     lambda: self.wallet.crypto_research_deep(r.get("protocol", r.get("token", r.get("topic", r.get("query", "")))), "protocol tvl revenue users security"),
+            "narrativeScanner":     lambda: self.research.web_research_standard(f"top crypto narratives momentum 2026 {r.get('focus', '')} which sectors leading", "standard"),
+            "sectorComparison":     lambda: self.research.web_research_standard(f"crypto sector comparison {r.get('sectors', r.get('topic', 'DeFi vs L2'))} metrics momentum risk", "standard"),
+            "competitorMap":        lambda: self.research.web_research_standard(f"{r.get('token', r.get('protocol', r.get('topic', '')))} crypto competitors landscape market share moat", "standard"),
 
-            # Wallet Analysis
-            "walletSnapshot":       lambda: self.wallet.wallet_quick(r.get("wallet_address", r.get("address", "")), r.get("chain", "ethereum")),
-            "walletHealthAudit":    lambda: self.wallet.wallet_health(r.get("wallet_address", r.get("address", ""))),
-            "walletPnL":            lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]),
-            "walletBehaviourProfile": lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]),
-            "walletForensics":      lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]),
-            "smartMoneyTracker":    lambda: self.research.web_research_quick(f"smart money wallets accumulating crypto {r.get('sector', '')} today on-chain"),
-            "whaleActivityAlert":   lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", "BTC"))),
+            # Wallet Analysis — accept wallet_address OR topic/query for forensics
+            "walletSnapshot":       lambda: self.wallet.wallet_quick(r.get("wallet_address", r.get("address", "")), r.get("chain", "ethereum")) if (r.get("wallet_address") or r.get("address")) else self.research.web_research_quick(r.get("topic", r.get("query", "wallet activity crypto"))),
+            "walletHealthAudit":    lambda: self.wallet.wallet_health(r.get("wallet_address", r.get("address", ""))) if (r.get("wallet_address") or r.get("address")) else self.research.web_research_quick(r.get("topic", r.get("query", "wallet health defi"))),
+            "walletPnL":            lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]) if (r.get("wallet_address") or r.get("address")) else self.research.web_research_standard(r.get("topic", r.get("query", "defi pnl portfolio")), "standard"),
+            "walletBehaviourProfile": lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]) if (r.get("wallet_address") or r.get("address")) else self.research.web_research_standard(r.get("topic", r.get("query", "wallet behaviour on-chain")), "standard"),
+            "walletForensics":      lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("address", "")), [r.get("chain", "ethereum")]) if (r.get("wallet_address") or r.get("address")) else self.research.web_research_standard(r.get("topic", r.get("query", "on-chain forensics")), "standard"),
+            "smartMoneyTracker":    lambda: self.research.web_research_quick(f"smart money wallets accumulating crypto {r.get('sector', r.get('topic', ''))} today on-chain"),
+            "whaleActivityAlert":   lambda: self.wallet.crypto_research_quick(r.get("token", r.get("asset_symbol", ""))) if (r.get("token") or r.get("asset_symbol")) else self.research.web_research_quick(r.get("topic", r.get("query", "whale activity crypto large transactions"))),
 
             # Content & Threads (confirmed: thread-quick bought)
             "cryptoThreadMicro":    lambda: self.content.thread_quick(r.get("topic", r.get("token", "")), "punchy"),
@@ -1636,9 +1654,9 @@ class ExecutionEngine:
 
             # DeFi & On-Chain
             "yieldOpportunityFinder": lambda: self.wallet.defi_opportunity_scanner(r.get("min_apy", 5.0), r.get("chains", ["ethereum", "base"]), r.get("risk_tolerance", "medium")),
-            "defiProtocolHealth":   lambda: self.wallet.crypto_research_deep(r.get("protocol", r.get("token", "")), "tvl revenue liquidations security audit"),
-            "airdropScanner":       lambda: self.research.web_research_standard(f"best crypto airdrops 2026 {r.get('chains', '')} worth pursuing effort reward", "standard"),
-            "onChainFlowAnalysis":  lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("token", "")), [r.get("chain", "ethereum")]),
+            "defiProtocolHealth":   lambda: self.wallet.crypto_research_deep(r.get("protocol", r.get("token", r.get("topic", r.get("query", "")))), "tvl revenue liquidations security audit"),
+            "airdropScanner":       lambda: self.research.web_research_standard(f"best crypto airdrops 2026 {r.get('chains', r.get('topic', ''))} worth pursuing effort reward", "standard"),
+            "onChainFlowAnalysis":  lambda: self.wallet.wallet_deep(r.get("wallet_address", r.get("token", "")), [r.get("chain", "ethereum")]) if (r.get("wallet_address") or r.get("token")) else self.research.web_research_standard(r.get("topic", r.get("query", "on-chain flow analysis base ethereum")), "standard"),
             "newTokenResearch":     lambda: self.wallet.crypto_research_deep(r.get("token", r.get("contract_address", "")), "legitimacy rug check tokenomics team"),
 
             # ── Ecosystem job types from other ACP agents ──
