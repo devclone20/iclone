@@ -1,0 +1,24 @@
+[Unit]
+Description=ACP Market Bootstrap (discovery + presence — whole fleet)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+
+# Scans every agent in the fleet in one run (agents defined in bootstrap.py).
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/bootstrap.py
+
+StandardOutput=append:/var/log/iclone/bootstrap.log
+StandardError=append:/var/log/iclone/bootstrap.log
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/iclone"
+Environment="MARKET_MAP_DIR=/var/log/iclone"
+EnvironmentFile=/opt/iclone/.env
+EnvironmentFile=-/home/iclone/.env.local
+
+TimeoutStartSec=600

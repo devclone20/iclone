@@ -1,0 +1,14 @@
+[
+  [
+    "researchStandard",
+    "{\"topic\":\"emerging AI safety regulation 2026\",\"depth\":\"standard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"academic funding trends in machine learning\",\"format\":\"markdown\"}"
+  ],
+  [
+    "researchQuick",
+    "{\"query\":\"latest peer-reviewed robotics manipulation benchmarks\"}"
+  ]
+]

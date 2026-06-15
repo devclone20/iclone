@@ -1,0 +1,14 @@
+[
+  [
+    "ikSolverSetup",
+    "{\"robot\":\"UR5e\",\"task\":\"bin picking\"}"
+  ],
+  [
+    "codeGenStandard",
+    "{\"spec\":\"a rate-limited async job queue\",\"language\":\"python\"}"
+  ],
+  [
+    "ros2NodeDesign",
+    "{\"node\":\"sensor fusion\",\"rate_hz\":50}"
+  ]
+]
