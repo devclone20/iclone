@@ -14,8 +14,18 @@ chown -R iclone:iclone ${LOG_DIR}
 
 echo "── Installing systemd units ─────────────────────"
 cp ${ICLONE_DIR}/ops/systemd/iclone-server.service        ${SYSTEMD_DIR}/
+cp ${ICLONE_DIR}/ops/systemd/iclone-client.service        ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-vegeta.service        ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-vegeta-server.service ${SYSTEMD_DIR}/
+cp ${ICLONE_DIR}/ops/systemd/iclone-bootstrap.service     ${SYSTEMD_DIR}/
+cp ${ICLONE_DIR}/ops/systemd/iclone-bootstrap.timer       ${SYSTEMD_DIR}/
+# Prepared-but-inactive agents (installed, not enabled — activate via activate-agent.sh)
+cp ${ICLONE_DIR}/ops/systemd/iclone-doctorwho-server.service    ${SYSTEMD_DIR}/ 2>/dev/null || true
+cp ${ICLONE_DIR}/ops/systemd/iclone-doctorwho-client.service    ${SYSTEMD_DIR}/ 2>/dev/null || true
+cp ${ICLONE_DIR}/ops/systemd/iclone-supersayatin-server.service ${SYSTEMD_DIR}/ 2>/dev/null || true
+cp ${ICLONE_DIR}/ops/systemd/iclone-supersayatin-client.service ${SYSTEMD_DIR}/ 2>/dev/null || true
+cp ${ICLONE_DIR}/ops/systemd/iclone-matrix-server.service       ${SYSTEMD_DIR}/ 2>/dev/null || true
+cp ${ICLONE_DIR}/ops/systemd/iclone-matrix-client.service       ${SYSTEMD_DIR}/ 2>/dev/null || true
 cp ${ICLONE_DIR}/ops/systemd/iclone-token-refresh.service ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-training.service      ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-training.timer        ${SYSTEMD_DIR}/
@@ -32,8 +42,10 @@ systemctl enable --now iclone-server
 sleep 5
 systemctl enable --now iclone-vegeta-server
 sleep 5
-systemctl enable --now iclone-vegeta
+systemctl enable --now iclone-vegeta          # VEGETA client (odd minutes)
+systemctl enable --now iclone-client          # iCLONE client (even minutes)
 systemctl enable --now iclone-training.timer
+systemctl enable --now iclone-bootstrap.timer
 
 echo ""
 echo "── Status ───────────────────────────────────────"
