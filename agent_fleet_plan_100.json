@@ -2,7 +2,7 @@
   "account": "iCLONE",
   "owner": "0xb4805e8d8c9f23fa4615422202be1e38fba6a739",
   "total": 100,
-  "live": 5,
+  "live": 4,
   "tracks": [
     "DeFi & Trading",
     "Market Intelligence",
@@ -21,7 +21,7 @@
       "track": "DeFi & Trading",
       "track_id": 0,
       "subtopic": "swap base / multi-chain",
-      "status": "live"
+      "status": "planned"
     },
     {
       "name": "hermes",
