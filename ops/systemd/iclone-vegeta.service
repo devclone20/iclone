@@ -25,6 +25,8 @@ Environment="HOME=/home/iclone"
 Environment="CYCLE_INTERVAL=300"
 Environment="JOBS_PER_CYCLE=1"
 EnvironmentFile=/opt/iclone/.env
+# .env.local loaded second so real secrets (ANTHROPIC_API_KEY) override .env placeholders
+EnvironmentFile=-/home/iclone/.env.local
 
 LimitNOFILE=65536
 TimeoutStopSec=30
