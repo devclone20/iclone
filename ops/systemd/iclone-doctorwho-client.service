@@ -1,0 +1,34 @@
+[Unit]
+Description=DoctorWHO Client Autopilot (INACTIVE until funded+activated)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/client_autopilot.py
+Restart=always
+RestartSec=20
+StandardOutput=append:/var/log/iclone/doctorwho-client.log
+StandardError=append:/var/log/iclone/doctorwho-client.log
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/iclone"
+Environment="ACP_CONFIG_DIR=/home/iclone/.config/acp-doctorwho/acp"
+Environment="AUTOPILOT_AGENT_NAME=DoctorWHO"
+Environment="TARGET_WALLET=0x44cc25d55a4291b92f52062ba023ca1f14206664"
+Environment="TARGET_NAME=iCLONE"
+Environment="JOBS_FILE=ops/client_jobs_doctorwho.json"
+Environment="MINUTE_PARITY=any"
+Environment="CYCLE_SLEEP=20"
+Environment="LOG_PATH=/var/log/iclone/doctorwho-client.log"
+EnvironmentFile=/opt/iclone/.env
+EnvironmentFile=-/home/iclone/.env.local
+LimitNOFILE=65536
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

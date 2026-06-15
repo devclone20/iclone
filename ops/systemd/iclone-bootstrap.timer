@@ -1,0 +1,11 @@
+[Unit]
+Description=ACP Market Bootstrap — every 30 min
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=30min
+Persistent=true
+RandomizedDelaySec=60
+
+[Install]
+WantedBy=timers.target

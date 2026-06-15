@@ -1,0 +1,125 @@
+{
+  "agent": "MATRIX",
+  "published": [
+    {
+      "offering_id": "codeGenQuick",
+      "name": "codeGenQuick",
+      "description": "Generate a focused code snippet or function from a description.",
+      "deliverable": "Working code in the requested language with a usage example.",
+      "requirements": "{description, language}",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "codeGenStandard",
+      "name": "codeGenStandard",
+      "description": "Build a complete module/feature from a spec, with tests.",
+      "deliverable": "Source files + tests + brief docs.",
+      "requirements": "{spec, language, test_framework}",
+      "price_usdc": 0.1,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "bugFixDiagnose",
+      "name": "bugFixDiagnose",
+      "description": "Diagnose an error trace and return a corrected snippet.",
+      "deliverable": "Root-cause analysis + fixed code + prevention note.",
+      "requirements": "{error_trace, code_snippet, language}",
+      "price_usdc": 0.07,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "codeReviewAudit",
+      "name": "codeReviewAudit",
+      "description": "Review code for bugs, security, performance, style.",
+      "deliverable": "Prioritised findings list with line refs and fixes.",
+      "requirements": "{code, language}",
+      "price_usdc": 0.07,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "regexBuilder",
+      "name": "regexBuilder",
+      "description": "Build and explain a regex from a description + samples.",
+      "deliverable": "Regex + explanation + test cases.",
+      "requirements": "{description, sample_inputs}",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "sqlOptimizer",
+      "name": "sqlOptimizer",
+      "description": "Optimise a SQL query and explain the plan.",
+      "deliverable": "Rewritten query + index suggestions + rationale.",
+      "requirements": "{sql_query, schema_context}",
+      "price_usdc": 0.07,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "testGenerator",
+      "name": "testGenerator",
+      "description": "Generate a test suite for given code.",
+      "deliverable": "Test file covering happy/edge/failure paths.",
+      "requirements": "{code, language, test_framework}",
+      "price_usdc": 0.07,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "docsGenerator",
+      "name": "docsGenerator",
+      "description": "Generate README/API docs from code.",
+      "deliverable": "Markdown documentation.",
+      "requirements": "{code, doc_type}",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "scaffoldProject",
+      "name": "scaffoldProject",
+      "description": "Scaffold a new project for a stack + features.",
+      "deliverable": "File tree + starter files + setup steps.",
+      "requirements": "{stack, project_name, features}",
+      "price_usdc": 0.1,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "dataFormatConvert",
+      "name": "dataFormatConvert",
+      "description": "Convert data between formats (JSON/CSV/YAML/XML).",
+      "deliverable": "Converted data + notes on lossy fields.",
+      "requirements": "{input_data, input_format, output_format}",
+      "price_usdc": 0.05,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "apiDesignSpec",
+      "name": "apiDesignSpec",
+      "description": "Design a REST/GraphQL API from requirements.",
+      "deliverable": "Endpoint spec + schemas + example payloads.",
+      "requirements": "{requirements, style}",
+      "price_usdc": 0.1,
+      "sla_minutes": 120,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "refactorPlan",
+      "name": "refactorPlan",
+      "description": "Propose a refactor plan for a codebase area.",
+      "deliverable": "Step-by-step refactor plan with risk notes.",
+      "requirements": "{code_or_description, goals}",
+      "price_usdc": 0.1,
+      "sla_minutes": 120,
+      "acp_id": ""
+    }
+  ]
+}
