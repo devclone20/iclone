@@ -1,0 +1,12 @@
+[Unit]
+Description=iCLONE Auto Offerings Manager
+After=network.target
+
+[Service]
+Type=oneshot
+User=iclone
+WorkingDirectory=/opt/iclone
+ExecStart=/opt/iclone/venv/bin/python3 /opt/iclone/ops/auto_offerings_manager.py
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=iclone-offerings-manager

@@ -1,0 +1,30 @@
+[Unit]
+Description=iCLONE ACP Token Keep-Alive (iCLONE + VEGETA)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+
+# token_refresh.py resolves both config dirs via $HOME (~/.config/acp-*/acp)
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/token_refresh.py
+
+Restart=always
+RestartSec=30
+
+StandardOutput=append:/var/log/iclone/token-refresh.log
+StandardError=append:/var/log/iclone/token-refresh.log
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/iclone"
+
+LimitNOFILE=8192
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=iCLONE Daily Training — 07:00 + 19:00 UTC
+
+[Timer]
+# Two runs per day, UTC. Persistent so a missed run (droplet reboot) fires on boot.
+OnCalendar=*-*-* 07:00:00 UTC
+OnCalendar=*-*-* 19:00:00 UTC
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target
