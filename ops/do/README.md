@@ -64,6 +64,22 @@ bash ops/do/migrate-tokens.sh $IP # extrai tokens do keychain → injecta no dro
 
 > Migrar tokens **depois** de parar o Mac garante que só o droplet roda os refresh tokens.
 
+## PASSO 5.5 — Registar signers no droplet ⚠️ OBRIGATÓRIO
+
+As chaves P256 do signer (`~/Library/Application Support/acp-cli/signer-keys.json`)
+estão **ligadas ao hardware do Mac** (Secure Enclave embrulha o segredo de decifragem).
+Copiá-las para Linux falha com `decryption failed: cipher: message authentication failed`.
+O droplet tem de gerar e registar o **seu próprio** signer por agente. Não-destrutivo —
+o signer do Mac continua válido; um agente pode ter vários signers.
+
+```bash
+bash ops/do/register-signers.sh $IP          # imprime 2 signerUrl
+#  → abre ambos no browser, aprova no Privy
+bash ops/do/register-signers.sh $IP status   # cola requestId + publicKey de cada um
+```
+
+Política `restricted` = autónomo para todas as transacções ACP (igual ao Mac).
+
 ## PASSO 6 — Arrancar a fleet (no droplet)
 
 ```bash
@@ -114,7 +130,9 @@ ssh root@$IP 'systemctl stop iclone-vegeta'
 
 | Problema | Solução |
 |----------|---------|
-| Serviço não arranca | `journalctl -u iclone-server -n 50` |
+| Serviço não arranca | `journalctl -u iclone-server -n 50` ou `tail /var/log/iclone/server.log` |
+| `ModuleNotFoundError` | falta dep no `requirements.txt` → `ssh iclone@$IP` + `venv312/bin/pip install <mod>` |
+| `decryption failed` no signer | signer não registado no droplet → PASSO 5.5 (`register-signers.sh`) |
 | `whoami` falha (session expired) | refresh token morto → `ssh iclone@$IP` e `ACP_CONFIG_DIR=... acp configure` (browser) |
 | Claude API 401 | `~/.env.local` não foi copiado → re-run `deploy.sh` |
 | OOM no install | `setup.sh` já cria swap; confirma `ssh root@$IP 'free -m'` |
