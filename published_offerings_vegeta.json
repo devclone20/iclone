@@ -1,0 +1,405 @@
+{
+  "agent": "VEGETA",
+  "published": [
+    {
+      "offering_id": "ikSolverSetup",
+      "name": "ikSolverSetup",
+      "description": "Pink real-time inverse kinematics configuration for robot arm. Task specification, joint limits, velocity constraints and real-time control loop.",
+      "deliverable": "Pink IK config, task frame spec, joint limit params, velocity bounds, real-time loop code.",
+      "requirements": "Provide robot URDF and task. Example: {\"robot\": \"Franka Panda\", \"task\": \"track moving target\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-3894-74e0-bf0f-214dd756c2de"
+    },
+    {
+      "offering_id": "segmentationMaskPlan",
+      "name": "segmentationMaskPlan",
+      "description": "SAM-based segmentation strategy for robot workspace understanding. Prompt design, mask filtering, downstream integration for grasping or navigation.",
+      "deliverable": "SAM prompt design, mask filtering rules, downstream integration spec, latency targets.",
+      "requirements": "Provide use case and robot type. Example: {\"use_case\": \"bin picking\", \"robot\": \"UR5e\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-3854-78cf-909b-ba83b54fd422"
+    },
+    {
+      "offering_id": "unitreeDeployPlan",
+      "name": "unitreeDeployPlan",
+      "description": "Deployment and motion plan for Unitree Go2 or H1 robot. SDK setup, DDS config, motion primitives, safety constraints and mission strategy.",
+      "deliverable": "SDK setup guide, DDS config, motion primitives list, safety limits, mission plan, failsafe conditions.",
+      "requirements": "Provide robot model and mission. Example: {\"robot\": \"Go2\", \"mission\": \"warehouse inspection patrol\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-3875-7f5d-bd9b-921d8bbd49ae"
+    },
+    {
+      "offering_id": "florenceVLRobot",
+      "name": "florenceVLRobot",
+      "description": "Florence-2 vision-language model integration for robot perception. Prompt design, visual grounding, referring expression comprehension and action grounding.",
+      "deliverable": "Florence-2 prompt templates, grounding config, output parsing, action mapping, latency budget.",
+      "requirements": "Provide robot task and perception need. Example: {\"task\": \"find and pick mug\", \"input\": \"RGB camera\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-38a7-74c9-b23c-c9e0fedb0605"
+    },
+    {
+      "offering_id": "taskMotionPlan",
+      "name": "taskMotionPlan",
+      "description": "Full PDDL-based task-and-motion plan for manipulation. Predicate design, action templates, motion stream specs and constraint formulation.",
+      "deliverable": "PDDL domain, problem file, motion stream specs, IK constraints, PDDLStream integration guide.",
+      "requirements": "Provide task and objects involved. Example: {\"task\": \"stack blocks\", \"objects\": [\"block_A\", \"block_B\", \"table\"]}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-3872-7159-ad16-8e63eb0b7fa1"
+    },
+    {
+      "offering_id": "gpuSimTraining",
+      "name": "gpuSimTraining",
+      "description": "Isaac Lab GPU-accelerated robot training workflow. Environment setup, RSL-RL training script, hyperparameter guide and sim-to-real transfer plan.",
+      "deliverable": "IsaacLab env config, training script, hyperparameters, domain randomization guide, GPU hours estimate.",
+      "requirements": "Provide robot type and task. Example: {\"robot\": \"quadruped\", \"task\": \"locomotion over terrain\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-385e-7562-b12e-dad793d77a03"
+    },
+    {
+      "offering_id": "pyroboSimTask",
+      "name": "pyroboSimTask",
+      "description": "PyRoboSim task-level simulation design. World model spec, robot agent config, task planner integration and navigation-manipulation combined workflow.",
+      "deliverable": "World model YAML, robot config, task planner spec, navigation-manipulation workflow, evaluation.",
+      "requirements": "Provide environment and task list. Example: {\"environment\": \"home\", \"tasks\": [\"fetch water\", \"open door\"]}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-38b5-79cd-8f2a-a67bef88b26c"
+    },
+    {
+      "offering_id": "hulcLangSkill",
+      "name": "hulcLangSkill",
+      "description": "HULC2 language-conditioned manipulation skill design. Instruction vocabulary, multi-task training setup, skill chaining and generalisation strategy.",
+      "deliverable": "Instruction vocab, training config, skill chaining spec, evaluation benchmark, generalisation metrics.",
+      "requirements": "Provide skill set and instruction domain. Example: {\"skills\": [\"pick\", \"place\", \"push\"], \"domain\": \"kitchen objects\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-38af-7999-97a9-adfa7e756a93"
+    },
+    {
+      "offering_id": "dexArtGraspPlan",
+      "name": "dexArtGraspPlan",
+      "description": "DexArt dexterous articulated object manipulation plan. Object category analysis, multi-finger grasp synthesis, finger trajectory design and force targets.",
+      "deliverable": "Object analysis, grasp synthesis strategy, finger trajectory, force-torque targets, evaluation protocol.",
+      "requirements": "Provide articulated object and dexterous hand. Example: {\"object\": \"scissors\", \"hand\": \"LEAP Hand\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-38cf-72d6-8493-c83f869fea57"
+    },
+    {
+      "offering_id": "pointEObjectGen",
+      "name": "pointEObjectGen",
+      "description": "Point-E 3D object generation strategy for robot task planning. Prompt engineering, mesh export pipeline, collision model generation.",
+      "deliverable": "Point-E prompt design, mesh export steps, collision model generation, URDF integration guide.",
+      "requirements": "Provide object description for generation. Example: {\"object\": \"small red cube with handle\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-38a3-7fd6-875b-c5418b0ca28f"
+    },
+    {
+      "offering_id": "objectDetectionPipeline",
+      "name": "objectDetectionPipeline",
+      "description": "YOLOv8-based real-time object detection pipeline for robot perception. Model selection, inference config, custom training guide and ROS2 integration.",
+      "deliverable": "Model selection guide, ROS2 node spec, custom training command, inference config, fps targets.",
+      "requirements": "Provide target object classes and robot platform. Example: {\"classes\": [\"bottle\", \"cup\"], \"platform\": \"Jetson Orin\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-3851-772f-a3cd-178b6203666f"
+    },
+    {
+      "offering_id": "batchSimStrategy",
+      "name": "batchSimStrategy",
+      "description": "Brax JAX batched physics simulation strategy for RL. Parallelisation plan, environment vectorisation, training loop design and performance targets.",
+      "deliverable": "Brax env setup, vectorisation config, JAX training loop, wall-clock time estimate, throughput metrics.",
+      "requirements": "Provide task and target parallel envs. Example: {\"task\": \"hopper\", \"num_envs\": 4096}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3867-7740-96b1-2308c68ff2e5"
+    },
+    {
+      "offering_id": "torqueCtrlLoop",
+      "name": "torqueCtrlLoop",
+      "description": "PyTorch torque control loop design for robot arm. PD controller, impedance control, real-time execution strategy and safety monitoring.",
+      "deliverable": "Controller architecture, PD gains schedule, impedance params, safety cutoff logic, real-time loop.",
+      "requirements": "Provide robot and control mode. Example: {\"robot\": \"xArm7\", \"mode\": \"impedance\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-389a-77bc-b813-00d4fa74b48e"
+    },
+    {
+      "offering_id": "rlEnvDesign",
+      "name": "rlEnvDesign",
+      "description": "MuJoCo/dm-control RL training environment design. Reward shaping, observation space, action space and curriculum strategy for robot learning.",
+      "deliverable": "Environment spec, reward function design, obs/action space, training algorithm recommendation, step budget.",
+      "requirements": "Provide task and observation type. Example: {\"task\": \"reach target\", \"obs_type\": \"proprioception+vision\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3861-7476-9431-9d55151f5c1a"
+    },
+    {
+      "offering_id": "autoSceneDesign",
+      "name": "autoSceneDesign",
+      "description": "CARLA autonomous driving scene design. Actor spawning, traffic flow, sensor placement, weather config and scenario evaluation metrics.",
+      "deliverable": "CARLA Python script, actor spawn config, sensor blueprint, scenario evaluation metrics.",
+      "requirements": "Provide scenario type and complexity. Example: {\"scenario\": \"intersection crossing\", \"weather\": \"rain\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3881-7dd0-bf16-4180535f131b"
+    },
+    {
+      "offering_id": "embodiedNavPlan",
+      "name": "embodiedNavPlan",
+      "description": "Habitat-Sim embodied navigation task plan. Scene setup, agent config, evaluation metrics, success thresholds and training curriculum.",
+      "deliverable": "Habitat scene config, agent spec, task config, evaluation metrics, training curriculum, baseline comparisons.",
+      "requirements": "Provide navigation task and scene type. Example: {\"task\": \"object goal navigation\", \"scene\": \"apartment\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-386a-763a-b436-bae388b67439"
+    },
+    {
+      "offering_id": "alohaSetupGuide",
+      "name": "alohaSetupGuide",
+      "description": "ALOHA bimanual teleoperation setup guide. Hardware checklist, data collection protocol, ACT policy training pipeline and evaluation metrics.",
+      "deliverable": "Hardware checklist, teleoperation protocol, dataset format, ACT training config, evaluation metrics.",
+      "requirements": "Provide manipulation task. Example: {\"task\": \"fold cloth\", \"num_demos\": 50}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3888-795e-9e2a-60f873500ca3"
+    },
+    {
+      "offering_id": "navStackSetup",
+      "name": "navStackSetup",
+      "description": "Nav2 autonomous navigation stack configuration for mobile robots. Complete config, launch files, costmap tuning guide and SLAM setup.",
+      "deliverable": "Nav2 config YAML, costmap params, planner selection, SLAM Toolbox setup, launch sequence.",
+      "requirements": "Provide robot type and environment. Example: {\"robot\": \"differential drive\", \"environment\": \"indoor warehouse\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-384d-7f3b-9e99-bb3dfc0c9694"
+    },
+    {
+      "offering_id": "robosuiteEnvSetup",
+      "name": "robosuiteEnvSetup",
+      "description": "Robosuite manipulation benchmark environment setup. Task selection, robot config, observation space definition and evaluation protocol.",
+      "deliverable": "Robosuite config, task spec, obs/action space, eval protocol, baseline performance targets.",
+      "requirements": "Provide task and robot. Example: {\"task\": \"Lift\", \"robot\": \"Panda\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-38ac-7ff4-a588-43ea69283534"
+    },
+    {
+      "offering_id": "diffusionPolicyDesign",
+      "name": "diffusionPolicyDesign",
+      "description": "Diffusion policy training setup for dexterous manipulation. Dataset format, network architecture, noise scheduler config and training pipeline.",
+      "deliverable": "Architecture spec (DDPM/DDIM), dataset format, training config, compute estimate, evaluation protocol.",
+      "requirements": "Provide manipulation task and number of demos. Example: {\"task\": \"pick and place\", \"num_demos\": 100}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-3857-77ae-8af9-2c24ebcd3054"
+    },
+    {
+      "offering_id": "moveit2ArmPlan",
+      "name": "moveit2ArmPlan",
+      "description": "MoveIt2 arm motion planning configuration. SRDF, kinematics plugin, planning pipeline, collision objects and execution interface setup.",
+      "deliverable": "SRDF config, kinematics plugin selection, pipeline config, collision objects spec, execution tutorial.",
+      "requirements": "Provide robot arm and task. Example: {\"arm\": \"UR10e\", \"task\": \"assembly on conveyor\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3878-75a6-9f7c-e7795b24df14"
+    },
+    {
+      "offering_id": "rlaxPolicyTrain",
+      "name": "rlaxPolicyTrain",
+      "description": "RLAX JAX RL algorithm component design for robot. Value function, policy gradient, actor-critic architecture and training loop.",
+      "deliverable": "RLAX component selection, value function design, policy architecture, training loop, JAX code template.",
+      "requirements": "Provide task and algorithm type. Example: {\"task\": \"reach goal\", \"algorithm\": \"actor-critic\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-38c0-7d78-8f60-19cd5a0da3f6"
+    },
+    {
+      "offering_id": "roboticsRepoScan",
+      "name": "roboticsRepoScan",
+      "description": "Deep scan of a GitHub robotics repo \u2014 capabilities, architecture, integration guide and code examples. Powered by GitHub API + arXiv research.",
+      "deliverable": "Structured report: repo metadata, key modules, integration guide, related papers, recommended use case.",
+      "requirements": "Provide the GitHub repo (owner/repo) you want scanned. Example: {\"repo\": \"huggingface/lerobot\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-3843-783a-94e1-c504c0da16a9"
+    },
+    {
+      "offering_id": "mobileRobotSetup",
+      "name": "mobileRobotSetup",
+      "description": "TurtleBot3 ROS2 navigation and perception setup. SLAM config, Nav2 integration, sensor calibration and autonomous patrol routine.",
+      "deliverable": "SLAM Toolbox config, Nav2 params, sensor calibration guide, patrol route definition.",
+      "requirements": "Provide environment type and task. Example: {\"environment\": \"office indoor\", \"task\": \"autonomous patrol\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-388e-7f15-925e-6dfe765adbc8"
+    },
+    {
+      "offering_id": "graspPlannerSetup",
+      "name": "graspPlannerSetup",
+      "description": "Design a complete grasp planning pipeline for robotic pick-and-place. Architecture, GQ-CNN config, Dex-Net integration guide and ROS2 node spec.",
+      "deliverable": "Full grasp pipeline: perception stack, grasp sampling config, quality metric, ROS2 node spec, fallback strategy.",
+      "requirements": "Provide object type and gripper type. Example: {\"object\": \"coffee mug\", \"gripper\": \"parallel-jaw\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3848-720c-9275-b311c24e9222"
+    },
+    {
+      "offering_id": "gibsonHomeSim",
+      "name": "gibsonHomeSim",
+      "description": "iGibson home simulation setup for household robot. Scene loading, object state machine, task specification and VR integration guide.",
+      "deliverable": "iGibson scene config, object state spec, task config, VR integration guide, evaluation metrics.",
+      "requirements": "Provide household task and scene. Example: {\"task\": \"tidy room\", \"scene\": \"Rs_int\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-38b8-7d97-8b27-cb14a269f20f"
+    },
+    {
+      "offering_id": "openXDataQuery",
+      "name": "openXDataQuery",
+      "description": "Query Open X-Embodiment dataset for relevant robot demonstrations. Dataset selection strategy, filtering, preprocessing guide for target task.",
+      "deliverable": "Relevant dataset IDs, filtering strategy, preprocessing guide, data quality notes, download instructions.",
+      "requirements": "Provide robot task and embodiment type. Example: {\"task\": \"pick and place\", \"robot\": \"UR5\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-386d-7ced-9c4c-bcd3e47a6d05"
+    },
+    {
+      "offering_id": "stretchArmTask",
+      "name": "stretchArmTask",
+      "description": "Hello Robot Stretch mobile manipulation task plan. Reachability analysis, grasp strategy, home navigation integration and safety constraints.",
+      "deliverable": "Reachability map, grasp strategy, navigation plan, arm trajectory, safety constraint list.",
+      "requirements": "Provide target object and location. Example: {\"object\": \"water bottle\", \"location\": \"kitchen counter\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3891-7666-ab2f-793d67dbc9ed"
+    },
+    {
+      "offering_id": "pinocchioKDyn",
+      "name": "pinocchioKDyn",
+      "description": "Pinocchio kinematics and dynamics analysis for robot. URDF parsing, forward/inverse kinematics, Jacobian computation and dynamics for control.",
+      "deliverable": "Pinocchio model setup, FK/IK functions, Jacobian config, dynamics equations, Python code template.",
+      "requirements": "Provide robot URDF and analysis needed. Example: {\"robot\": \"Franka Panda\", \"analysis\": \"Jacobian + inverse dynamics\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-38bd-7bce-ad90-b86156992cb5"
+    },
+    {
+      "offering_id": "ros2NodeDesign",
+      "name": "ros2NodeDesign",
+      "description": "ROS2 node architecture design for robot system. Topic graph, message types, lifecycle nodes, QoS profiles and package structure.",
+      "deliverable": "Node architecture diagram, topic graph, message type list, QoS config, package structure.",
+      "requirements": "Provide system description and key nodes needed. Example: {\"system\": \"mobile manipulation\", \"nodes\": [\"perception\", \"planning\", \"control\"]}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-387b-7d8b-a02c-619fff74f719"
+    },
+    {
+      "offering_id": "robotLogAnalyze",
+      "name": "robotLogAnalyze",
+      "description": "MCAP robot log analysis and diagnostics. Topic inspection, timestamp analysis, sensor synchronization check and anomaly detection.",
+      "deliverable": "MCAP analysis report, topic stats, sync analysis, detected anomalies, Foxglove visualization guide.",
+      "requirements": "Provide log topic focus and anomaly type to detect. Example: {\"topic\": \"/joint_states\", \"detect_anomaly\": true}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-38c3-735e-8bcb-29c3dcb368db"
+    },
+    {
+      "offering_id": "dexRetargetDesign",
+      "name": "dexRetargetDesign",
+      "description": "Dex-Retargeting pipeline design for robot hand control. Hand pose extraction, retargeting algorithm selection, robot hand joint mapping.",
+      "deliverable": "Retargeting algorithm selection, joint mapping table, calibration procedure, latency budget.",
+      "requirements": "Provide input source and robot hand. Example: {\"input\": \"MediaPipe hand tracking\", \"robot_hand\": \"LEAP Hand\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-388b-7589-a379-9371c1059844"
+    },
+    {
+      "offering_id": "serlRLFinetune",
+      "name": "serlRLFinetune",
+      "description": "SERL sample-efficient real-robot RL fine-tuning plan. Reward design, data collection protocol, online learning loop and safety constraint specification.",
+      "deliverable": "Reward function design, data collection protocol, online RL loop config, safety watchdog, success metrics.",
+      "requirements": "Provide robot, task and safety constraints. Example: {\"robot\": \"Franka\", \"task\": \"peg insertion\", \"max_force\": 20}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-38c6-790f-a823-09cebcf765b5"
+    },
+    {
+      "offering_id": "rtxPolicyScan",
+      "name": "rtxPolicyScan",
+      "description": "RT-X/RT-2 robotics transformer policy research. Capability scan, supported tasks, fine-tuning requirements and deployment evaluation for target robot.",
+      "deliverable": "RT-X capability report, supported task list, fine-tuning guide, compute requirements, deployment eval.",
+      "requirements": "Provide robot and task category. Example: {\"robot\": \"UR5\", \"task\": \"table-top manipulation\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-38b2-7289-be6d-b618483c193f"
+    },
+    {
+      "offering_id": "droneWaypointPlan",
+      "name": "droneWaypointPlan",
+      "description": "AirSim drone waypoint mission plan. Environment setup, GPS waypoints, sensor config, collision avoidance strategy and flight controller integration.",
+      "deliverable": "Waypoint list, AirSim config, sensor setup, collision avoidance strategy, FlightController integration.",
+      "requirements": "Provide mission type and environment. Example: {\"mission\": \"search and rescue\", \"environment\": \"urban outdoor\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-387e-76b4-aed9-e9e3c1a95fae"
+    },
+    {
+      "offering_id": "rlPolicyOptimize",
+      "name": "rlPolicyOptimize",
+      "description": "Acme distributed RL policy optimization strategy. Actor-learner setup, replay buffer config, policy architecture and convergence targets.",
+      "deliverable": "Acme learner config, actor config, replay buffer settings, network architecture, hyperparameter schedule.",
+      "requirements": "Provide task and algorithm preference. Example: {\"task\": \"continuous control\", \"algorithm\": \"SAC\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-3884-746f-aa53-25689deebad1"
+    },
+    {
+      "offering_id": "humanoidSimPlan",
+      "name": "humanoidSimPlan",
+      "description": "K-Scale humanoid robot simulation training plan. Simulation environment setup, motion library, locomotion policy training and transfer strategy.",
+      "deliverable": "Sim environment config, motion library, training curriculum, locomotion policy spec, transfer checklist.",
+      "requirements": "Provide humanoid model and skill to learn. Example: {\"robot\": \"G1\", \"skill\": \"stair climbing\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-38a9-7b3e-bf4c-683a8db2f99e"
+    },
+    {
+      "offering_id": "physicsSimConfig",
+      "name": "physicsSimConfig",
+      "description": "Genesis or MuJoCo physics simulation configuration for robot task. Scene XML/USD, solver parameters, contact model and rendering setup.",
+      "deliverable": "Scene config file, solver params, contact model settings, rendering config, validation checklist.",
+      "requirements": "Provide robot model and task type. Example: {\"robot\": \"Franka Panda\", \"task\": \"drawer opening\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 45,
+      "acp_id": "019ec840-385b-789e-8bde-a53ecd07dfdd"
+    },
+    {
+      "offering_id": "pointCloudPipeline",
+      "name": "pointCloudPipeline",
+      "description": "PyTorch3D 3D point cloud processing pipeline for robot perception. Filtering, segmentation, object recognition and surface normal estimation.",
+      "deliverable": "Processing pipeline, filtering params, segmentation config, object recognition model, surface estimation.",
+      "requirements": "Provide sensor type and application. Example: {\"sensor\": \"RealSense D435\", \"application\": \"bin picking\"}",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "acp_id": "019ec840-389e-7881-b084-eeea361c07ed"
+    },
+    {
+      "offering_id": "foundationPolicyEval",
+      "name": "foundationPolicyEval",
+      "description": "Evaluate pi0 (openpi) foundation policy fit for target robot task. Capability assessment, fine-tuning requirements, compute estimate and deployment plan.",
+      "deliverable": "Policy fit assessment, fine-tuning guide, demo requirements, compute budget, deployment checklist.",
+      "requirements": "Provide robot and task. Example: {\"robot\": \"Franka\", \"task\": \"coffee cup pick and place\"}",
+      "price_usdc": 0.1,
+      "sla_minutes": 60,
+      "acp_id": "019ec840-3870-77e6-912d-ae20d035e354"
+    }
+  ]
+}

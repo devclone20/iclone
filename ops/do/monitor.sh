@@ -18,7 +18,7 @@ echo -e "${B}═══ <HOSTNAME> fleet — $(date -u +'%Y-%m-%d %H:%M:%S UTC') 
 
 # Serviços
 printf "Serviços: "
-for s in iclone-server iclone-vegeta iclone-token-refresh; do
+for s in iclone-server iclone-vegeta-server iclone-vegeta iclone-token-refresh; do
     st=$(systemctl is-active $s 2>/dev/null)
     [ "$st" = "active" ] && printf "${G}● %s${X}  " "${s#iclone-}" || printf "${R}○ %s($st)${X}  " "${s#iclone-}"
 done; echo

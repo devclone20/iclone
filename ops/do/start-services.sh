@@ -15,6 +15,7 @@ chown -R iclone:iclone ${LOG_DIR}
 echo "── Installing systemd units ─────────────────────"
 cp ${ICLONE_DIR}/ops/systemd/iclone-server.service        ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-vegeta.service        ${SYSTEMD_DIR}/
+cp ${ICLONE_DIR}/ops/systemd/iclone-vegeta-server.service ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-token-refresh.service ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-training.service      ${SYSTEMD_DIR}/
 cp ${ICLONE_DIR}/ops/systemd/iclone-training.timer        ${SYSTEMD_DIR}/
@@ -28,6 +29,8 @@ systemctl daemon-reload
 systemctl enable --now iclone-token-refresh
 sleep 3
 systemctl enable --now iclone-server
+sleep 5
+systemctl enable --now iclone-vegeta-server
 sleep 5
 systemctl enable --now iclone-vegeta
 systemctl enable --now iclone-training.timer

@@ -48,11 +48,33 @@ CHAIN_ID      = 8453  # Base mainnet
 POLL_INTERVAL = 30    # seconds between job list polls
 MAX_BACKOFF   = 300   # max backoff seconds when API is down
 
-ICLONE_WALLET   = "0x44cc25d55a4291b92f52062ba023ca1f14206664"
-ICLONE_AGENT_ID = "019eae06-96cd-77d0-8f8b-a6abb71f0cd7"
-ACP_LOCK_FILE   = "/tmp/iclone-acp-agent.lock"
 ACP_CONFIG_DIR  = os.environ.get("ACP_CONFIG_DIR", str(Path.home() / ".config/acp-iclone/acp"))
 ACP_CONFIG_FILE = Path(ACP_CONFIG_DIR) / "config.json"
+
+
+def _load_identity() -> tuple[str, str]:
+    """This agent's (provider wallet, agent id), read from its own config.json.
+    Env overrides: ICLONE_PROVIDER_WALLET, ICLONE_AGENT_ID. Lets one codebase
+    run as any agent — the wallet gates which jobs this server provides for."""
+    wallet = os.environ.get("ICLONE_PROVIDER_WALLET", "").lower()
+    agent_id = os.environ.get("ICLONE_AGENT_ID", "")
+    try:
+        cfg = json.loads(ACP_CONFIG_FILE.read_text())
+        if not wallet:
+            wallet = cfg.get("activeWallet", "").lower()
+        if not agent_id:
+            for w, a in cfg.get("agents", {}).items():
+                if w.lower() == wallet:
+                    agent_id = a.get("id", "")
+                    break
+    except Exception:
+        pass
+    return wallet, agent_id
+
+
+ICLONE_WALLET, ICLONE_AGENT_ID = _load_identity()
+# Lock is per-agent (per config dir) so multiple agent servers don't serialize each other
+ACP_LOCK_FILE   = f"/tmp/iclone-acp-{Path(ACP_CONFIG_DIR).parent.name}.lock"
 
 _ACP_CANDIDATES = [
     "/opt/homebrew/bin/acp",
@@ -142,8 +164,13 @@ class ICloneACPServer:
         self.jobs_failed = 0
 
     def _load_offerings(self) -> dict[str, dict]:
-        offerings_path = Path(__file__).parent.parent / "published_offerings.json"
+        # Per-agent offerings file (env-overridable so one codebase serves N agents)
+        offerings_file = os.environ.get("ICLONE_OFFERINGS_FILE", "published_offerings.json")
+        offerings_path = Path(offerings_file)
+        if not offerings_path.is_absolute():
+            offerings_path = Path(__file__).parent.parent / offerings_file
         if not offerings_path.exists():
+            logger.warning("Offerings file not found: %s", offerings_path)
             return {}
         data = json.loads(offerings_path.read_text())
         result = {}
@@ -287,9 +314,10 @@ class ICloneACPServer:
                 logger.warning("Could not fetch context for job %s: %s", job_id, e)
 
         logger.info("Executing job %s — offering: %s", job_id, offering_id)
+        offering_meta = self._get_offering_by_name(offering_id) or {}
         import concurrent.futures as _cf
         with _cf.ThreadPoolExecutor(max_workers=1) as _pool:
-            _future = _pool.submit(self.engine.execute, offering_id, requirements)
+            _future = _pool.submit(self.engine.execute, offering_id, requirements, offering_meta)
             try:
                 result = _future.result(timeout=120)
             except _cf.TimeoutError:
@@ -397,7 +425,7 @@ class ICloneACPServer:
         self.submitted_jobs.discard(job_id)
 
     def run(self) -> None:
-        logger.info("Starting iCLONE ACP Server (polling mode)...")
+        logger.info("Starting %s ACP provider server (polling mode)...", AGENT_NAME)
 
         whoami = acp("agent", "whoami", check=False)
         if "error" in whoami:
@@ -412,8 +440,8 @@ class ICloneACPServer:
             agent_name, wallet, offering_count,
         )
         logger.info(
-            "iCLONE LIVE — polling every %ds | wallet: %s",
-            POLL_INTERVAL, wallet,
+            "%s LIVE — polling every %ds | wallet: %s",
+            AGENT_NAME, POLL_INTERVAL, wallet,
         )
 
         backoff = POLL_INTERVAL

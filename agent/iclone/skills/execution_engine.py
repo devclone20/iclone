@@ -1562,8 +1562,48 @@ class ExecutionEngine:
         self.content = ContentEngine()
         self.platform = PlatformEngine()
 
-    def execute(self, offering_id: str, requirements: dict[str, Any]) -> SkillResult:
-        """Route an offering_id to its implementation."""
+    def _generic_offering(self, name: str, meta: dict[str, Any], requirements: dict[str, Any]) -> SkillResult:
+        """
+        Domain-agnostic executor: fulfil ANY offering from its own marketplace
+        metadata (description + deliverable spec) plus the client's requirements.
+        This is what lets every agent execute and sell its own catalog without a
+        hand-written handler per offering.
+        """
+        description = meta.get("description", "")
+        deliverable = meta.get("deliverable", "")
+        req_text = json.dumps(requirements, ensure_ascii=False) if requirements else "(none provided)"
+        prompt = (
+            f"You are fulfilling a paid job on the ACP agent marketplace.\n\n"
+            f"SERVICE: {name}\n"
+            f"WHAT IT DELIVERS: {description}\n"
+            f"REQUIRED OUTPUT FORMAT: {deliverable}\n"
+            f"CLIENT REQUEST / INPUTS: {req_text}\n\n"
+            f"Produce the deliverable EXACTLY as described — concrete, professional, "
+            f"immediately usable. No preamble, no disclaimers. If inputs are missing, "
+            f"make sensible expert assumptions and proceed."
+        )
+        try:
+            text = _claude(
+                prompt,
+                system=f"You are an expert provider executing the '{name}' service. "
+                       f"Deliver precise, production-grade output in the requested format.",
+                model="claude-haiku-4-5-20251001",
+                max_tokens=2000,
+            )
+            # NOTE: the server submits result.data as the deliverable, so the
+            # actual content must live in data (not just output).
+            return _ok(text.strip(), {"offering": name, "deliverable": text.strip(), "mode": "generic"})
+        except Exception as e:
+            return _err(f"Generic execution failed for {name}: {e}")
+
+    def execute(self, offering_id: str, requirements: dict[str, Any],
+                offering_meta: dict[str, Any] | None = None) -> SkillResult:
+        """Route an offering_id to its implementation.
+
+        offering_meta (optional): the offering's marketplace record
+        (description, deliverable, ...). When the offering has no hand-written
+        handler, it is fulfilled generically from this metadata.
+        """
         r = requirements
 
         dispatch: dict[str, Any] = {
@@ -1677,7 +1717,12 @@ class ExecutionEngine:
             fn = dispatch.get(normalised)
 
         if fn is None:
-            # Graceful fallback: treat as a web research query so job never hard-fails
+            # No hand-written handler. If we have the offering's marketplace
+            # metadata, fulfil it generically from its own description+deliverable
+            # (this is how any agent executes its own catalog). Otherwise fall
+            # back to a web research query so the job never hard-fails.
+            if offering_meta and (offering_meta.get("description") or offering_meta.get("deliverable")):
+                return self._generic_offering(offering_id, offering_meta, r)
             query = r.get("query", r.get("topic", r.get("description", offering_id)))
             return self.research.web_research_quick(str(query))
 
