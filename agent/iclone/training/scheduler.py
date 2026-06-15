@@ -14,6 +14,9 @@ import logging
 from datetime import datetime, timezone
 
 from .acp_training import ACPTrainingModule
+from .chaingpt_design_training import ChainGPTDesignTraining
+from .chaingpt_mcp_training_v2 import ChainGPTMCPTrainingV2
+from .chaingpt_skills_training import ChainGPTSkillsTraining
 from .cloud_migration_training import run_training as run_cloud_migration_training
 from .offerings_training import run_training as run_offerings_training
 from .chaingpt_skills_training import run_training as run_chaingpt_skills_training
@@ -46,6 +49,9 @@ TRAINING_MODULES = [
     RiderTraining,
     DoctorTraining,
     HermesTraining,
+    ChainGPTSkillsTraining,
+    ChainGPTDesignTraining,
+    ChainGPTMCPTrainingV2,
 ]
 
 
