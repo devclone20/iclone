@@ -34,7 +34,8 @@ TARGET_NAME   = os.getenv("TARGET_NAME", "counterpart")
 JOBS_FILE     = os.getenv("JOBS_FILE", "")
 MINUTE_PARITY = os.getenv("MINUTE_PARITY", "any").lower()   # odd | even | any
 JOB_TIMEOUT   = int(os.getenv("JOB_TIMEOUT", "180"))
-CYCLE_SLEEP   = int(os.getenv("CYCLE_SLEEP", "10"))
+CYCLE_SLEEP   = int(os.getenv("CYCLE_SLEEP", "30"))
+MAX_ADVANCE_PER_PASS = int(os.getenv("MAX_ADVANCE_PER_PASS", "6"))
 
 EXTERNAL_EVERY     = int(os.getenv("EXTERNAL_EVERY", "0"))
 EXTERNAL_QUERY     = os.getenv("EXTERNAL_QUERY", "")
@@ -175,12 +176,18 @@ def advance_inflight() -> int:
     except json.JSONDecodeError:
         return 0
     advanced = 0
+    checks = 0
     for j in jobs:
         if j.get("clientAddress", "").lower() != MY_WALLET:
             continue
         list_st = (j.get("jobStatus", "") or "").lower()
         if list_st in ("completed", "rejected", "expired", "cancelled"):
             continue
+        # Cap history lookups per pass — each acp call spawns a heavy Node
+        # process; on a 1-vCPU box an unbounded backlog scan saturates the CPU.
+        if checks >= MAX_ADVANCE_PER_PASS:
+            break
+        checks += 1
         jid = str(j.get("onChainJobId", ""))
         # `acp job list` reports budget_set jobs as "open" — confirm the TRUE
         # status via job history, otherwise we never fund and a backlog builds.

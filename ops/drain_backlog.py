@@ -1,46 +1,47 @@
 #!/usr/bin/env python3
 """
-Drain the client-side backlog: fund every budget_set job and complete every
-submitted job where the given agent is the CLIENT. Uses job history for the
-TRUE status (acp job list reports budget_set as "open").
+Drain the client-side backlog FAST. For every non-terminal job where this agent
+is the client, blind-try `client fund` (succeeds only if it's budget_set; harmless
+error otherwise), then blind-try `client complete` (succeeds only if submitted).
+No per-job history lookup — half the acp spawns, much lighter on a 1-vCPU box.
 
-Usage: ACP_CONFIG_DIR=<dir> python3 drain_backlog.py
+Run with: python3 -u drain_backlog.py   (unbuffered, line-by-line progress)
+Usage: ACP_CONFIG_DIR=<dir> python3 -u drain_backlog.py
 """
 import json, subprocess, os, sys
 CFG = os.environ["ACP_CONFIG_DIR"]
 ENV = {**os.environ, "ACP_CONFIG_DIR": CFG}
 CHAIN = "8453"
 
-def acp(*a, t=90):
-    r = subprocess.run(["acp", *a], capture_output=True, text=True, timeout=t, env=ENV)
-    return (r.stdout.strip() or r.stderr.strip()), r.returncode
+def acp(*a, t=60):
+    try:
+        r = subprocess.run(["acp", *a], capture_output=True, text=True, timeout=t, env=ENV)
+        return (r.stdout.strip() or r.stderr.strip()), r.returncode
+    except subprocess.TimeoutExpired:
+        return "TIMEOUT", 1
 
-def status(jid):
-    o, _ = acp("job", "history", "--job-id", str(jid), "--chain-id", CHAIN)
-    if not o: return None
-    p = o.splitlines()[0].split("\t")
-    return p[1].strip().lower() if len(p) > 1 else None
+def out(s):
+    print(s, flush=True)
 
 mine = json.loads(open(CFG + "/config.json").read()).get("activeWallet", "").lower()
-out, rc = acp("job", "list", "--json")
-jobs = json.loads(out).get("jobs", []) if rc == 0 else []
-client_jobs = [j for j in jobs if j.get("clientAddress", "").lower() == mine]
-print(f"wallet={mine[:10]} | total={len(jobs)} | as_client={len(client_jobs)}")
+o, rc = acp("job", "list", "--json")
+jobs = json.loads(o).get("jobs", []) if rc == 0 else []
+client_jobs = [j for j in jobs if j.get("clientAddress", "").lower() == mine
+               and (j.get("jobStatus", "") or "").lower() not in ("completed", "rejected", "expired", "cancelled")]
+out(f"wallet={mine[:10]} total={len(jobs)} client_active={len(client_jobs)}")
 
-funded = completed = skipped = 0
+funded = completed = 0
 for j in client_jobs:
     jid = str(j.get("onChainJobId", ""))
-    st = status(jid)
-    if st in ("budget_set", "budgetset"):
-        o, rc = acp("client", "fund", "--job-id", jid, "--chain-id", CHAIN)
-        ok = rc == 0 or "funded" in o.lower()
-        funded += ok
-        print(f"  fund {jid}: {'OK' if ok else 'FAIL '+o[:80]}")
-    elif st == "submitted":
-        o, rc = acp("client", "complete", "--job-id", jid, "--chain-id", CHAIN)
-        ok = rc == 0 or "completed" in o.lower()
-        completed += ok
-        print(f"  complete {jid}: {'OK' if ok else 'FAIL '+o[:80]}")
+    o, rc = acp("client", "fund", "--job-id", jid, "--chain-id", CHAIN)
+    if rc == 0 or "funded" in o.lower():
+        funded += 1
+        out(f"  fund {jid}: OK")
+        continue
+    o2, rc2 = acp("client", "complete", "--job-id", jid, "--chain-id", CHAIN)
+    if rc2 == 0 or "completed" in o2.lower():
+        completed += 1
+        out(f"  complete {jid}: OK")
     else:
-        skipped += 1
-print(f"DONE — funded={funded} completed={completed} skipped(other/expired)={skipped}")
+        out(f"  skip {jid} (not fundable/completable)")
+out(f"DONE funded={funded} completed={completed}")
