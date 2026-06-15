@@ -19,6 +19,7 @@ from .chaingpt_mcp_training_v2 import ChainGPTMCPTrainingV2
 from .chaingpt_skills_training import ChainGPTSkillsTraining
 from .cloud_migration_training import run_training as run_cloud_migration_training
 from .offerings_training import run_training as run_offerings_training
+from .acp_schema_operations import run_training as run_schema_ops_training
 from .chaingpt_skills_training import run_training as run_chaingpt_skills_training
 from .chaingpt_design_training import run_training as run_chaingpt_design_training
 from .doctor_training import DoctorTraining
@@ -192,6 +193,28 @@ def run_all_training() -> dict:
     except Exception as exc:
         results["modules_failed"] += 1
         logger.error("✗ chaingpt_design_training — EXCEPTION: %s", exc)
+
+    # ACP Schema Operations training (dual-field contract, offering JSON schema, job lifecycle)
+    try:
+        schema_result = run_schema_ops_training()
+        results["modules_run"] += 1
+        issues_found = schema_result.get("issues_found", 0)
+        auto_fixed = schema_result.get("auto_fixed", 0)
+        results["modules_passed"] += 1
+        logger.info(
+            "✓ acp_schema_operations — %d offerings audited, %d issues, %d auto-fixed",
+            schema_result.get("offerings_audited", 0), issues_found, auto_fixed,
+        )
+        results["sessions"].append({
+            "module": "acp_schema_operations",
+            "session_id": f"schema-ops-{datetime.now(timezone.utc).strftime('%Y%m%d')}",
+            "completed": True,
+            "insights_count": schema_result.get("patterns_learned", 0),
+            "errors": [],
+        })
+    except Exception as exc:
+        results["modules_failed"] += 1
+        logger.error("✗ acp_schema_operations — EXCEPTION: %s", exc)
 
     # Offerings training (40 live offerings, routing, pricing, ecosystem job types)
     try:
