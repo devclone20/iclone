@@ -36,7 +36,7 @@ export IP="<DROPLET_IP>"
 ```bash
 cd /Users/alexaist1107397/Desktop/AI/iclone
 scp ops/do/setup.sh root@$IP:/tmp/
-ssh root@$IP 'bash /tmp/setup.sh'      # swap + python3.12 + node20 + acp-cli + ufw + fail2ban
+ssh root@$IP 'bash /tmp/setup.sh'      # swap + python3.12 + node20 + acp-cli 1.0.18 (pinned) + ufw + fail2ban
 ```
 
 ## PASSO 3 — Deploy do código + config (do Mac)

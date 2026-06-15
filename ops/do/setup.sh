@@ -9,6 +9,8 @@ ICLONE_DIR="/opt/iclone"
 LOG_DIR="/var/log/iclone"
 NODE_VERSION="20"
 PYTHON_VERSION="3.12"
+# Pinned to match the local dev machine — avoids CLI behaviour drift in prod.
+ACP_CLI_VERSION="1.0.18"
 
 echo "================================================"
 echo "  iCLONE Cloud Setup — Ubuntu (1GB droplet)"
@@ -43,8 +45,12 @@ apt-get install -y -qq python${PYTHON_VERSION} python${PYTHON_VERSION}-venv pyth
 # ── Node.js 20 LTS + acp-cli ─────────────────────────
 curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash -
 apt-get install -y -qq nodejs
-npm install -g @virtuals-protocol/acp-cli@latest
-echo "acp version: $(acp --version 2>/dev/null || echo 'installed')"
+npm install -g @virtuals-protocol/acp-cli@${ACP_CLI_VERSION}
+INSTALLED_ACP="$(acp --version 2>/dev/null || echo '?')"
+echo "acp version: ${INSTALLED_ACP} (pinned ${ACP_CLI_VERSION})"
+if [ "${INSTALLED_ACP}" != "${ACP_CLI_VERSION}" ]; then
+    echo "⚠ WARNING: acp-cli ${INSTALLED_ACP} != pinned ${ACP_CLI_VERSION}"
+fi
 
 # ── Dedicated user ───────────────────────────────────
 id -u ${ICLONE_USER} &>/dev/null || useradd -m -s /bin/bash ${ICLONE_USER}
