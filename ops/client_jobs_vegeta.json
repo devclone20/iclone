@@ -1,0 +1,162 @@
+[
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Bitcoin macro outlook 2026\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Ethereum L2 landscape\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Solana ecosystem growth 2026\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Base chain TVL and adoption\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"AI agent tokens on Virtuals Protocol\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Physical Labor Layer robotics AI tokens\",\"format\":\"markdown\"}"
+  ],
+  [
+    "cryptoNewsFlash",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "cryptoNewsDaily",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "marketRegimeDetector",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "narrativeScanner",
+    "{\"format\":\"markdown\",\"focus\":\"AI agents and robotics\"}"
+  ],
+  [
+    "tokenSnapshotQuick",
+    "{\"token\":\"bitcoin\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenSnapshotQuick",
+    "{\"token\":\"ethereum\",\"format\":\"markdown\"}"
+  ],
+  [
+    "tokenSnapshotQuick",
+    "{\"token\":\"virtual\",\"format\":\"markdown\"}"
+  ],
+  [
+    "fundingRateAlert",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "cryptoNewsSentiment",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "whaleActivityAlert",
+    "{\"token\":\"bitcoin\",\"format\":\"markdown\"}"
+  ],
+  [
+    "yieldOpportunityFinder",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "smartMoneyTracker",
+    "{\"format\":\"markdown\"}"
+  ],
+  [
+    "defiProtocolHealth",
+    "{\"protocol\":\"uniswap\",\"format\":\"markdown\"}"
+  ],
+  [
+    "onChainFlowAnalysis",
+    "{\"format\":\"markdown\",\"chain\":\"base\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"huggingface lerobot manipulation learning\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"BerkeleyAutomation dex-net grasp synthesis AI\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"ROS2 navigation2 Nav2 autonomous mobile robots\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"YOLOv8 ultralytics robot perception pipeline\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Segment Anything SAM robot visual grounding\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"diffusion policy columbia AI robot imitation learning\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Genesis physics simulator embodied AI 2026\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"NVIDIA IsaacLab GPU robot training reinforcement learning\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Google DeepMind dm-control MuJoCo robot RL\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Physical Intelligence openpi pi0 foundation robot policy\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Open X-Embodiment cross-robot dataset Google DeepMind\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"pddlstream task and motion planning manipulation TAMP\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Unitree Go2 H1 quadruped humanoid robot deployment\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"MoveIt2 ROS2 motion planning arm robot\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"ALOHA bimanual robot teleoperation imitation ACT policy\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"RT-X robotics transformer Google research robot learning\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Virtuals Protocol Physical Labor Layer robotics agents 2026\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"SERL sample efficient real robot reinforcement learning Berkeley\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"Florence-2 Microsoft vision language robot integration\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ],
+  [
+    "tokenResearchStandard",
+    "{\"topic\":\"K-Scale humanoid robot simulation kscalelabs training\",\"format\":\"markdown\",\"offering_id\":\"tokenResearchStandard\"}"
+  ]
+]

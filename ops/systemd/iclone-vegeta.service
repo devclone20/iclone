@@ -1,5 +1,5 @@
 [Unit]
-Description=iCLONE VEGETA Autopilot (ACP client)
+Description=VEGETA Client Autopilot (hires iCLONE — odd minutes)
 After=network-online.target iclone-server.service
 Wants=network-online.target
 StartLimitIntervalSec=120
@@ -11,8 +11,7 @@ User=iclone
 Group=iclone
 WorkingDirectory=/opt/iclone
 
-# vegeta_autopilot.py resolves its own ACP_CONFIG_DIR via $HOME (~/.config/acp-vegeta/acp)
-ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/vegeta_autopilot.py
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/client_autopilot.py
 
 Restart=always
 RestartSec=20
@@ -22,10 +21,14 @@ StandardError=append:/var/log/iclone/vegeta.log
 
 Environment="PATH=/usr/local/bin:/usr/bin:/bin"
 Environment="HOME=/home/iclone"
-Environment="CYCLE_INTERVAL=300"
-Environment="JOBS_PER_CYCLE=1"
+Environment="ACP_CONFIG_DIR=/home/iclone/.config/acp-vegeta/acp"
+Environment="AUTOPILOT_AGENT_NAME=VEGETA"
+Environment="TARGET_WALLET=0x44cc25d55a4291b92f52062ba023ca1f14206664"
+Environment="TARGET_NAME=iCLONE"
+Environment="JOBS_FILE=ops/client_jobs_vegeta.json"
+Environment="MINUTE_PARITY=odd"
+Environment="LOG_PATH=/var/log/iclone/vegeta.log"
 EnvironmentFile=/opt/iclone/.env
-# .env.local loaded second so real secrets (ANTHROPIC_API_KEY) override .env placeholders
 EnvironmentFile=-/home/iclone/.env.local
 
 LimitNOFILE=65536
