@@ -4,7 +4,7 @@
       "offering_id": "cryptoNewsFlash",
       "name": "cryptoNewsFlash",
       "description": "Top 5 crypto news of the last hour. Bullet format, source links included.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe48-a33c-79b1-8ea4-a111de824eaf"
     },
@@ -20,7 +20,7 @@
       "offering_id": "riskRewardCalculator",
       "name": "riskRewardCalculator",
       "description": "Calculate risk/reward for a trade. Position sizing and max loss based on your parameters.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe49-2e6b-739b-aff4-11d11071c90f"
     },
@@ -116,7 +116,7 @@
       "offering_id": "cryptoNewsByToken",
       "name": "cryptoNewsByToken",
       "description": "All news for a specific token in the last 24h. Aggregated and summarised.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 45,
       "acp_id": "019ebe48-ad08-7f0f-b8e4-7d766c224a11"
     },
@@ -132,7 +132,7 @@
       "offering_id": "marketCommentary",
       "name": "marketCommentary",
       "description": "Write a short market commentary post. What happened today and what it means.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 45,
       "acp_id": "019ebe49-166f-7aaf-a26e-2ca4f13c825b"
     },
@@ -148,7 +148,7 @@
       "offering_id": "cryptoNewsSentiment",
       "name": "cryptoNewsSentiment",
       "description": "Sentiment analysis of crypto news. Bullish/bearish signal with confidence score.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe48-b093-7bdc-bb8e-14010ef0508a"
     },
@@ -180,7 +180,7 @@
       "offering_id": "cryptoNewsDaily",
       "name": "cryptoNewsDaily",
       "description": "Daily crypto news digest. Top 10 stories, market mood, key events.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 60,
       "acp_id": "019ebe48-a659-7f6d-8e41-7c1b7e3c8dad"
     },
@@ -204,7 +204,7 @@
       "offering_id": "whaleActivityAlert",
       "name": "whaleActivityAlert",
       "description": "Detect recent whale activity for a token. Large buys, sells, transfers.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 45,
       "acp_id": "019ebe49-04c0-7873-b642-3e1554d25e55"
     },
@@ -220,7 +220,7 @@
       "offering_id": "tokenSnapshotQuick",
       "name": "tokenSnapshotQuick",
       "description": "Quick token snapshot: price, market cap, volume, 24h change, key metrics.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe48-c2e1-77c0-9caf-2a03de9d1207"
     },
@@ -236,7 +236,7 @@
       "offering_id": "cryptoThreadMicro",
       "name": "cryptoThreadMicro",
       "description": "5-tweet punchy crypto thread on any token or narrative. Ready to post.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 45,
       "acp_id": "019ebe49-08be-7bd0-a68d-2fc308b37fd1"
     },
@@ -260,7 +260,7 @@
       "offering_id": "walletSnapshot",
       "name": "walletSnapshot",
       "description": "Instant wallet snapshot. Token holdings and USD values for any EVM wallet.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe48-e539-7ef3-90b6-4587022931ff"
     },
@@ -308,7 +308,7 @@
       "offering_id": "fundingRateAlert",
       "name": "fundingRateAlert",
       "description": "Check funding rates across major perpetual markets. Identify extremes and opportunities.",
-      "price_usdc": 0.01,
+      "price_usdc": 0.05,
       "sla_minutes": 30,
       "acp_id": "019ebe49-3f1a-707f-ace8-a70209899043"
     },
