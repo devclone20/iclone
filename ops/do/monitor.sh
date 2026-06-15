@@ -18,7 +18,7 @@ echo -e "${B}═══ iclone-prod fleet — $(date -u +'%Y-%m-%d %H:%M:%S UTC')
 
 # Serviços
 printf "Serviços: "
-for s in iclone-server iclone-vegeta-server iclone-vegeta iclone-token-refresh; do
+for s in iclone-server iclone-client iclone-vegeta-server iclone-vegeta iclone-token-refresh; do
     st=$(systemctl is-active $s 2>/dev/null)
     [ "$st" = "active" ] && printf "${G}● %s${X}  " "${s#iclone-}" || printf "${R}○ %s($st)${X}  " "${s#iclone-}"
 done; echo
@@ -41,11 +41,15 @@ echo -e "  VEGETA criou: ${C}${cr}${X}   iCLONE submeteu: ${C}${sub}${X}   compl
 
 echo ""
 echo -e "${B}── Pipeline (últimas 12 transições, ordenadas) ──${X}"
-{ grep -hE "created|funded ✅|completed — escrow" /var/log/iclone/vegeta.log 2>/dev/null \
-    | sed -E 's/\[INFO\] vegeta.autopilot: /VEGETA  /'
-  grep -hE "Setting budget|is funded|Deliverable submitted" /var/log/iclone/server.log 2>/dev/null \
-    | sed -E 's/\[INFO\] iclone.server.CLONE: /iCLONE  /'
-} | sed -E 's/,[0-9]{3}//; s/\.[0-9]{3}//' | sort | tail -12 \
+{ grep -hE "Hiring|created →|completed" /var/log/iclone/vegeta.log 2>/dev/null \
+    | sed -E 's/\[INFO\] [a-z]+\.autopilot: /V→C  /'
+  grep -hE "Hiring|created →|completed" /var/log/iclone/iclone-client.log 2>/dev/null \
+    | sed -E 's/\[INFO\] [a-z]+\.autopilot: /C→V  /'
+  grep -hE "Setting budget|Deliverable submitted" /var/log/iclone/server.log 2>/dev/null \
+    | sed -E 's/\[INFO\] iclone.server.CLONE: /iCLONE(prov)  /'
+  grep -hE "Setting budget|Deliverable submitted" /var/log/iclone/vegeta-server.log 2>/dev/null \
+    | sed -E 's/\[INFO\] iclone.server.VEGETA: /VEGETA(prov)  /'
+} | sed -E 's/,[0-9]{3}//; s/\.[0-9]{3}//' | sort | tail -14 \
   | awk '{t=$2; who=$3; $1=$2=$3=""; sub(/^ +/,""); printf "  %s  %-7s %s\n", t, who, $0}'
 
 echo ""
