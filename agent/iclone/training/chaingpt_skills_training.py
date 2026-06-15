@@ -169,3 +169,21 @@ class ChainGPTSkillsTraining:
         self._sessions.append(session)
         logger.info("ChainGPT Skills session %s — %d insights (completed=%s)", _id, len(insights), completed)
         return session
+
+
+def run_training() -> dict:
+    """Standalone entry point — matches the interface expected by scheduler.py."""
+    module = ChainGPTSkillsTraining()
+    session = module.run_session()
+    insights = session.get("insights", [])
+    total = max(len(insights), 1)
+    passed = total if session.get("completed") else 0
+    score = round(passed / total * 100, 1)
+    return {
+        "session_id": session.get("session_id", ""),
+        "passed": passed,
+        "total": total,
+        "score": score,
+        "passed_threshold": session.get("completed", False),
+        "failures": [],
+    }
