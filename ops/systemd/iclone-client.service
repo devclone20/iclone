@@ -26,7 +26,8 @@ Environment="AUTOPILOT_AGENT_NAME=iCLONE"
 Environment="TARGET_WALLET=0xe09f40114af6c78788a8003da127c49c56158584"
 Environment="TARGET_NAME=VEGETA"
 Environment="JOBS_FILE=ops/client_jobs_iclone.json"
-Environment="MINUTE_PARITY=even"
+Environment="FIRE_PERIOD_MIN=8"
+Environment="FIRE_OFFSET_MIN=4"
 Environment="LOG_PATH=/var/log/iclone/iclone-client.log"
 EnvironmentFile=/opt/iclone/.env
 EnvironmentFile=-/home/iclone/.env.local
