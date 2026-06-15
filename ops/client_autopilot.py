@@ -178,8 +178,13 @@ def advance_inflight() -> int:
     for j in jobs:
         if j.get("clientAddress", "").lower() != MY_WALLET:
             continue
+        list_st = (j.get("jobStatus", "") or "").lower()
+        if list_st in ("completed", "rejected", "expired", "cancelled"):
+            continue
         jid = str(j.get("onChainJobId", ""))
-        st = (j.get("jobStatus", "") or "").lower()
+        # `acp job list` reports budget_set jobs as "open" — confirm the TRUE
+        # status via job history, otherwise we never fund and a backlog builds.
+        st = get_job_status(jid) or list_st
         if st in ("budget_set", "budgetset"):
             if fund_job(jid):
                 advanced += 1
@@ -244,11 +249,22 @@ def hire_external() -> bool:
     return False
 
 
-def my_minute() -> bool:
-    """True if the current wall-clock minute belongs to this agent (alternation)."""
+FIRE_PERIOD = int(os.getenv("FIRE_PERIOD_MIN", "0"))   # 0 = use legacy parity
+FIRE_OFFSET = int(os.getenv("FIRE_OFFSET_MIN", "0"))
+
+
+def fire_now() -> bool:
+    """Should this agent create a new job this minute?
+
+    Preferred: slot mode — fire when minute % FIRE_PERIOD == FIRE_OFFSET.
+    Two agents with the same period and offsets 0 / period/2 alternate evenly
+    (e.g. period 8, offsets 0 & 4 → one job every 4 min, alternating).
+    Legacy: parity mode (odd/even/any) when FIRE_PERIOD is 0."""
+    minute = datetime.now(timezone.utc).minute
+    if FIRE_PERIOD > 0:
+        return (minute % FIRE_PERIOD) == (FIRE_OFFSET % FIRE_PERIOD)
     if MINUTE_PARITY == "any":
         return True
-    minute = datetime.now(timezone.utc).minute
     return (minute % 2 == 1) if MINUTE_PARITY == "odd" else (minute % 2 == 0)
 
 
@@ -267,7 +283,7 @@ def main():
             log.exception("advance_inflight error: %s", e)
 
         now = datetime.now(timezone.utc)
-        if my_minute() and now.minute != last_fired_minute:
+        if fire_now() and now.minute != last_fired_minute:
             last_fired_minute = now.minute
             cycle_count += 1
             try:
