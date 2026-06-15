@@ -172,3 +172,22 @@ class ChainGPTDesignTraining:
             _id, len(insights) - len(errors), len(insights), completed
         )
         return session
+
+
+def run_training() -> dict:
+    """Standalone entry point — matches the interface expected by scheduler.py."""
+    module = ChainGPTDesignTraining()
+    session = module.run_session()
+    insights = session.get("insights", [])
+    errors = session.get("errors", [])
+    total = max(len(insights), 1)
+    passed = len(insights) - len(errors)
+    score = round(passed / total * 100, 1)
+    return {
+        "session_id": session.get("session_id", ""),
+        "passed": passed,
+        "total": total,
+        "score": score,
+        "passed_threshold": session.get("completed", False),
+        "failures": [{"question": e} for e in errors],
+    }
