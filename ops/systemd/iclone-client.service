@@ -1,0 +1,38 @@
+[Unit]
+Description=iCLONE Client Autopilot (hires VEGETA — even minutes)
+After=network-online.target iclone-vegeta-server.service
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/client_autopilot.py
+
+Restart=always
+RestartSec=20
+
+StandardOutput=append:/var/log/iclone/iclone-client.log
+StandardError=append:/var/log/iclone/iclone-client.log
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/iclone"
+Environment="ACP_CONFIG_DIR=/home/iclone/.config/acp-iclone/acp"
+Environment="AUTOPILOT_AGENT_NAME=iCLONE"
+Environment="TARGET_WALLET=0xe09f40114af6c78788a8003da127c49c56158584"
+Environment="TARGET_NAME=VEGETA"
+Environment="JOBS_FILE=ops/client_jobs_iclone.json"
+Environment="MINUTE_PARITY=even"
+Environment="LOG_PATH=/var/log/iclone/iclone-client.log"
+EnvironmentFile=/opt/iclone/.env
+EnvironmentFile=-/home/iclone/.env.local
+
+LimitNOFILE=65536
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

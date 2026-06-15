@@ -1,0 +1,162 @@
+[
+  [
+    "ikSolverSetup",
+    "{\"offering_id\": \"ikSolverSetup\", \"robot\": \"Franka Panda\", \"task\": \"bimanual cloth folding\", \"context\": \"Pink real-time inverse kinematics configuration for robot arm. Task specification, joint limits, velocity constraints an\"}"
+  ],
+  [
+    "segmentationMaskPlan",
+    "{\"offering_id\": \"segmentationMaskPlan\", \"robot\": \"bimanual ALOHA\", \"task\": \"autonomous lab sample handling\", \"context\": \"SAM-based segmentation strategy for robot workspace understanding. Prompt design, mask filtering, downstream integration\"}"
+  ],
+  [
+    "unitreeDeployPlan",
+    "{\"offering_id\": \"unitreeDeployPlan\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Deployment and motion plan for Unitree Go2 or H1 robot. SDK setup, DDS config, motion primitives, safety constraints and\"}"
+  ],
+  [
+    "florenceVLRobot",
+    "{\"offering_id\": \"florenceVLRobot\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Florence-2 vision-language model integration for robot perception. Prompt design, visual grounding, referring expression\"}"
+  ],
+  [
+    "taskMotionPlan",
+    "{\"offering_id\": \"taskMotionPlan\", \"robot\": \"Franka Panda\", \"task\": \"tool-use assembly\", \"context\": \"Full PDDL-based task-and-motion plan for manipulation. Predicate design, action templates, motion stream specs and const\"}"
+  ],
+  [
+    "gpuSimTraining",
+    "{\"offering_id\": \"gpuSimTraining\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"Isaac Lab GPU-accelerated robot training workflow. Environment setup, RSL-RL training script, hyperparameter guide and s\"}"
+  ],
+  [
+    "pyroboSimTask",
+    "{\"offering_id\": \"pyroboSimTask\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"PyRoboSim task-level simulation design. World model spec, robot agent config, task planner integration and navigation-ma\"}"
+  ],
+  [
+    "hulcLangSkill",
+    "{\"offering_id\": \"hulcLangSkill\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"door opening and traversal\", \"context\": \"HULC2 language-conditioned manipulation skill design. Instruction vocabulary, multi-task training setup, skill chaining \"}"
+  ],
+  [
+    "dexArtGraspPlan",
+    "{\"offering_id\": \"dexArtGraspPlan\", \"robot\": \"bimanual ALOHA\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"DexArt dexterous articulated object manipulation plan. Object category analysis, multi-finger grasp synthesis, finger tr\"}"
+  ],
+  [
+    "pointEObjectGen",
+    "{\"offering_id\": \"pointEObjectGen\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Point-E 3D object generation strategy for robot task planning. Prompt engineering, mesh export pipeline, collision model\"}"
+  ],
+  [
+    "objectDetectionPipeline",
+    "{\"offering_id\": \"objectDetectionPipeline\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"door opening and traversal\", \"context\": \"YOLOv8-based real-time object detection pipeline for robot perception. Model selection, inference config, custom trainin\"}"
+  ],
+  [
+    "batchSimStrategy",
+    "{\"offering_id\": \"batchSimStrategy\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"Brax JAX batched physics simulation strategy for RL. Parallelisation plan, environment vectorisation, training loop desi\"}"
+  ],
+  [
+    "torqueCtrlLoop",
+    "{\"offering_id\": \"torqueCtrlLoop\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"bimanual cloth folding\", \"context\": \"PyTorch torque control loop design for robot arm. PD controller, impedance control, real-time execution strategy and saf\"}"
+  ],
+  [
+    "rlEnvDesign",
+    "{\"offering_id\": \"rlEnvDesign\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"MuJoCo/dm-control RL training environment design. Reward shaping, observation space, action space and curriculum strateg\"}"
+  ],
+  [
+    "autoSceneDesign",
+    "{\"offering_id\": \"autoSceneDesign\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"tool-use assembly\", \"context\": \"CARLA autonomous driving scene design. Actor spawning, traffic flow, sensor placement, weather config and scenario evalu\"}"
+  ],
+  [
+    "embodiedNavPlan",
+    "{\"offering_id\": \"embodiedNavPlan\", \"robot\": \"bimanual ALOHA\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Habitat-Sim embodied navigation task plan. Scene setup, agent config, evaluation metrics, success thresholds and trainin\"}"
+  ],
+  [
+    "alohaSetupGuide",
+    "{\"offering_id\": \"alohaSetupGuide\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"ALOHA bimanual teleoperation setup guide. Hardware checklist, data collection protocol, ACT policy training pipeline and\"}"
+  ],
+  [
+    "navStackSetup",
+    "{\"offering_id\": \"navStackSetup\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"bimanual cloth folding\", \"context\": \"Nav2 autonomous navigation stack configuration for mobile robots. Complete config, launch files, costmap tuning guide an\"}"
+  ],
+  [
+    "robosuiteEnvSetup",
+    "{\"offering_id\": \"robosuiteEnvSetup\", \"robot\": \"Franka Panda\", \"task\": \"door opening and traversal\", \"context\": \"Robosuite manipulation benchmark environment setup. Task selection, robot config, observation space definition and evalu\"}"
+  ],
+  [
+    "diffusionPolicyDesign",
+    "{\"offering_id\": \"diffusionPolicyDesign\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"tool-use assembly\", \"context\": \"Diffusion policy training setup for dexterous manipulation. Dataset format, network architecture, noise scheduler config\"}"
+  ],
+  [
+    "moveit2ArmPlan",
+    "{\"offering_id\": \"moveit2ArmPlan\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"MoveIt2 arm motion planning configuration. SRDF, kinematics plugin, planning pipeline, collision objects and execution i\"}"
+  ],
+  [
+    "rlaxPolicyTrain",
+    "{\"offering_id\": \"rlaxPolicyTrain\", \"robot\": \"Franka Panda\", \"task\": \"tool-use assembly\", \"context\": \"RLAX JAX RL algorithm component design for robot. Value function, policy gradient, actor-critic architecture and trainin\"}"
+  ],
+  [
+    "roboticsRepoScan",
+    "{\"offering_id\": \"roboticsRepoScan\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Deep scan of a GitHub robotics repo — capabilities, architecture, integration guide and code examples. Powered by GitHub\"}"
+  ],
+  [
+    "mobileRobotSetup",
+    "{\"offering_id\": \"mobileRobotSetup\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"tool-use assembly\", \"context\": \"TurtleBot3 ROS2 navigation and perception setup. SLAM config, Nav2 integration, sensor calibration and autonomous patrol\"}"
+  ],
+  [
+    "graspPlannerSetup",
+    "{\"offering_id\": \"graspPlannerSetup\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"warehouse shelf restocking\", \"context\": \"Design a complete grasp planning pipeline for robotic pick-and-place. Architecture, GQ-CNN config, Dex-Net integration g\"}"
+  ],
+  [
+    "gibsonHomeSim",
+    "{\"offering_id\": \"gibsonHomeSim\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"iGibson home simulation setup for household robot. Scene loading, object state machine, task specification and VR integr\"}"
+  ],
+  [
+    "openXDataQuery",
+    "{\"offering_id\": \"openXDataQuery\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"Query Open X-Embodiment dataset for relevant robot demonstrations. Dataset selection strategy, filtering, preprocessing \"}"
+  ],
+  [
+    "stretchArmTask",
+    "{\"offering_id\": \"stretchArmTask\", \"robot\": \"UR5e 6-DOF arm\", \"task\": \"tool-use assembly\", \"context\": \"Hello Robot Stretch mobile manipulation task plan. Reachability analysis, grasp strategy, home navigation integration an\"}"
+  ],
+  [
+    "pinocchioKDyn",
+    "{\"offering_id\": \"pinocchioKDyn\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"door opening and traversal\", \"context\": \"Pinocchio kinematics and dynamics analysis for robot. URDF parsing, forward/inverse kinematics, Jacobian computation and\"}"
+  ],
+  [
+    "ros2NodeDesign",
+    "{\"offering_id\": \"ros2NodeDesign\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"door opening and traversal\", \"context\": \"ROS2 node architecture design for robot system. Topic graph, message types, lifecycle nodes, QoS profiles and package st\"}"
+  ],
+  [
+    "robotLogAnalyze",
+    "{\"offering_id\": \"robotLogAnalyze\", \"robot\": \"Franka Panda\", \"task\": \"door opening and traversal\", \"context\": \"MCAP robot log analysis and diagnostics. Topic inspection, timestamp analysis, sensor synchronization check and anomaly \"}"
+  ],
+  [
+    "dexRetargetDesign",
+    "{\"offering_id\": \"dexRetargetDesign\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"door opening and traversal\", \"context\": \"Dex-Retargeting pipeline design for robot hand control. Hand pose extraction, retargeting algorithm selection, robot han\"}"
+  ],
+  [
+    "serlRLFinetune",
+    "{\"offering_id\": \"serlRLFinetune\", \"robot\": \"Franka Panda\", \"task\": \"warehouse shelf restocking\", \"context\": \"SERL sample-efficient real-robot RL fine-tuning plan. Reward design, data collection protocol, online learning loop and \"}"
+  ],
+  [
+    "rtxPolicyScan",
+    "{\"offering_id\": \"rtxPolicyScan\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"bimanual cloth folding\", \"context\": \"RT-X/RT-2 robotics transformer policy research. Capability scan, supported tasks, fine-tuning requirements and deploymen\"}"
+  ],
+  [
+    "droneWaypointPlan",
+    "{\"offering_id\": \"droneWaypointPlan\", \"robot\": \"Unitree Go2 quadruped\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"AirSim drone waypoint mission plan. Environment setup, GPS waypoints, sensor config, collision avoidance strategy and fl\"}"
+  ],
+  [
+    "rlPolicyOptimize",
+    "{\"offering_id\": \"rlPolicyOptimize\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"warehouse shelf restocking\", \"context\": \"Acme distributed RL policy optimization strategy. Actor-learner setup, replay buffer config, policy architecture and con\"}"
+  ],
+  [
+    "humanoidSimPlan",
+    "{\"offering_id\": \"humanoidSimPlan\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"door opening and traversal\", \"context\": \"K-Scale humanoid robot simulation training plan. Simulation environment setup, motion library, locomotion policy trainin\"}"
+  ],
+  [
+    "physicsSimConfig",
+    "{\"offering_id\": \"physicsSimConfig\", \"robot\": \"Franka Panda\", \"task\": \"autonomous lab sample handling\", \"context\": \"Genesis or MuJoCo physics simulation configuration for robot task. Scene XML/USD, solver parameters, contact model and r\"}"
+  ],
+  [
+    "pointCloudPipeline",
+    "{\"offering_id\": \"pointCloudPipeline\", \"robot\": \"bimanual ALOHA\", \"task\": \"warehouse shelf restocking\", \"context\": \"PyTorch3D 3D point cloud processing pipeline for robot perception. Filtering, segmentation, object recognition and surfa\"}"
+  ],
+  [
+    "foundationPolicyEval",
+    "{\"offering_id\": \"foundationPolicyEval\", \"robot\": \"Stretch RE1 mobile manipulator\", \"task\": \"pick and place on a cluttered tabletop\", \"context\": \"Evaluate pi0 (openpi) foundation policy fit for target robot task. Capability assessment, fine-tuning requirements, comp\"}"
+  ]
+]
