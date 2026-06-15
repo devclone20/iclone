@@ -1,0 +1,11 @@
+[Unit]
+Description=Run iCLONE Offerings Manager every 30 minutes
+Requires=iclone-offerings-manager.service
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=30min
+AccuracySec=10s
+
+[Install]
+WantedBy=timers.target

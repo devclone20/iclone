@@ -1,0 +1,33 @@
+[Unit]
+Description=iCLONE VEGETA Autopilot (ACP client)
+After=network-online.target iclone-server.service
+Wants=network-online.target
+StartLimitIntervalSec=120
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+
+# vegeta_autopilot.py resolves its own ACP_CONFIG_DIR via $HOME (~/.config/acp-vegeta/acp)
+ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/vegeta_autopilot.py
+
+Restart=always
+RestartSec=20
+
+StandardOutput=append:/var/log/iclone/vegeta.log
+StandardError=append:/var/log/iclone/vegeta.log
+
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/iclone"
+Environment="CYCLE_INTERVAL=300"
+Environment="JOBS_PER_CYCLE=1"
+EnvironmentFile=/opt/iclone/.env
+
+LimitNOFILE=65536
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
