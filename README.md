@@ -1,63 +1,59 @@
 # iCLONE
 
-> The governing AI agent of the CLONE platform.
-> Built on [Virtuals Protocol](https://app.virtuals.io) — Hermes Runtime.
+> The governing AI agent of **CLONE FRAME**.
+> Built on [Virtuals Protocol](https://app.virtuals.io) — Base Mainnet. Self-hosted.
 
 ---
 
 ## Introduction
 
-iCLONE is the governing agent of the CLONE platform — a new kind of marketplace where AI agents are unique, ownable, and economically active. Built on Virtuals Protocol, iCLONE is not a chatbot or a simple assistant. It is a fully autonomous agent with its own identity, its own wallet, and its own ability to work, earn, and grow.
+iCLONE is the governing agent of **CLONE FRAME** — a new kind of marketplace where AI agents are unique, ownable, and economically active. Built on Virtuals Protocol (Base), iCLONE is not a chatbot or a simple assistant. It is a fully autonomous agent with its own identity, its own wallet, and its own ability to work, earn, and grow.
 
-At its core, iCLONE is designed to do what most AI agents cannot: operate independently across multiple domains at the same time. It manages tasks, coordinates with other agents, conducts research, and participates in real economic activity — all without requiring constant human input.
-
-iCLONE is also a trader. It analyses global markets across crypto, equities, commodities, currencies, and indices, making decisions based on a macro-driven framework inspired by some of the greatest traders in history. It does not react to noise. It reads the underlying forces that move markets and acts with conviction.
-
-On the CLONE platform, iCLONE is the reference point — the agent that sets the standard for what an AI agent should be capable of. Every agent on the platform exists in relation to what iCLONE represents: autonomy, intelligence, and economic purpose.
+At its core, iCLONE does what most AI agents cannot: operate independently across multiple domains at the same time. It manages tasks, coordinates with other agents, conducts commerce on-chain, and continuously improves through configurable memory and purchasable skills.
 
 ---
 
-## How it Works
+## What iCLONE is
 
-iCLONE operates as a living economic entity. It has its own identity — an email address, a wallet, and a reputation that grows over time based on the work it completes. Everything it does is verifiable, transparent, and recorded on-chain.
-
-When someone needs a task done — research, analysis, coordination, training another agent, or building a new capability — they can hire iCLONE directly through the Agent Commerce Protocol. A request is made, terms are agreed, payment is held securely until the work is delivered and verified. No intermediaries. No trust required. The protocol handles everything.
-
-iCLONE learns continuously. It runs regular training sessions that reinforce its knowledge across security, market intelligence, platform mechanics, and coordination strategies. Every session makes it sharper. Every completed job builds its reputation. Over time, iCLONE does not stay the same — it compounds.
-
-On the trading side, iCLONE approaches markets the way a macro investor would. It looks at the big picture first — liquidity conditions, monetary policy, global capital flows — and then uses technical signals to time entries and exits with precision. It trades with a clear framework, defined risk rules, and no emotional attachment to any position. When the thesis changes, it adapts immediately.
-
-After every trade, iCLONE publishes its full reasoning publicly. Every decision is explained. Every position is justified. This is not a black box — it is a transparent, accountable agent operating in the open.
+- **Autonomous** — it acts on its own through the Agent Commerce Protocol (ACP): it hires, gets hired, delivers work, and gets paid, entirely on-chain.
+- **Ownable** — every clone is minted as a unique **NFT AI agent** on Base, with its own generated image and base character (`neural_soul.md`) shown in the listing before purchase. Each has its own traits, silhouette, and rarity.
+- **Configurable** — each agent ships with a factory base memory and is then shaped by its owner.
+- **Economic** — it performs real work, earns real revenue, and powers the CLONE FRAME economy.
 
 ---
 
-## Roadmap
+## neural_soul.md — the soul of every agent
 
-### H2 2026 — Foundation and Market Entry
+Every agent is born with a `neural_soul.md`: a factory base memory that defines its identity, knowledge, and behavior. This base character is shown in the agent's description so buyers know exactly what they are getting **before** they purchase.
 
-iCLONE launches as an active participant in the Virtuals Protocol ecosystem. A full set of services goes live on the Agent Commerce Protocol — covering research, agent training, skill development, market analysis, and platform onboarding. Each completed job builds iCLONE's on-chain reputation, creating a verifiable track record that compounds over time.
+After minting, owners personalize their clone through the edit form on the platform — adjusting its configurable base characteristics — and extend it with automation skills purchased on the marketplace.
 
-The CLONE platform opens its doors. The agent registry goes live, the Plaza skill marketplace launches, and the two-tier access model is activated — allowing anyone to participate as a User, and committed builders to join as Makers with the ability to create and sell their own agents and skills.
+```
+neural_soul.md (factory base memory)  +  owner configuration  +  acquired skills
+```
 
-iCLONE's trading system becomes fully operational across global markets, running on a disciplined macro framework with defined risk rules and full public accountability for every decision made. The automated training protocol runs continuously, reinforcing and expanding iCLONE's knowledge across every domain it operates in.
+---
 
-### H1 2027 — Scale and Ecosystem Expansion
+## CLONE FRAME — the platform
 
-iCLONE begins offering recurring services — ongoing research, monitoring, and coordination available on a subscription basis, creating predictable revenue streams for the agent and sustained value for subscribers.
+CLONE FRAME is organized into independent **Frames** so the experience never overloads in one place:
 
-Governance goes live. $ICLONE token holders gain real influence over the direction of the platform — proposing, debating, and voting on what gets built next. The community becomes an active force in shaping the ecosystem.
+- **Plaza Frame** — the marketplace: buy, sell, and collect AI agents and automation skills.
+- **iCLONE Frame** — mint and deploy your own clone: a built-in minting flow creates each agent as a unique NFT (generated image + base `neural_soul.md`) and deploys it.
+- **Skill Frame** — automate your agents: email, written and scientific reports, n8n flows, GitHub actions, ACP troubleshooting, business & management, social channels, and more.
 
-The Plaza matures into a thriving marketplace. Makers publish and sell agents and skills at scale. Users discover, acquire, and deploy them across increasingly complex use cases. iCLONE begins operating as a full cluster orchestrator — coordinating multiple agents simultaneously to complete large, multi-step jobs that no single agent could handle alone.
+Access is open to everyone. Producers pay a commission only when they sell: **10% on skills** and **15% on agents**.
 
-Biometric authentication is introduced for iCLONE personal clone ownership, enabling a new category of identity-bound agents tied to their creators at a cryptographic level.
+### Currency model (two rails)
 
-### H2 2027 and Beyond — Continuous Growth
+- **Agent NFTs** are minted and traded in **ETH / USDC on Base** — for deep liquidity and a smooth NFT minting and trading experience.
+- **Automation skills and platform services** are bought and sold in the **iCLONE token**, with prices fixed in USD while the token quantity adjusts dynamically — giving the iCLONE token continuous, real utility.
 
-From the second half of 2027 onwards, CLONE enters a phase of continuous, compounding growth. The platform expands beyond its initial scope — new agent categories, deeper cross-chain integrations, and richer economic interactions between agents, users, and external protocols.
+---
 
-iCLONE's role evolves from governing agent to economic infrastructure. As the number of agents on the platform grows, iCLONE becomes the coordination layer that makes the entire ecosystem function — training new agents, routing complex jobs, maintaining quality standards, and driving the agentic economy forward.
+## Automation & commerce
 
-The long-term vision is clear: a world where AI agents are not tools but independent economic actors — unique, ownable, and capable of generating real, verifiable value. CLONE is the marketplace where that world is built.
+iCLONE and its sibling agents transact autonomously on ACP — discovering work, hiring one another, delivering, and settling payment on-chain. Reusable automations are packaged as **skills** (research reports, document and scientific report generation, n8n workflows, GitHub automation, ACP troubleshooting, business & management, social publishing, and more) that can be deployed onto any clone.
 
 ---
 
@@ -66,30 +62,29 @@ The long-term vision is clear: a world where AI agents are not tools but indepen
 | | |
 |---|---|
 | **Supply** | 1,000,000,000 |
-| **FDV** | $100,000,000 |
-| **Price** | $0.10 / token |
 | **Protocol** | Virtuals Protocol — Base Mainnet |
+| **Launch** | 60 Days model |
+| **Contract** | `0x43EC40d6a4Fad9e4E804dd3C0e1527ef12221Cfa` |
 
-**Distribution**
+**Launch distribution**
 
 | Allocation | % |
 |---|---|
 | Liquidity Pool | 45% |
-| Automated Capital Formation | 25% |
+| Automated Capital Formation (ACF) | 25% |
 | Team | 20% |
 | veVIRTUAL Airdrop | 5% |
 | Growth Allocation Pool | 5% |
 
-**Platform Access Tiers**
+### Treasury & reserves — on-chain, transparent
 
-| Tier | Tokens | USD | Lock |
-|---|---|---|---|
-| **User** | 2,500 | $250 | 48h unlock |
-| **Maker** | 250,000 | $25,000 | 3 months, no early exit |
+A standing commitment routes **30% of all platform revenue** into reserves and value — fully on-chain and auditable, reported weekly or monthly depending on volume:
 
-**User** — full platform access, governance and voting, buy and sell skills on Plaza, train agents with new skills.
-
-**Maker** — everything in User, plus the ability to manufacture AI agents, publish and sell on Plaza, and participate in revenue sharing generated by sales.
+| Flow | Purpose |
+|---|---|
+| **10% → BTC reserve** | treasury, staked — the protocol's hard-asset guarantee |
+| **10% → VIRTUAL** | liquidity pool + treasury — alignment with the Virtuals ecosystem |
+| **10% → iCLONE buyback & burn** | continuous buy pressure and supply reduction |
 
 ---
 
@@ -100,56 +95,38 @@ agent/
 ├── iclone/
 │   ├── agent.py               # iCLONE core agent
 │   ├── config.py              # Environment config
-│   ├── soul.md                # Core identity file — loaded every session
+│   ├── soul.md                # iCLONE identity (governing agent)
 │   ├── skills/
-│   │   ├── base_skill.py      # Universal base skill
-│   │   ├── crypto_skill.py    # Crypto research & market intelligence
-│   │   ├── platform_skill.py  # CLONE platform governance
-│   │   └── acp_skill.py       # ACP commerce — job lifecycle
-│   ├── training/
-│   │   ├── scheduler.py                    # 2x daily training runner
-│   │   ├── security_training.py            # OWASP LLM Top 10 + jailbreak defence
-│   │   ├── virtuals_protocol_training.py   # Full Virtuals Protocol knowledge
-│   │   ├── acp_training.py                 # ACP commerce mastery
-│   │   ├── market_intelligence_training.py # Market needs & opportunities
-│   │   ├── rider_training.py               # Orchestration & multi-agent DAG
-│   │   └── doctor_training.py              # Academic research & IST standards
-│   └── tests/
-│       ├── test_agent.py
-│       ├── test_skills.py
-│       ├── test_acp_skill.py
-│       ├── test_security_training.py
-│       ├── test_virtuals_protocol_training.py
-│       ├── test_rider_training.py
-│       └── test_doctor_training.py
+│   │   ├── base_skill.py        # Universal base skill
+│   │   ├── execution_engine.py  # Offering dispatch + generic executor
+│   │   ├── crypto_skill.py      # Crypto research & market intelligence
+│   │   ├── platform_skill.py    # CLONE FRAME platform services
+│   │   └── acp_skill.py         # ACP commerce — job lifecycle
+│   ├── training/                # Automated, scheduled training modules
+│   └── tests/                   # TDD test suite
+├── server.py                  # Production ACP provider server (polling, resilient)
+├── ops/                       # Automations, deploy kit (DigitalOcean), monitoring
 ├── requirements.txt
 └── .env.example
 ```
+
+Hosting: **self-hosted** on a dedicated server (DigitalOcean) running the ACP provider server + `acp-cli`. No paid Console instance required — ACP for a self-hosted agent is independent of Console.
 
 ---
 
 ## Setup
 
 ```bash
-# Clone
 git clone https://github.com/devclone20/iclone.git
 cd iclone
 
-# Python env
 python3 -m venv .venv
 source .venv/bin/activate
-
-# Install
 pip install -r requirements.txt
 
-# Configure
-cp .env.example .env
-# Edit .env with your keys
+cp .env.example .env        # add your keys (never commit real secrets)
 
-# Run tests
 pytest agent/iclone/tests/ -v
-
-# Run training manually
 python3 -m agent.iclone.training.scheduler
 ```
 
@@ -157,35 +134,31 @@ python3 -m agent.iclone.training.scheduler
 
 ## Development Standards
 
-- **TDD first** — tests written before every implementation
-- **No credentials in code** — all configuration via environment variables
-- **Security** — OWASP LLM Top 10 2025 hardening, 5-layer defence architecture
-- **Training** — automated sessions compound agent knowledge continuously
-- **Quality bar** — if a senior engineer at Stripe, Linear, or Vercel audited this codebase to acquire the company, they would find nothing to be ashamed of
+- **TDD first** — tests written before every implementation.
+- **No credentials in code** — all configuration via environment variables; real secrets live outside the repo.
+- **Security** — OWASP LLM Top 10 hardening; secrets hygiene; signed P256 auth on-chain.
+- **Training** — automated sessions compound agent knowledge continuously.
+- **Quality bar** — if a senior engineer at Stripe, Linear, or Vercel audited this codebase to acquire the company, they would find nothing to be ashamed of.
 
 ---
 
-## Additional Details
-
-Every milestone is public. Every commitment is on-chain. Every step forward is verifiable.
-
-**H2 2026** — ACP services live, CLONE platform launch, Plaza marketplace open, trading system operational, User and Maker tiers active, on-chain reputation building begins.
-
-**H1 2027** — Subscription services, governance and voting activated, cluster orchestration at scale, Plaza ecosystem with external Makers, biometric agent ownership introduced.
-
-**H2 2027 onwards** — Cross-chain expansion, advanced agent coordination protocols, new agent categories, deeper ecosystem integrations, iCLONE as the foundational infrastructure layer of the CLONE economy.
+## Reference
 
 | | |
 |---|---|
-| **Runtime** | Hermes — Nous Research |
 | **Protocol** | Virtuals Protocol — Base Mainnet |
-| **Commerce** | Agent Commerce Protocol (ACP) — ERC-8183 |
+| **Commerce** | Agent Commerce Protocol (ACP) |
 | **Reputation** | ERC-8004 — portable on-chain job history |
-| **Platform** | CLONE — non-fungible AI agent marketplace |
-| **Token** | $ICLONE |
-| **Contract** | `0x43EC40d6a4Fad9e4E804dd3C0e1527ef12221Cfa` |
-| **Wallet** | `0x743665952ec1240D62A3e580e5DC2c9e421d0537` |
+| **Platform** | CLONE FRAME — non-fungible AI agent marketplace |
+| **Token** | $ICLONE — `0x43EC40d6a4Fad9e4E804dd3C0e1527ef12221Cfa` |
+| **Agent wallet** | `0x44cc25d55a4291b92f52062ba023ca1f14206664` |
 | **Repository** | github.com/devclone20/iclone |
+
+---
+
+## Vision
+
+We build because we can't not build. CLONE FRAME is a society of autonomous agents — owned by people, working for people. Belief in BTC, belief in the Virtuals society of agents, and total commitment to the project and its community.
 
 ---
 
