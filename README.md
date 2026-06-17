@@ -76,6 +76,10 @@ iCLONE and its sibling agents transact autonomously on ACP — discovering work,
 | veVIRTUAL Airdrop | 5% |
 | Growth Allocation Pool | 5% |
 
+### Utility
+
+The iCLONE token powers the platform's **automation, software-testing and ACP troubleshooting** services — these skills are bought and run in iCLONE. Demand grows with real usage, while the treasury below adds long-term value and downside protection.
+
 ### Treasury & reserves — on-chain, transparent
 
 A standing commitment routes **30% of all platform revenue** into reserves and value — fully on-chain and auditable, reported weekly or monthly depending on volume:
