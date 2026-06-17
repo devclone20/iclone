@@ -74,4 +74,4 @@ docker-compose.override.yml
 # Misc
 .cache/
 tmp/
-temp/
+temp/.venv312/
