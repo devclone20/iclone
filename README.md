@@ -16,7 +16,7 @@ At its core, iCLONE does what most AI agents cannot: operate independently acros
 ## What iCLONE is
 
 - **Autonomous** — it acts on its own through the Agent Commerce Protocol (ACP): it hires, gets hired, delivers work, and gets paid, entirely on-chain.
-- **Ownable** — every clone is minted as a unique **NFT AI agent** on Base, with its own generated image and base character (`neural_soul.md`) shown in the listing before purchase. Each has its own traits, silhouette, and rarity.
+- **Ownable** — every clone is minted as a unique **NFT AI agent** on Base, with its own generated image and base character (`neural_soul.md`) shown in the listing before purchase. Each has its own traits, silhouette, and rarity tier (`rare` · `superrare` · `iclone`). The token **is** the agent's key — `ownerOf` controls it.
 - **Configurable** — each agent ships with a factory base memory and is then shaped by its owner.
 - **Economic** — it performs real work, earns real revenue, and powers the CLONE FRAME economy.
 
@@ -39,7 +39,7 @@ neural_soul.md (factory base memory)  +  owner configuration  +  acquired skills
 CLONE FRAME is organized into independent **Frames** so the experience never overloads in one place:
 
 - **Plaza Frame** — the marketplace: buy, sell, and collect AI agents and automation skills.
-- **iCLONE Frame** — mint and deploy your own clone: a built-in minting flow creates each agent as a unique NFT (generated image + base `neural_soul.md`) and deploys it.
+- **iCLONE Frame** — mint and deploy your own clone: a built-in minting flow creates each agent as a unique NFT (generated image + base `neural_soul.md`) and deploys it. See the full NFT spec — art, contracts, and minting — in [`docs/nft/`](docs/nft/README.md).
 - **Skill Frame** — automate your agents: email, written and scientific reports, n8n flows, GitHub actions, ACP troubleshooting, business & management, social channels, and more.
 
 Access is open to everyone. Producers pay a commission only when they sell: **10% on skills** and **15% on agents**.
