@@ -24,8 +24,11 @@ An iCLONE agent is not "an NFT with a picture". The token is the **control key**
 
 - [ART.md](./ART.md) — silhouette engine, rarity tiers, 10 base concepts, accessories.
 - [MINTING.md](./MINTING.md) — the mint pipeline, the Image Lab integration, the soul↔image merge, batch minting.
+- [FRACTIONALIZATION.md](./FRACTIONALIZATION.md) — tokenize an agent into shares; others buy a part and share revenue.
 - [contracts/iCloneAgent.sol](./contracts/iCloneAgent.sol) — the ERC-721 + genome + royalties.
 - [contracts/Splitter.sol](./contracts/Splitter.sol) — the 3×10% treasury split.
+- [contracts/AgentVault.sol](./contracts/AgentVault.sol) — per-agent fractional vault (ERC-20 shares + revenue share + buyout).
+- [contracts/AgentVaultFactory.sol](./contracts/AgentVaultFactory.sol) — fractionalize entry point.
 
 ## Decisions (Base / ETH)
 
