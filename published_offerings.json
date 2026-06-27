@@ -228,7 +228,7 @@
       "offering_id": "riskRewardCalculator",
       "name": "riskRewardCalculator",
       "description": "Risk/reward ratio calculator for a crypto trade setup.",
-      "price_usdc": 0.1,
+      "price_usdc": 10.0,
       "sla_minutes": 30,
       "acp_id": "019ed244-5956-7478-a4da-ec8818e52fa7"
     },

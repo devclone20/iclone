@@ -34,10 +34,10 @@ from pathlib import Path
 ACP        = "/usr/bin/acp"
 CHAIN      = "8453"
 STATE_FILE = Path("/opt/iclone/ops/pingpong_state.json")
-CADENCE_SEC = 600          # 10 min entre inicios de job (baixo custo, manter live)
+CADENCE_SEC = 300          # 5 min entre inicios de job
 JOB_DRIVE_TIMEOUT = 600       # 10 min máx para levar um job a completo
 POLL_SEC   = 10               # intervalo de verificação de status
-LOW_USDC_WARN = 0.15           # avisar se saldo USDC < preço do job (0.10)
+LOW_USDC_WARN = 10.5           # avisar se USDC < preco do job (10)
 LOW_ETH_WARN  = 0.0004        # avisar se gás baixo
 
 ICLONE_CFG    = "/home/iclone/.config/acp-iclone/acp"
@@ -61,14 +61,14 @@ SIDES = {
         "client_cfg":      VEGETA_CFG,
         "provider_wallet": ICLONE_WALLET,
         "offering":        "riskRewardCalculator",
-        "label":           "VEGETA→iCLONE ($0.10 riskRewardCalculator)",
+        "label":           "VEGETA→iCLONE ($10 riskRewardCalculator)",
         "next":            "iclone_hires_vegeta",
     },
     "iclone_hires_vegeta": {
         "client_cfg":      ICLONE_CFG,
         "provider_wallet": VEGETA_WALLET,
         "offering":        "roboticsRepoScan",
-        "label":           "iCLONE→VEGETA ($0.10 roboticsRepoScan)",
+        "label":           "iCLONE→VEGETA ($10 roboticsRepoScan)",
         "next":            "vegeta_hires_iclone",
     },
 }
@@ -254,7 +254,7 @@ def save_state(s):
 
 # ── Loop principal ───────────────────────────────────────────────────────────
 def main():
-    log("════════ Ping-pong VEGETA↔iCLONE ($0.10/job, 1 job / 5 min) ════════")
+    log("════════ Ping-pong VEGETA↔iCLONE ($10/job, 1 job / 5 min) ════════")
     state = load_state()
     log("Estado inicial: lado=%s inflight=%s cycle=%d",
         state["current_side"], state["inflight_job"], state["cycle"])

@@ -295,7 +295,7 @@
       "offering_id": "roboticsRepoScan",
       "name": "roboticsRepoScan",
       "description": "Scan a robotics GitHub repo and summarise structure/components/usage.",
-      "price_usdc": 0.1,
+      "price_usdc": 10.0,
       "sla_minutes": 30,
       "acp_id": "019ed244-aaac-72e8-9a9e-063a698b4746"
     },
