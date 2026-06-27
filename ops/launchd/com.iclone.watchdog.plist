@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.iclone.watchdog</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/venv312/bin/python3.12</string>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/ops/watchdog.py</string>
+  </array>
+
+  <!-- Run every 5 minutes -->
+  <key>StartInterval</key>
+  <integer>300</integer>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-watchdog.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-watchdog.log</string>
+
+  <!-- Restart watchdog itself if it crashes -->
+  <key>KeepAlive</key>
+  <false/>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/alexaist1107397/Desktop/AI/iclone</string>
+</dict>
+</plist>

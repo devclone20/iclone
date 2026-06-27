@@ -75,3 +75,12 @@ docker-compose.override.yml
 .cache/
 tmp/
 temp/.venv312/
+
+# --- reforço reconciliacao droplet ---
+venv312/
+.venv312/
+*.bak
+*.bak.*
+ops/pingpong_state.json
+ops/.offerings_state.json
+market_map_*.json

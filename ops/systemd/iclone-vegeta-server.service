@@ -1,32 +1,25 @@
 [Unit]
-Description=VEGETA ACP Provider Server (executes + sells VEGETA offerings)
-After=network-online.target iclone-token-refresh.service
+Description=VEGETA ACP Provider Server
+After=network-online.target
 Wants=network-online.target
-StartLimitIntervalSec=120
-StartLimitBurst=5
 
 [Service]
 Type=simple
 User=iclone
 Group=iclone
 WorkingDirectory=/opt/iclone
-
 ExecStart=/opt/iclone/venv312/bin/python3.12 /opt/iclone/agent/server.py
-
 Restart=always
 RestartSec=15
-
 StandardOutput=append:/var/log/iclone/vegeta-server.log
 StandardError=append:/var/log/iclone/vegeta-server.log
-
-Environment="PATH=/usr/local/bin:/usr/bin:/bin"
-Environment="HOME=/home/iclone"
-Environment="ACP_CONFIG_DIR=/home/iclone/.config/acp-vegeta/acp"
-Environment="ICLONE_AGENT_NAME=VEGETA"
-Environment="ICLONE_OFFERINGS_FILE=published_offerings_vegeta.json"
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+Environment=HOME=/home/iclone
+Environment=ACP_CONFIG_DIR=/home/iclone/.config/acp-vegeta/acp
+Environment=AGENT_NAME=VEGETA AI
+Environment=ICLONE_OFFERINGS_FILE=published_offerings_vegeta.json
 EnvironmentFile=/opt/iclone/.env
 EnvironmentFile=-/home/iclone/.env.local
-
 LimitNOFILE=65536
 TimeoutStopSec=30
 

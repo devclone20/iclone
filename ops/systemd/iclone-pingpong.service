@@ -1,0 +1,21 @@
+[Unit]
+Description=iCLONE<->VEGETA Ping-Pong (premium $2 jobs, 1/4min)
+After=network-online.target iclone-server.service iclone-vegeta-server.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+# su -l estabelece sessão PAM (desbloqueia keyring); dbus-run-session dá o D-Bus
+# necessário para as operações de CLIENT (create-job/fund/complete).
+ExecStart=/bin/su -l iclone -s /bin/bash -c 'exec dbus-run-session -- /opt/iclone/venv312/bin/python3.12 /opt/iclone/ops/pingpong.py'
+Restart=always
+RestartSec=30
+StandardOutput=append:/var/log/iclone/pingpong.log
+StandardError=append:/var/log/iclone/pingpong.log
+TimeoutStopSec=30
+
+ExecStopPost=-/usr/bin/pkill -9 -f /opt/iclone/ops/pingpong.py
+
+[Install]
+WantedBy=multi-user.target

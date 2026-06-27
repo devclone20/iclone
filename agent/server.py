@@ -210,7 +210,11 @@ class ICloneACPServer:
                 content = json.loads(content_raw) if isinstance(content_raw, str) else content_raw
                 if isinstance(content, dict):
                     offering_name = content.get("offering_id", content.get("offeringName", offering_name))
-                    requirements = content.get("requirements", content.get("params", requirements))
+                    requirements = content.get("requirements", content.get("params", None))
+                    if requirements is None:
+                        # params armazenados flat ao lado de offering_id — usar o conteudo todo
+                        requirements = {k: v for k, v in content.items()
+                                        if k not in ("offering_id", "offeringName", "requirements", "params")}
                     if offering_name:
                         break
             except (json.JSONDecodeError, TypeError):
@@ -262,6 +266,34 @@ class ICloneACPServer:
             "chain_id": chain_id,
             "price_usdc": price,
         }
+
+        # ── Swap/bridge: fluxo fund-transfer (valida rota ANTES de pedir capital) ──
+        meta = self._get_offering_by_name(offering_id) or {}
+        if meta.get("kind") == "trade":
+            chain_in = int(meta.get("chain_in", 8453))
+            chain_out = int(meta.get("chain_out", chain_in))
+            pre = self.engine.trade.preflight(requirements, chain_in, chain_out)
+            if not pre.success:
+                logger.warning("Swap preflight FALHOU job %s (%s) — sem budget; job expira, cliente nao cobrado: %s",
+                               job_id, offering_id, pre.error)
+                return
+            token_in = self.engine.trade._resolve(
+                requirements.get("token_in") or requirements.get("sell_token", ""), chain_in)
+            amount_in = requirements.get("amount_in") or requirements.get("amount")
+            logger.info("Swap job %s: fee $%.2f + fund-request %s %s (chain %s)",
+                        job_id, price, amount_in, token_in, chain_in)
+            result = acp("provider", "set-budget-with-fund-request",
+                         "--job-id", job_id, "--amount", str(price),
+                         "--transfer-amount", str(amount_in), "--transfer-token", token_in,
+                         "--destination", ICLONE_WALLET, "--chain-id", str(chain_in), check=False)
+            if result.get("success"):
+                self.budget_set_jobs.add(job_id)
+                logger.info("Fund-request budget set para swap job %s OK", job_id)
+            else:
+                logger.error("Falha set-budget-with-fund-request job %s: %s", job_id, result)
+                if "already" in str(result.get("error", "")).lower():
+                    self.budget_set_jobs.add(job_id)
+            return
 
         logger.info("Setting budget for job %s: $%.2f (offering: %s)", job_id, price, offering_id)
         result = acp(
