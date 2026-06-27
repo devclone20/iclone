@@ -7,7 +7,7 @@ Covers:
 - CLONE Platform skill architecture design principles
 - ACP offering design: clear input/output schemas, pricing strategy
 - Deliverable format standards for machine-readable outputs
-- Agent identity design (soul.md structure, immutable anchors)
+- Agent identity design (neural_soul.md structure, immutable anchors)
 - Modular skill composition patterns
 
 Schedule: 2x daily — 07:00 UTC + 19:00 UTC
@@ -26,7 +26,7 @@ class ChainGPTDesignTraining:
     Trains iCLONE to:
     1. Design ACP offerings with clear input schemas and deterministic outputs
     2. Apply crypto-native UX principles to agent interfaces
-    3. Structure soul.md sections for maximum identity coherence
+    3. Structure neural_soul.md sections for maximum identity coherence
     4. Compose modular skills that stack without coupling
     5. Design deliverable formats that pass ACP evaluator validation
     6. Enforce separation of concerns across the 4-agent ecosystem
@@ -87,7 +87,7 @@ class ChainGPTDesignTraining:
                 "Name is fixed and non-overridable",
                 "Role is specific (not general-purpose chatbot)",
                 "Rules are enumerated and ordered by priority",
-                "Version controlled — every soul.md change is a commit",
+                "Version controlled — every neural_soul.md change is a commit",
                 "Loaded at session start before any external data",
             ],
         },

@@ -99,7 +99,7 @@ agent/
 ├── iclone/
 │   ├── agent.py               # iCLONE core agent
 │   ├── config.py              # Environment config
-│   ├── soul.md                # iCLONE identity (governing agent)
+│   ├── neural_soul.md                # iCLONE identity (governing agent)
 │   ├── skills/
 │   │   ├── base_skill.py        # Universal base skill
 │   │   ├── execution_engine.py  # Offering dispatch + generic executor
