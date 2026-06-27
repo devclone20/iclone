@@ -1375,8 +1375,8 @@ Return JSON:
     title, content (detailed knowledge text), key_concepts: [], practical_examples: []
   }}
 - knowledge_tests: array of {{question, expected_answer_keywords: [], difficulty}}
-- integration_notes: string (how to install this in soul.md)
-- soul_md_addition: string (text block to add to soul.md)
+- integration_notes: string (how to install this in neural_soul.md)
+- soul_md_addition: string (text block to add to neural_soul.md)
 - estimated_impact: string""",
                 model="claude-sonnet-4-5",
                 max_tokens=6000,
@@ -1423,7 +1423,7 @@ Return JSON: {{module_id, title, overview (50 words), key_skills: [5 items], sou
                     "deployment_report": f"15 training modules generated for {agent_name}",
                     "next_steps": [
                         "Review each module summary",
-                        "Install soul_md_snippets into your agent's soul.md",
+                        "Install soul_md_snippets into your agent's neural_soul.md",
                         "Run knowledge tests for each domain",
                         "Deploy updated agent to Virtuals Protocol",
                     ],
