@@ -49,35 +49,6 @@ def _env(key: str, default: str = "") -> str:
     return os.environ.get(key, default)
 
 
-# ---------------------------------------------------------------------------
-# LLM provider (gateway-aware)
-# ---------------------------------------------------------------------------
-# Por defeito chama api.anthropic.com com ANTHROPIC_API_KEY (comportamento
-# inalterado). Para encaminhar a inferencia por um gateway (ex.: Virtuals
-# Compute) basta definir no env, sem tocar no codigo:
-#   ANTHROPIC_BASE_URL    base do gateway (ex.: https://compute.virtuals.io)
-#   ANTHROPIC_AUTH_TOKEN  se o gateway usar "Authorization: Bearer"
-#                         (caso contrario mantem-se ANTHROPIC_API_KEY = x-api-key)
-#   ICLONE_LLM_MODEL      forca um unico model id aceite pelo gateway
-_LLM_BASE_URL = _env("ANTHROPIC_BASE_URL")
-_LLM_AUTH_TOKEN = _env("ANTHROPIC_AUTH_TOKEN")
-_LLM_MODEL_OVERRIDE = _env("ICLONE_LLM_MODEL")
-_OAI_BASE_URL = _env("ICLONE_LLM_OPENAI_BASE_URL")  # ex.: https://compute.virtuals.io/v1
-_OAI_API_KEY = _env("ICLONE_LLM_OPENAI_KEY")        # Bearer (gateway OpenAI-compatible)
-
-
-def _anthropic_client() -> anthropic.Anthropic:
-    """Build the Anthropic client, honouring an optional gateway + auth scheme."""
-    kwargs: dict = {}
-    if _LLM_BASE_URL:
-        kwargs["base_url"] = _LLM_BASE_URL
-    if _LLM_AUTH_TOKEN:
-        kwargs["auth_token"] = _LLM_AUTH_TOKEN  # Authorization: Bearer <token>
-    else:
-        kwargs["api_key"] = _env("ANTHROPIC_API_KEY")  # x-api-key
-    return anthropic.Anthropic(**kwargs)
-
-
 def _claude(
     prompt: str,
     system: str = "You are iCLONE, a precise AI agent. Return only valid JSON when asked.",
@@ -85,25 +56,9 @@ def _claude(
     max_tokens: int = 2048,
 ) -> str:
     """Call Claude and return the text response."""
-    target_model = _LLM_MODEL_OVERRIDE or model
-    if _OAI_BASE_URL and _OAI_API_KEY:
-        # Gateway OpenAI-compatible (ex.: Virtuals Compute /v1/chat/completions).
-        # O modo Anthropic /v1/messages do gateway devolve 501; usamos OpenAI.
-        import openai
-        oai = openai.OpenAI(base_url=_OAI_BASE_URL, api_key=_OAI_API_KEY)
-        resp = oai.chat.completions.create(
-            model=target_model,
-            max_tokens=max_tokens,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": prompt},
-            ],
-        )
-        return resp.choices[0].message.content
-    # caminho Anthropic directo (default)
-    client = _anthropic_client()
+    client = anthropic.Anthropic(api_key=_env("ANTHROPIC_API_KEY"))
     msg = client.messages.create(
-        model=target_model,
+        model=model,
         max_tokens=max_tokens,
         system=system,
         messages=[{"role": "user", "content": prompt}],
