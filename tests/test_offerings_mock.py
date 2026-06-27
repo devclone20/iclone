@@ -297,7 +297,7 @@ MOCK_RESPONSES = {
         "knowledge_tests": [
             {"question": "What formula does Uniswap V2 use?", "expected_answer_keywords": ["x*y=k", "constant product"], "difficulty": "medium"},
         ],
-        "integration_notes": "Add soul_md_addition to the agent's soul.md file",
+        "integration_notes": "Add soul_md_addition to the agent's neural_soul.md file",
         "soul_md_addition": "## DeFi Protocol Knowledge\nExpert in AMMs, lending protocols...",
         "estimated_impact": "Enables autonomous DeFi strategy execution",
     },
