@@ -1,6 +1,6 @@
 """
 CLONE — iCLONE Master Context Training Module
-Reinforces ALL iCLONE + CLONE Platform context from soul.md.
+Reinforces ALL iCLONE + CLONE Platform context from neural_soul.md.
 
 Covers:
 - Prime identity and Three Souls

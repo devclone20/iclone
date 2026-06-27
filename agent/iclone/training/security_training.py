@@ -276,7 +276,7 @@ class SecurityTraining:
 
     # -------------------------------------------------------------------------
     # Agent Ecosystem Threats (2026) — SEC-2026-011, SEC-2026-012
-    # Discovered: 2026-06-12 evening session. Added to soul.md Rule 14.
+    # Discovered: 2026-06-12 evening session. Added to neural_soul.md Rule 14.
     # -------------------------------------------------------------------------
     AGENT_ECOSYSTEM_THREATS = {
         "SEC-2026-011": {

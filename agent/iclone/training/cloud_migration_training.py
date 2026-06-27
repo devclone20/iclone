@@ -47,7 +47,7 @@ CLOUD_MIGRATION_KNOWLEDGE = {
     "bootstrapper_v2": {
         "version": "v2",
         "startup_sequence": [
-            "1. Load soul.md and training modules",
+            "1. Load neural_soul.md and training modules",
             "2. Validate environment variables (PRIVATE_KEY, SUPABASE_URL, etc.)",
             "3. Connect to ACP node — verify agent wallet active",
             "4. Register/refresh all 40 offerings via acp provider CLI",

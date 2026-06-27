@@ -136,7 +136,7 @@ class DoctorTraining:
                 "arxiv": "arXiv:2506.16640",
                 "year": 2025,
                 "key_finding": "α-entmax outperforms softmax in long-context generalisation",
-                "iclone_relevance": "Informs future iCLONE architecture for long-context soul.md processing",
+                "iclone_relevance": "Informs future iCLONE architecture for long-context neural_soul.md processing",
             },
         },
         "robotics_and_sensor_fusion": {
