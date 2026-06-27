@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.iclone.daily-report</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/venv312/bin/python3.12</string>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/ops/daily_report.py</string>
+    <string>--days</string>
+    <string>1</string>
+    <string>--scenario</string>
+    <string>growth</string>
+  </array>
+
+  <!-- Every day at 08:00 local time -->
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>8</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-daily-report.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-daily-report.log</string>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/alexaist1107397/Desktop/AI/iclone</string>
+</dict>
+</plist>

@@ -1,0 +1,13 @@
+[Unit]
+Description=Watchdog: para o ping-pong quando o iCLONE ficar sem USDC
+After=iclone-pingpong.service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/bin/bash /opt/iclone/ops/pingpong_watchdog.sh
+Restart=on-failure
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

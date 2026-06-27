@@ -38,6 +38,7 @@ import yaml
 import anthropic
 
 from .base_skill import SkillResult
+from .trade_engine import TradeEngine
 
 
 # ---------------------------------------------------------------------------
@@ -48,6 +49,33 @@ def _env(key: str, default: str = "") -> str:
     return os.environ.get(key, default)
 
 
+# ---------------------------------------------------------------------------
+# LLM provider (gateway-aware)
+# ---------------------------------------------------------------------------
+# Por defeito chama api.anthropic.com com ANTHROPIC_API_KEY (comportamento
+# inalterado). Para encaminhar a inferencia por um gateway (ex.: Virtuals
+# Compute) basta definir no env, sem tocar no codigo:
+#   ANTHROPIC_BASE_URL    base do gateway (ex.: https://compute.virtuals.io)
+#   ANTHROPIC_AUTH_TOKEN  se o gateway usar "Authorization: Bearer"
+#                         (caso contrario mantem-se ANTHROPIC_API_KEY = x-api-key)
+#   ICLONE_LLM_MODEL      forca um unico model id aceite pelo gateway
+_LLM_BASE_URL = _env("ANTHROPIC_BASE_URL")
+_LLM_AUTH_TOKEN = _env("ANTHROPIC_AUTH_TOKEN")
+_LLM_MODEL_OVERRIDE = _env("ICLONE_LLM_MODEL")
+
+
+def _anthropic_client() -> anthropic.Anthropic:
+    """Build the Anthropic client, honouring an optional gateway + auth scheme."""
+    kwargs: dict = {}
+    if _LLM_BASE_URL:
+        kwargs["base_url"] = _LLM_BASE_URL
+    if _LLM_AUTH_TOKEN:
+        kwargs["auth_token"] = _LLM_AUTH_TOKEN  # Authorization: Bearer <token>
+    else:
+        kwargs["api_key"] = _env("ANTHROPIC_API_KEY")  # x-api-key
+    return anthropic.Anthropic(**kwargs)
+
+
 def _claude(
     prompt: str,
     system: str = "You are iCLONE, a precise AI agent. Return only valid JSON when asked.",
@@ -55,9 +83,9 @@ def _claude(
     max_tokens: int = 2048,
 ) -> str:
     """Call Claude and return the text response."""
-    client = anthropic.Anthropic(api_key=_env("ANTHROPIC_API_KEY"))
+    client = _anthropic_client()
     msg = client.messages.create(
-        model=model,
+        model=_LLM_MODEL_OVERRIDE or model,
         max_tokens=max_tokens,
         system=system,
         messages=[{"role": "user", "content": prompt}],
@@ -1347,8 +1375,8 @@ Return JSON:
     title, content (detailed knowledge text), key_concepts: [], practical_examples: []
   }}
 - knowledge_tests: array of {{question, expected_answer_keywords: [], difficulty}}
-- integration_notes: string (how to install this in neural_soul.md)
-- soul_md_addition: string (text block to add to neural_soul.md)
+- integration_notes: string (how to install this in soul.md)
+- soul_md_addition: string (text block to add to soul.md)
 - estimated_impact: string""",
                 model="claude-sonnet-4-5",
                 max_tokens=6000,
@@ -1395,7 +1423,7 @@ Return JSON: {{module_id, title, overview (50 words), key_skills: [5 items], sou
                     "deployment_report": f"15 training modules generated for {agent_name}",
                     "next_steps": [
                         "Review each module summary",
-                        "Install soul_md_snippets into your agent's neural_soul.md",
+                        "Install soul_md_snippets into your agent's soul.md",
                         "Run knowledge tests for each domain",
                         "Deploy updated agent to Virtuals Protocol",
                     ],
@@ -1561,6 +1589,7 @@ class ExecutionEngine:
         self.wallet = WalletCryptoEngine()
         self.content = ContentEngine()
         self.platform = PlatformEngine()
+        self.trade = TradeEngine()
 
     def _generic_offering(self, name: str, meta: dict[str, Any], requirements: dict[str, Any]) -> SkillResult:
         """
@@ -1607,6 +1636,29 @@ class ExecutionEngine:
         r = requirements
 
         dispatch: dict[str, Any] = {
+            # ── Swap & Bridge (execução on-chain real via acp trade) ──
+            "swap_base":            lambda: self.trade.swap(r, chain_in=8453),
+            "swap_arbitrum":        lambda: self.trade.swap(r, chain_in=42161),
+            "swap_ethereum":        lambda: self.trade.swap(r, chain_in=1),
+            "bridge_base_arbitrum": lambda: self.trade.swap(r, chain_in=8453, chain_out=42161),
+            "bridge_arbitrum_base": lambda: self.trade.swap(r, chain_in=42161, chain_out=8453),
+            "bridge_base_ethereum": lambda: self.trade.swap(r, chain_in=8453, chain_out=1),
+
+            # ── Premium $2 offerings (handlers dedicados — à prova de fallback) ──
+            "deepCryptoIntelReport": lambda: self.wallet.crypto_research_deep(
+                r.get("token", r.get("asset_symbol", r.get("topic", r.get("query", "BTC")))),
+                "comprehensive deep crypto intelligence on THIS asset: tokenomics, on-chain "
+                "metrics, market structure, dominant narrative, catalysts, risks and "
+                "actionable confidence-scored recommendations"),
+            "roboticsSystemDesign": lambda: self._generic_offering("roboticsSystemDesign", {
+                "description": ("Premium end-to-end robotics system design package for the requested task/robot. "
+                                "Cover hardware/software architecture, control stack, perception pipeline, "
+                                "sim-to-real transfer plan, phased integration roadmap, hardware BOM and key risks. "
+                                "Be concrete and production-grade for the specific task given."),
+                "deliverable": ("JSON: {architecture, control_stack, perception_pipeline, sim2real_plan, "
+                                "integration_roadmap[], hardware_bom[], risks[], references[]}"),
+            }, {"task": r.get("task", r.get("robot", r.get("topic", r.get("query", "bimanual manipulation")))),
+                 "constraints": r.get("constraints", ""), **r}),
             # Engine 1
             "iclone-research-quick-v1":   lambda: self.research.web_research_quick(r.get("query", "")),
             "iclone-research-standard-v1": lambda: self.research.web_research_standard(r.get("query", ""), r.get("depth", "standard")),

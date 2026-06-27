@@ -23,7 +23,6 @@ Environment="PATH=/usr/local/bin:/usr/bin:/bin"
 Environment="HOME=/home/iclone"
 Environment="ACP_CONFIG_DIR=/home/iclone/.config/acp-iclone/acp"
 EnvironmentFile=/opt/iclone/.env
-# .env.local loaded second so real secrets (ANTHROPIC_API_KEY) override .env placeholders
 EnvironmentFile=-/home/iclone/.env.local
 
 # Process limits

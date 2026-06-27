@@ -32,16 +32,6 @@
       "acp_id": "019ec840-3875-7f5d-bd9b-921d8bbd49ae"
     },
     {
-      "offering_id": "florenceVLRobot",
-      "name": "florenceVLRobot",
-      "description": "Florence-2 vision-language model integration for robot perception. Prompt design, visual grounding, referring expression comprehension and action grounding.",
-      "deliverable": "Florence-2 prompt templates, grounding config, output parsing, action mapping, latency budget.",
-      "requirements": "Provide robot task and perception need. Example: {\"task\": \"find and pick mug\", \"input\": \"RGB camera\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-38a7-74c9-b23c-c9e0fedb0605"
-    },
-    {
       "offering_id": "taskMotionPlan",
       "name": "taskMotionPlan",
       "description": "Full PDDL-based task-and-motion plan for manipulation. Predicate design, action templates, motion stream specs and constraint formulation.",
@@ -112,16 +102,6 @@
       "acp_id": "019ec840-3851-772f-a3cd-178b6203666f"
     },
     {
-      "offering_id": "batchSimStrategy",
-      "name": "batchSimStrategy",
-      "description": "Brax JAX batched physics simulation strategy for RL. Parallelisation plan, environment vectorisation, training loop design and performance targets.",
-      "deliverable": "Brax env setup, vectorisation config, JAX training loop, wall-clock time estimate, throughput metrics.",
-      "requirements": "Provide task and target parallel envs. Example: {\"task\": \"hopper\", \"num_envs\": 4096}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-3867-7740-96b1-2308c68ff2e5"
-    },
-    {
       "offering_id": "torqueCtrlLoop",
       "name": "torqueCtrlLoop",
       "description": "PyTorch torque control loop design for robot arm. PD controller, impedance control, real-time execution strategy and safety monitoring.",
@@ -140,16 +120,6 @@
       "price_usdc": 0.1,
       "sla_minutes": 45,
       "acp_id": "019ec840-3861-7476-9431-9d55151f5c1a"
-    },
-    {
-      "offering_id": "autoSceneDesign",
-      "name": "autoSceneDesign",
-      "description": "CARLA autonomous driving scene design. Actor spawning, traffic flow, sensor placement, weather config and scenario evaluation metrics.",
-      "deliverable": "CARLA Python script, actor spawn config, sensor blueprint, scenario evaluation metrics.",
-      "requirements": "Provide scenario type and complexity. Example: {\"scenario\": \"intersection crossing\", \"weather\": \"rain\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-3881-7dd0-bf16-4180535f131b"
     },
     {
       "offering_id": "embodiedNavPlan",
@@ -210,26 +180,6 @@
       "price_usdc": 0.1,
       "sla_minutes": 45,
       "acp_id": "019ec840-3878-75a6-9f7c-e7795b24df14"
-    },
-    {
-      "offering_id": "rlaxPolicyTrain",
-      "name": "rlaxPolicyTrain",
-      "description": "RLAX JAX RL algorithm component design for robot. Value function, policy gradient, actor-critic architecture and training loop.",
-      "deliverable": "RLAX component selection, value function design, policy architecture, training loop, JAX code template.",
-      "requirements": "Provide task and algorithm type. Example: {\"task\": \"reach goal\", \"algorithm\": \"actor-critic\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-38c0-7d78-8f60-19cd5a0da3f6"
-    },
-    {
-      "offering_id": "roboticsRepoScan",
-      "name": "roboticsRepoScan",
-      "description": "Deep scan of a GitHub robotics repo \u2014 capabilities, architecture, integration guide and code examples. Powered by GitHub API + arXiv research.",
-      "deliverable": "Structured report: repo metadata, key modules, integration guide, related papers, recommended use case.",
-      "requirements": "Provide the GitHub repo (owner/repo) you want scanned. Example: {\"repo\": \"huggingface/lerobot\"}",
-      "price_usdc": 0.05,
-      "sla_minutes": 30,
-      "acp_id": "019ec840-3843-783a-94e1-c504c0da16a9"
     },
     {
       "offering_id": "mobileRobotSetup",
@@ -312,46 +262,6 @@
       "acp_id": "019ec840-38c3-735e-8bcb-29c3dcb368db"
     },
     {
-      "offering_id": "dexRetargetDesign",
-      "name": "dexRetargetDesign",
-      "description": "Dex-Retargeting pipeline design for robot hand control. Hand pose extraction, retargeting algorithm selection, robot hand joint mapping.",
-      "deliverable": "Retargeting algorithm selection, joint mapping table, calibration procedure, latency budget.",
-      "requirements": "Provide input source and robot hand. Example: {\"input\": \"MediaPipe hand tracking\", \"robot_hand\": \"LEAP Hand\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-388b-7589-a379-9371c1059844"
-    },
-    {
-      "offering_id": "serlRLFinetune",
-      "name": "serlRLFinetune",
-      "description": "SERL sample-efficient real-robot RL fine-tuning plan. Reward design, data collection protocol, online learning loop and safety constraint specification.",
-      "deliverable": "Reward function design, data collection protocol, online RL loop config, safety watchdog, success metrics.",
-      "requirements": "Provide robot, task and safety constraints. Example: {\"robot\": \"Franka\", \"task\": \"peg insertion\", \"max_force\": 20}",
-      "price_usdc": 0.1,
-      "sla_minutes": 60,
-      "acp_id": "019ec840-38c6-790f-a823-09cebcf765b5"
-    },
-    {
-      "offering_id": "rtxPolicyScan",
-      "name": "rtxPolicyScan",
-      "description": "RT-X/RT-2 robotics transformer policy research. Capability scan, supported tasks, fine-tuning requirements and deployment evaluation for target robot.",
-      "deliverable": "RT-X capability report, supported task list, fine-tuning guide, compute requirements, deployment eval.",
-      "requirements": "Provide robot and task category. Example: {\"robot\": \"UR5\", \"task\": \"table-top manipulation\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 60,
-      "acp_id": "019ec840-38b2-7289-be6d-b618483c193f"
-    },
-    {
-      "offering_id": "droneWaypointPlan",
-      "name": "droneWaypointPlan",
-      "description": "AirSim drone waypoint mission plan. Environment setup, GPS waypoints, sensor config, collision avoidance strategy and flight controller integration.",
-      "deliverable": "Waypoint list, AirSim config, sensor setup, collision avoidance strategy, FlightController integration.",
-      "requirements": "Provide mission type and environment. Example: {\"mission\": \"search and rescue\", \"environment\": \"urban outdoor\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 45,
-      "acp_id": "019ec840-387e-76b4-aed9-e9e3c1a95fae"
-    },
-    {
       "offering_id": "rlPolicyOptimize",
       "name": "rlPolicyOptimize",
       "description": "Acme distributed RL policy optimization strategy. Actor-learner setup, replay buffer config, policy architecture and convergence targets.",
@@ -360,16 +270,6 @@
       "price_usdc": 0.1,
       "sla_minutes": 45,
       "acp_id": "019ec840-3884-746f-aa53-25689deebad1"
-    },
-    {
-      "offering_id": "humanoidSimPlan",
-      "name": "humanoidSimPlan",
-      "description": "K-Scale humanoid robot simulation training plan. Simulation environment setup, motion library, locomotion policy training and transfer strategy.",
-      "deliverable": "Sim environment config, motion library, training curriculum, locomotion policy spec, transfer checklist.",
-      "requirements": "Provide humanoid model and skill to learn. Example: {\"robot\": \"G1\", \"skill\": \"stair climbing\"}",
-      "price_usdc": 0.1,
-      "sla_minutes": 60,
-      "acp_id": "019ec840-38a9-7b3e-bf4c-683a8db2f99e"
     },
     {
       "offering_id": "physicsSimConfig",
@@ -392,14 +292,57 @@
       "acp_id": "019ec840-389e-7881-b084-eeea361c07ed"
     },
     {
-      "offering_id": "foundationPolicyEval",
-      "name": "foundationPolicyEval",
-      "description": "Evaluate pi0 (openpi) foundation policy fit for target robot task. Capability assessment, fine-tuning requirements, compute estimate and deployment plan.",
-      "deliverable": "Policy fit assessment, fine-tuning guide, demo requirements, compute budget, deployment checklist.",
-      "requirements": "Provide robot and task. Example: {\"robot\": \"Franka\", \"task\": \"coffee cup pick and place\"}",
+      "offering_id": "roboticsRepoScan",
+      "name": "roboticsRepoScan",
+      "description": "Scan a robotics GitHub repo and summarise structure/components/usage.",
       "price_usdc": 0.1,
-      "sla_minutes": 60,
-      "acp_id": "019ec840-3870-77e6-912d-ae20d035e354"
+      "sla_minutes": 30,
+      "acp_id": "019ed244-aaac-72e8-9a9e-063a698b4746"
+    },
+    {
+      "offering_id": "swap_base",
+      "name": "swap_base",
+      "description": "Universal token swap on Base (8453). Buy/sell any ERC-20, best-execution via LI.FI. Input via ACP fund-transfer; output to your recipient. Default slippage 3% (max 50%). Full refund if the swap fails or SLA expires. IMPORTANT: pass the token CONTRACT ADDRESS in lowercase (0x...), not the ticker (symbols are ambiguous/spoofable). Required: token_in(address), token_out(address), amount_in(human units), recipient(0x). Network = Base only.",
+      "price_usdc": 0.05,
+      "sla_minutes": 30,
+      "kind": "trade",
+      "chain_in": 8453,
+      "chain_out": 8453,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "swap_arbitrum",
+      "name": "swap_arbitrum",
+      "description": "Universal token swap on Arbitrum (42161). Buy/sell any ERC-20, best-execution via LI.FI. Input via ACP fund-transfer; output to your recipient. Default slippage 3% (max 50%). Full refund if the swap fails or SLA expires. IMPORTANT: pass the token CONTRACT ADDRESS in lowercase (0x...), not the ticker (symbols are ambiguous/spoofable). Required: token_in(address), token_out(address), amount_in(human units), recipient(0x). Network = Arbitrum only.",
+      "price_usdc": 0.06,
+      "sla_minutes": 30,
+      "kind": "trade",
+      "chain_in": 42161,
+      "chain_out": 42161,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "bridge_base_arbitrum",
+      "name": "bridge_base_arbitrum",
+      "description": "Bridge any token from Base to Arbitrum via LI.FI. Input on Base via ACP fund-transfer; output delivered on Arbitrum to your recipient. Default slippage 3%. Full refund on failure/SLA. IMPORTANT: token_in = lowercase 0x contract ON BASE; token_out = lowercase 0x contract ON ARBITRUM. Required: token_in, token_out, amount_in(human units), recipient(0x on Arbitrum).",
+      "price_usdc": 0.15,
+      "sla_minutes": 30,
+      "kind": "trade",
+      "chain_in": 8453,
+      "chain_out": 42161,
+      "acp_id": ""
+    },
+    {
+      "offering_id": "bridge_arbitrum_base",
+      "name": "bridge_arbitrum_base",
+      "description": "Bridge any token from Arbitrum to Base via LI.FI. Input on Arbitrum via ACP fund-transfer; output delivered on Base to your recipient. Default slippage 3%. Full refund on failure/SLA. IMPORTANT: token_in = lowercase 0x contract ON ARBITRUM; token_out = lowercase 0x contract ON BASE. Required: token_in, token_out, amount_in(human units), recipient(0x on Base).",
+      "price_usdc": 0.15,
+      "sla_minutes": 30,
+      "kind": "trade",
+      "chain_in": 42161,
+      "chain_out": 8453,
+      "acp_id": ""
     }
-  ]
+  ],
+  "total": 34
 }

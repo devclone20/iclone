@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.iclone.offerings-manager</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/venv312/bin/python3.12</string>
+    <string>/Users/alexaist1107397/Desktop/AI/iclone/ops/auto_offerings_manager.py</string>
+  </array>
+
+  <!-- Every 30 minutes -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Minute</key><integer>30</integer></dict>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-offerings-manager.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/alexaist1107397/Library/Logs/iclone-offerings-manager.log</string>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/alexaist1107397/Desktop/AI/iclone</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin</string>
+    <key>HOME</key>
+    <string>/Users/alexaist1107397</string>
+  </dict>
+</dict>
+</plist>
