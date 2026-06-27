@@ -62,6 +62,8 @@ def _env(key: str, default: str = "") -> str:
 _LLM_BASE_URL = _env("ANTHROPIC_BASE_URL")
 _LLM_AUTH_TOKEN = _env("ANTHROPIC_AUTH_TOKEN")
 _LLM_MODEL_OVERRIDE = _env("ICLONE_LLM_MODEL")
+_OAI_BASE_URL = _env("ICLONE_LLM_OPENAI_BASE_URL")  # ex.: https://compute.virtuals.io/v1
+_OAI_API_KEY = _env("ICLONE_LLM_OPENAI_KEY")        # Bearer (gateway OpenAI-compatible)
 
 
 def _anthropic_client() -> anthropic.Anthropic:
@@ -83,9 +85,25 @@ def _claude(
     max_tokens: int = 2048,
 ) -> str:
     """Call Claude and return the text response."""
+    target_model = _LLM_MODEL_OVERRIDE or model
+    if _OAI_BASE_URL and _OAI_API_KEY:
+        # Gateway OpenAI-compatible (ex.: Virtuals Compute /v1/chat/completions).
+        # O modo Anthropic /v1/messages do gateway devolve 501; usamos OpenAI.
+        import openai
+        oai = openai.OpenAI(base_url=_OAI_BASE_URL, api_key=_OAI_API_KEY)
+        resp = oai.chat.completions.create(
+            model=target_model,
+            max_tokens=max_tokens,
+            messages=[
+                {"role": "system", "content": system},
+                {"role": "user", "content": prompt},
+            ],
+        )
+        return resp.choices[0].message.content
+    # caminho Anthropic directo (default)
     client = _anthropic_client()
     msg = client.messages.create(
-        model=_LLM_MODEL_OVERRIDE or model,
+        model=target_model,
         max_tokens=max_tokens,
         system=system,
         messages=[{"role": "user", "content": prompt}],
