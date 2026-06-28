@@ -1,0 +1,43 @@
+[Unit]
+Description=iCLONE — Public Voice (X / Twitter) engine — SANDBOXED, owner-gated
+Documentation=https://github.com/devclone20/iclone
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=iclone
+Group=iclone
+WorkingDirectory=/opt/iclone
+
+# Runtime + secrets are SEPARATE from the ACP automations:
+#   /opt/iclone-x/        → state, drafts, audit log (ICLONE_X_HOME)
+#   /opt/iclone-x/x.env   → X API credentials + X_ENABLED / X_MODE (NOT the ACP .env)
+Environment=ICLONE_X_HOME=/opt/iclone-x
+EnvironmentFile=/opt/iclone/.env
+EnvironmentFile=-/home/iclone/.env.local
+EnvironmentFile=/opt/iclone-x/x.env
+
+ExecStart=/opt/iclone/venv312/bin/python3.12 -m agent.iclone.social.run
+
+Restart=always
+RestartSec=10
+TimeoutStopSec=20
+
+# --- hardening (this service needs almost nothing) ---
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/opt/iclone-x /var/log/iclone
+ProtectKernelTunables=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+
+StandardOutput=append:/var/log/iclone/x.log
+StandardError=append:/var/log/iclone/x.log
+
+[Install]
+WantedBy=multi-user.target

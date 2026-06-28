@@ -28,6 +28,7 @@ from .market_intelligence_training import MarketIntelligenceTraining
 from .master_context import run_training as run_master_context_training
 from .rider_training import RiderTraining
 from .security_training import SecurityTraining
+from .social_x_training import SocialXTraining
 from .virtuals_protocol_training import VirtualsProtocolTraining
 
 logger = logging.getLogger("iclone.training.scheduler")
@@ -44,6 +45,7 @@ logger = logging.getLogger("iclone.training.scheduler")
 # 8. Cloud Migration    — 4-agent ecosystem, bootstrapper v2, DO plan, $200 P&L
 TRAINING_MODULES = [
     SecurityTraining,
+    SocialXTraining,        # public-voice policy + repo/project knowledge + anti-jailbreak
     VirtualsProtocolTraining,
     ACPTrainingModule,
     MarketIntelligenceTraining,

@@ -14,7 +14,7 @@ fi
 
 ssh root@${IP} 'bash -s' <<'REMOTE'
 G="\033[0;32m"; R="\033[0;31m"; Y="\033[1;33m"; C="\033[0;36m"; B="\033[1m"; X="\033[0m"
-echo -e "${B}═══ <HOSTNAME> fleet — $(date -u +'%Y-%m-%d %H:%M:%S UTC') ═══${X}"
+echo -e "${B}═══ iCLONE fleet — $(date -u +'%Y-%m-%d %H:%M:%S UTC') ═══${X}"
 
 # Serviços
 printf "Serviços: "
