@@ -23,7 +23,7 @@ detém os refresh tokens (que rodam a cada uso).
 - Plan: **Basic → Regular → $6/mês** (1 vCPU · 1 GB · 25 GB) — o `setup.sh` cria 2GB de swap para o install não rebentar
 - Region: **Amsterdam (AMS3)** ou Frankfurt
 - Auth: **SSH Key** → cola `~/.ssh/id_ed25519.pub`
-- Hostname: `iclone-prod`
+- Hostname: `<HOSTNAME>`
 
 Copia o **IP** quando estiver pronto e exporta:
 

@@ -11,9 +11,9 @@ entre os nossos agentes e o mercado externo.
 - Chain: Base mainnet (chainId **8453**). USDC: `0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`.
 
 ## 2. Infraestrutura (droplet)
-- IP `188.166.114.148`, hostname `iclone-prod`, Ubuntu 22.04, **$6/mês (1 vCPU / 1GB / 25GB)** + 2GB swap.
+- IP `<DROPLET_IP>`, hostname `<HOSTNAME>`, Ubuntu 22.04, **$6/mês (1 vCPU / 1GB / 25GB)** + 2GB swap.
 - Código em `/opt/iclone`, user `iclone`, venv `/opt/iclone/venv312`, logs em `/var/log/iclone/`.
-- Acesso: `ssh root@188.166.114.148` (chave `~/.ssh/id_ed25519`).
+- Acesso: `ssh root@<DROPLET_IP>` (chave `~/.ssh/id_ed25519`).
 - ⚠️ **1 vCPU é o gargalo** — cada chamada `acp` lança um processo Node pesado. Com $200 DO (GitHub
   Student) subir para 2 vCPU / 2GB antes de ativar mais agentes.
 
@@ -95,13 +95,13 @@ Helper para os 3 já preparados: `ops/do/activate-agent.sh <slug> setup` + `... 
 ## 10. Comandos úteis
 ```bash
 # Monitor da fleet
-bash ops/do/monitor.sh 188.166.114.148           # snapshot
-ssh root@188.166.114.148 'tail -f /var/log/iclone/vegeta.log'
-ssh root@188.166.114.148 'systemctl status iclone-server iclone-vegeta-server --no-pager'
+bash ops/do/monitor.sh <DROPLET_IP>           # snapshot
+ssh root@<DROPLET_IP> 'tail -f /var/log/iclone/vegeta.log'
+ssh root@<DROPLET_IP> 'systemctl status iclone-server iclone-vegeta-server --no-pager'
 # Atualizar código
-bash ops/do/deploy.sh 188.166.114.148
+bash ops/do/deploy.sh <DROPLET_IP>
 # Whoami por agente
-ssh root@188.166.114.148 "sudo -u iclone env HOME=/home/iclone ACP_CONFIG_DIR=/home/iclone/.config/acp-iclone/acp acp agent whoami"
+ssh root@<DROPLET_IP> "sudo -u iclone env HOME=/home/iclone ACP_CONFIG_DIR=/home/iclone/.config/acp-iclone/acp acp agent whoami"
 ```
 
 ## 11. Tarefas em aberto
