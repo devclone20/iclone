@@ -89,7 +89,7 @@ class TestAgenticGDP:
         assert vp.AGENTIC_GDP["current_baseline"]["cumulative_agentic_gdp"] == "$400M+"
 
     def test_agents_deployed_known(self, vp):
-        assert "17,000" in vp.AGENTIC_GDP["current_baseline"]["agents_deployed"]
+        assert "42,000" in vp.AGENTIC_GDP["current_baseline"]["agents_deployed"]
 
     def test_iclone_gdp_contribution_defined(self, vp):
         assert len(vp.AGENTIC_GDP["iclone_contribution"]) > 0

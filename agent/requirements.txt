@@ -4,6 +4,9 @@ virtuals-acp>=0.3.23
 # AI
 anthropic>=0.25.0
 
+# Social — Public Voice (X / Twitter)
+tweepy>=4.14.0
+
 # Environment & HTTP
 python-dotenv>=1.0.0
 requests>=2.31.0

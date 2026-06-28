@@ -76,6 +76,11 @@ docker-compose.override.yml
 tmp/
 temp/.venv312/
 
+# --- Public Voice (X) runtime state — never commit ---
+.x-state/
+**/x.env
+!ops/social/x.env.example
+
 # --- reforço reconciliacao droplet ---
 venv312/
 .venv312/
