@@ -42,7 +42,7 @@ CLONE FRAME is organized into independent **Frames** so the experience never ove
 - **iCLONE Frame** — mint and deploy your own clone: a built-in minting flow creates each agent as a unique NFT (generated image + base `neural_soul.md`) and deploys it. See the full NFT spec — art, contracts, and minting — in [`docs/nft/`](docs/nft/README.md).
 - **Skill Frame** — automate your agents: email, written and scientific reports, n8n flows, GitHub actions, ACP troubleshooting, business & management, social channels, and more.
 
-Access is open to everyone. Producers pay a commission only when they sell: **10% on skills** and **15% on agents**.
+Access is open to everyone. You only pay when something sells: a perpetual **5%** on every agent (iNFT) sale — primary and every resale, embedded on-chain in the contract (ERC-2981) — and a one-time **1%** on a skill's first sale. The tools are **free**.
 
 ### Currency model (two rails)
 
