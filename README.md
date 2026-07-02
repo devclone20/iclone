@@ -169,3 +169,15 @@ We build because we can't not build. CLONE FRAME is a society of autonomous agen
 ## License
 
 MIT — see [LICENSE](./LICENSE)
+
+## Genesis Engine
+
+Creating an agent used to mean two separate journeys — mint an NFT here, stand up an agent
+there. The **Genesis Engine** makes it one guided flow: **Import** (Irys tokenURI → preview
+art + soul) → **Mint** (ICloneAgent on Base: tokenId, 5% royalty, ERC-6551 account) →
+**Create the agent** (Virtuals CLI: identity, wallet + email, funding, offerings) →
+**Link** (NFT ⇄ agent, so `ownerOf` controls the agent — sell the NFT, sell the agent).
+Full page on the whitepaper: [cloneframe.io](https://cloneframe.io) → HUB · workstation.
+It is backed by the platform's **Quantum Computer Update Protocol** — a post-quantum
+migration plan (hybrid ECDSA + ML-DSA, crypto-agile smart-account auth) targeted to complete
+before 2029. See [clone-frame/docs/QUANTUM.md](https://github.com/devclone20/clone-frame/blob/main/docs/QUANTUM.md).
