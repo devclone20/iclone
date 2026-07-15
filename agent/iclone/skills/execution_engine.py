@@ -56,6 +56,10 @@ def _claude(
     max_tokens: int = 2048,
 ) -> str:
     """Call Claude and return the text response."""
+    # Provider override: set AGENT_MODEL (e.g. deepseek-chat) + ANTHROPIC_BASE_URL to
+    # route every call to an alternate provider, without editing per-call model strings.
+    # Unset AGENT_MODEL to fall back to the hardcoded Claude models.
+    model = os.environ.get("AGENT_MODEL") or model
     client = anthropic.Anthropic(api_key=_env("ANTHROPIC_API_KEY"))
     msg = client.messages.create(
         model=model,
