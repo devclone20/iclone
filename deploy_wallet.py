@@ -18,7 +18,7 @@ load_dotenv(Path(__file__).parent / ".env", override=False)
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(message)s")
 log = logging.getLogger("deploy")
 
-sys.path.insert(0, str(Path(__file__).parent / "agent"))
+sys.path.insert(0, str(Path(__file__).parent / "apps" / "agent"))
 from server import _decode_private_key
 
 from eth_account import Account
@@ -89,7 +89,7 @@ try:
     code = w3.eth.get_code(Web3.to_checksum_address(SMART_WALLET))
     if len(code) > 0:
         log.info("SUCCESS — smart wallet deployed at %s", SMART_WALLET)
-        log.info("Now run: venv312/bin/python3.12 agent/server.py")
+        log.info("Now run: venv312/bin/python3.12 apps/agent/server.py")
     else:
         log.warning("UserOp submitted but contract not yet visible — may need a few seconds. Check basescan.org for %s", SMART_WALLET)
 

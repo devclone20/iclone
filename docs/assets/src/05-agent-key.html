@@ -1,0 +1,75 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0}svg{display:block}</style></head><body>
+<svg width="1600" height="600" viewBox="0 0 1600 600" xmlns="http://www.w3.org/2000/svg" font-family="'Helvetica Neue',Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0b0d14"/><stop offset="100%" stop-color="#06070b"/></linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#11151e"/><stop offset="100%" stop-color="#0c0f16"/></linearGradient>
+    <radialGradient id="keyglow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#9fe016" stop-opacity="0.28"/><stop offset="100%" stop-color="#9fe016" stop-opacity="0"/></radialGradient>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#46566b"/></marker>
+  </defs>
+  <rect width="1600" height="600" fill="url(#bg)"/>
+  <text x="90" y="84" fill="#f4f6fa" font-size="42" font-weight="800" letter-spacing="-1">Minting — the NFT is the agent key</text>
+  <text x="90" y="122" fill="#8a94a3" font-size="20">Two halves are fused at mint into one non-fungible key. Transfer the token → transfer the agent.</text>
+
+  <!-- input: image -->
+  <g transform="translate(90,200)">
+    <rect width="300" height="120" rx="14" fill="url(#card)" stroke="#1c2433"/>
+    <rect x="0" y="0" width="4" height="120" rx="2" fill="#5ed3d8"/>
+    <g transform="translate(40,60)"><rect x="-18" y="-22" width="36" height="44" rx="4" fill="#0d1f20" stroke="#2f5a5c"/><circle cx="0" cy="-6" r="7" fill="none" stroke="#5ed3d8" stroke-width="2"/><path d="M-12,16 Q0,2 12,16" fill="none" stroke="#5ed3d8" stroke-width="2"/></g>
+    <text x="78" y="48" fill="#e6eaf0" font-size="21" font-weight="700">Image</text>
+    <text x="78" y="76" fill="#8a94a3" font-size="15" font-family="ui-monospace,Menlo,monospace">on-chain SVG silhouette</text>
+    <text x="78" y="98" fill="#8a94a3" font-size="15" font-family="ui-monospace,Menlo,monospace">rarity tier · traits</text>
+  </g>
+  <!-- input: soul -->
+  <g transform="translate(90,360)">
+    <rect width="300" height="120" rx="14" fill="url(#card)" stroke="#1c2433"/>
+    <rect x="0" y="0" width="4" height="120" rx="2" fill="#b39ddb"/>
+    <g transform="translate(40,60)"><path d="M0,-20 C16,-20 18,-2 0,18 C-18,-2 -16,-20 0,-20 Z" fill="#1a1430" stroke="#b39ddb" stroke-width="2"/><circle cx="0" cy="-4" r="3.4" fill="#b39ddb"/></g>
+    <text x="78" y="48" fill="#e6eaf0" font-size="21" font-weight="700">neural_soul.md</text>
+    <text x="78" y="76" fill="#8a94a3" font-size="15" font-family="ui-monospace,Menlo,monospace">sealed on Irys / Arweave</text>
+    <text x="78" y="98" fill="#8a94a3" font-size="15" font-family="ui-monospace,Menlo,monospace">identity · memory · behaviour</text>
+  </g>
+
+  <!-- merge connectors -->
+  <g stroke="#46566b" stroke-width="2" fill="none">
+    <path d="M390,260 C440,260 450,300 500,300" marker-end="url(#ah)"/>
+    <path d="M390,420 C440,420 450,300 500,300" marker-end="url(#ah)"/>
+  </g>
+
+  <!-- merge node -->
+  <g transform="translate(516,240)">
+    <rect width="280" height="120" rx="14" fill="#0f150f" stroke="#33421f"/>
+    <text x="140" y="46" text-anchor="middle" fill="#bdf24a" font-size="20" font-weight="700">tokenURI metadata</text>
+    <text x="140" y="76" text-anchor="middle" fill="#9aa4b2" font-size="15" font-family="ui-monospace,Menlo,monospace">the merge —</text>
+    <text x="140" y="98" text-anchor="middle" fill="#9aa4b2" font-size="15" font-family="ui-monospace,Menlo,monospace">{ image, neural_soul, attributes }</text>
+  </g>
+
+  <line x1="796" y1="300" x2="862" y2="300" stroke="#46566b" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ERC-721 token -->
+  <g transform="translate(872,240)">
+    <rect width="250" height="120" rx="14" fill="url(#card)" stroke="#1c2433"/>
+    <rect x="0" y="0" width="4" height="120" rx="2" fill="#6ea8ff"/>
+    <text x="125" y="50" text-anchor="middle" fill="#e6eaf0" font-size="22" font-weight="700">ERC-721 token</text>
+    <text x="125" y="82" text-anchor="middle" fill="#8a94a3" font-size="15" font-family="ui-monospace,Menlo,monospace">1 / 1 · on Base</text>
+  </g>
+
+  <!-- double line to key -->
+  <g stroke="#9fe016" stroke-width="2.4" fill="none"><line x1="1122" y1="296" x2="1206" y2="296"/><line x1="1122" y1="304" x2="1206" y2="304"/></g>
+
+  <!-- KEY -->
+  <g transform="translate(1210,180)">
+    <ellipse cx="120" cy="120" rx="150" ry="130" fill="url(#keyglow)"/>
+    <g transform="translate(60,90) scale(1.5)" stroke="#c5ff3d" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="14" cy="14" r="13"/><circle cx="14" cy="14" r="4.5" fill="#0b0d14" stroke-width="2"/>
+      <line x1="24" y1="22" x2="58" y2="40"/><line x1="58" y1="40" x2="52" y2="50"/><line x1="50" y1="36" x2="44" y2="46"/>
+    </g>
+    <text x="120" y="262" text-anchor="middle" fill="#f4f6fa" font-size="22" font-weight="700">agent key</text>
+    <text x="120" y="288" text-anchor="middle" fill="#9fe016" font-size="15" font-family="ui-monospace,Menlo,monospace">ownerOf = controller</text>
+  </g>
+
+  <!-- bottom strip -->
+  <g transform="translate(90,510)">
+    <rect width="1420" height="56" rx="12" fill="#0e131c" stroke="#1c2433"/>
+    <text x="28" y="35" fill="#cdd6e0" font-size="18">Transfer the token and you transfer the whole agent — its identity, its earnings, its configuration. The soul cannot be copied without being owned.</text>
+  </g>
+</svg></body></html>

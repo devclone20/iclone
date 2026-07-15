@@ -22,14 +22,14 @@ jobs:
           python-version: '3.12'
           cache: pip
       - name: Install deps
-        run: pip install -r agent/requirements.txt 2>/dev/null || pip install anthropic
+        run: pip install -r apps/agent/requirements.txt 2>/dev/null || pip install anthropic
       - name: Run training
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           VIRTUALS_API_KEY: ${{ secrets.VIRTUALS_API_KEY }}
         run: |
-          if [ -f agent/iclone/training/scheduler.py ]; then
-            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          if [ -f apps/agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=apps/agent python -m iclone.training.scheduler
           else
             echo "SKIP — no training script found"
           fi
@@ -84,8 +84,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -f agent/iclone/training/scheduler.py ]; then
-            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          if [ -f apps/agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=apps/agent python -m iclone.training.scheduler
           else
             echo "SKIP — no training script"
           fi
@@ -111,8 +111,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -f agent/iclone/training/scheduler.py ]; then
-            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          if [ -f apps/agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=apps/agent python -m iclone.training.scheduler
           else
             echo "SKIP — no training script"
           fi
@@ -138,8 +138,8 @@ jobs:
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
-          if [ -f agent/iclone/training/scheduler.py ]; then
-            PYTHONPATH=. python -m agent.iclone.training.scheduler
+          if [ -f apps/agent/iclone/training/scheduler.py ]; then
+            PYTHONPATH=apps/agent python -m iclone.training.scheduler
           elif [ -f train.py ]; then
             python train.py
           else

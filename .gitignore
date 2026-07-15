@@ -89,3 +89,8 @@ venv312/
 ops/pingpong_state.json
 ops/.offerings_state.json
 market_map_*.json
+.offerings_state.json
+*_state.json
+*.pid
+config.json
+.config/

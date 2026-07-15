@@ -6,7 +6,7 @@ set -e
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 VENV="$SCRIPT_DIR/venv312"
-SERVER="$SCRIPT_DIR/agent/server.py"
+SERVER="$SCRIPT_DIR/apps/agent/server.py"
 SMART_WALLET="0x44cc25d55a4291b92f52062ba023ca1f14206664"
 RPC_URL="https://mainnet.base.org"
 
