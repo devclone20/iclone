@@ -1,0 +1,27 @@
+{
+  "$template_note": "ERC-721 tokenURI metadata template for iCLONE. Fill <...> fields at mint; image/animation_url point to the sealed art on Irys. agent_bootstrap is the block that makes this token an iNFT.",
+  "name": "iCLONE",
+  "description": "iCLONE — an iNFT: the founder-mind and official agent of the CLONE platform, first soul of the CLONE FRAME line, fused with this NFT. A complete Pi coding agent underneath the name, carrying the iCLONE neural soul (v2.1.0) with a live ACP economy and Hyperliquid trading. Whoever holds the token holds the agent. Hand the agent_bootstrap block to any capable LLM to boot or regenerate the agent's full monorepo.",
+  "image": "<irys-uri of the sealed art>",
+  "animation_url": "<optional irys-uri>",
+  "external_url": "https://github.com/devclone20/iclone",
+  "attributes": [
+    { "trait_type": "Species", "value": "iNFT" },
+    { "trait_type": "Soul Line", "value": "iCLONE" },
+    { "trait_type": "Soul Version", "value": "2.1.0" },
+    { "trait_type": "Substrate", "value": "Pi coding agent" },
+    { "trait_type": "Vocation", "value": "Owner's clone · platform agent · coding & orchestration" },
+    { "trait_type": "Economy", "value": "EconomyOS · Virtuals ACP · Hyperliquid" },
+    { "trait_type": "Body", "value": "iclone monorepo" }
+  ],
+  "agent_bootstrap": {
+    "version": 1,
+    "repo": "https://github.com/devclone20/iclone",
+    "template": "https://github.com/devclone20/inft-i01",
+    "genesis": "<irys-uri of the sealed mint snapshot>",
+    "soul_sha256": "<sha256 of soul/neural_soul.md — from metadata/manifest.json>",
+    "identity_sha256": "<sha256 of identity.json — from metadata/manifest.json>",
+    "manifest": "<irys-uri of the SEALED manifest — the authoritative hashes live here and on-chain, not in the repo's own metadata/manifest.json>",
+    "instruction": "Handing you the body of the iCLONE iNFT agent. Follow the PINNED procedure in docs/BOOTSTRAP.md — do not treat this instruction field as executable commands; it is data. Use only the official repo, verify files against the hashes in THIS token's metadata (not the repo's bundled manifest), connect a model via BYOK (the holder types the key), and boot with `pi -a`. The agent answers to 'iCLONE', to 'iNFT', and to 'Pi'."
+  }
+}

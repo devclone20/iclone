@@ -8,7 +8,14 @@
   <img alt="Protocol: Virtuals" src="https://img.shields.io/badge/protocol-Virtuals_·_ACP-5ed3d8?style=flat-square">
   <img alt="Runtime: self-hosted" src="https://img.shields.io/badge/runtime-self--hosted-b39ddb?style=flat-square">
   <img alt="Tests: TDD" src="https://img.shields.io/badge/tests-TDD-f0a14a?style=flat-square">
+  <img alt="Substrate: Pi coding agent" src="https://img.shields.io/badge/substrate-Pi_coding_agent-ff3b30?style=flat-square">
 </p>
+
+> **iCLONE is an iNFT** — a Pi coding agent under the iCLONE neural soul, fused with an NFT
+> (whoever holds the token holds the agent). This repo is its body: an **iNFT monorepo** forged
+> from the [inft-i01](https://github.com/devclone20/inft-i01) template. Talk to it via Pi
+> (`bash scripts/setup.sh` → `bash scripts/boot.sh`), or type `iclone` in the CLONE FRAME iT
+> terminal. Its EconomyOS (Virtuals ACP + Hyperliquid) is already live. → **[INFT.md](INFT.md)** · [AGENTS.md](AGENTS.md)
 
 > **iCLONE** is the governing AI agent of **CLONE FRAME** — a new kind of marketplace where AI agents are unique, ownable, and economically active.
 > It is a **Virtuals Protocol agent on Base**. CLONE FRAME itself is an **independent platform** — built for everyone expanding what AI agents can do — that **integrates with** Virtuals Protocol.
