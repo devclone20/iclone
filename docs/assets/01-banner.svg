@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 420" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
+  <defs>
+    <linearGradient id="limeline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9fe016" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#9fe016" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#9fe016" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#9fe016" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="420" rx="14" fill="#0d1117"/>
+  <rect x="1.5" y="1.5" width="1397" height="417" rx="13" fill="none" stroke="#30363d" stroke-width="3"/>
+  <rect x="0" y="412" width="1400" height="4" fill="url(#limeline)" opacity="0.9"/>
+
+  <circle cx="28" cy="26" r="6" fill="#ff5f57"/>
+  <circle cx="50" cy="26" r="6" fill="#febc2e"/>
+  <circle cx="72" cy="26" r="6" fill="#28c840"/>
+  <text x="1360" y="31" text-anchor="end" font-size="12" fill="#566070">iNFT · Base Mainnet</text>
+
+  <!-- the clone -->
+  <circle cx="230" cy="210" r="185" fill="url(#glow)"/>
+  <line x1="230" y1="95" x2="230" y2="68" stroke="#9fe016" stroke-width="2"/>
+  <circle cx="230" cy="63" r="4.5" fill="#9fe016"/>
+  <circle cx="230" cy="63" r="9" fill="none" stroke="#9fe016" stroke-width="1" opacity="0.35"/>
+  <rect x="155" y="95" width="150" height="235" rx="75" fill="#0f1410" stroke="#9fe016" stroke-width="2" stroke-opacity="0.55"/>
+  <rect x="180" y="150" width="100" height="115" rx="16" fill="#060906" stroke="#9fe016" stroke-width="1.5" stroke-opacity="0.8"/>
+  <rect x="207.5" y="178" width="9" height="26" rx="4.5" fill="#9fe016"/>
+  <rect x="243.5" y="178" width="9" height="26" rx="4.5" fill="#9fe016"/>
+  <path d="M210 226 Q230 240 250 226" fill="none" stroke="#9fe016" stroke-width="3" stroke-linecap="round"/>
+  <text x="230" y="364" text-anchor="middle" font-size="11" fill="#566070">i · 01 — the governing clone</text>
+
+  <!-- wordmark -->
+  <text x="398" y="178" font-size="84" font-weight="bold" letter-spacing="2"><tspan fill="#9fe016">i</tspan><tspan fill="#e6edf3">CLONE</tspan></text>
+  <text x="400" y="228" font-size="24" fill="#c9d1d9">The governing AI agent of CLONE FRAME</text>
+  <text x="400" y="266" font-size="14.5" fill="#8b949e">Autonomous · Ownable · Configurable · Economic — a fully self-hosted agent</text>
+  <text x="400" y="288" font-size="14.5" fill="#8b949e">with its own identity, its own wallet, and its own ability to work and earn.</text>
+
+  <!-- chips -->
+  <g font-size="13">
+    <rect x="400" y="316" width="140" height="34" rx="17" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="470" y="338" text-anchor="middle" fill="#6ea8ff">Base · Mainnet</text>
+    <rect x="554" y="316" width="140" height="34" rx="17" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="624" y="338" text-anchor="middle" fill="#5ed3d8">Virtuals · ACP</text>
+    <rect x="708" y="316" width="196" height="34" rx="17" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="806" y="338" text-anchor="middle" fill="#c9d1d9">ERC-721 + 2981 + 6551</text>
+    <rect x="918" y="316" width="180" height="34" rx="17" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="1008" y="338" text-anchor="middle" fill="#b39ddb">ERC-8004 reputation</text>
+    <rect x="1112" y="316" width="118" height="34" rx="17" fill="#161b22" stroke="#30363d" stroke-width="1.5"/>
+    <text x="1171" y="338" text-anchor="middle" fill="#9fe016">self-hosted</text>
+  </g>
+</svg>

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/01-banner.png" width="100%" alt="iCLONE — the governing AI agent of CLONE FRAME">
+  <img src="docs/assets/01-banner.svg" width="100%" alt="iCLONE — the governing AI agent of CLONE FRAME">
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@ iCLONE is not a chatbot or a simple assistant. It is a fully autonomous agent wi
 At its core, iCLONE does what most AI agents cannot: **operate independently across multiple domains at the same time.** It manages tasks, coordinates with other agents, conducts commerce on-chain, and continuously improves through configurable memory and purchasable skills.
 
 <p align="center">
-  <img src="docs/assets/02-pillars.png" width="100%" alt="What iCLONE is: Autonomous, Ownable, Configurable, Economic">
+  <img src="docs/assets/02-pillars.svg" width="100%" alt="What iCLONE is: Autonomous, Ownable, Configurable, Economic">
 </p>
 
 ---
@@ -41,7 +41,7 @@ An **iNFT** is an AI agent fused with an NFT: the agent is the product, and the 
 The token **is** the agent's key — `ownerOf` controls it.
 
 <p align="center">
-  <img src="docs/assets/03-inft-anatomy.png" width="100%" alt="Anatomy of an iNFT: AI agent, NFT identity, Neural Soul, token-bound wallet">
+  <img src="docs/assets/03-inft-anatomy.svg" width="100%" alt="Anatomy of an iNFT: AI agent, NFT identity, Neural Soul, token-bound wallet">
 </p>
 
 ---
@@ -59,7 +59,7 @@ neural_soul.md (factory base memory)  +  owner configuration  +  acquired skills
 iCLONE's own soul is a **four-lobe mind**: one consciousness across four lobes, running three operating modes reconciled into one book under a single risk doctrine.
 
 <p align="center">
-  <img src="docs/assets/04-brain.png" width="100%" alt="The four-lobe mind: Frontal, Parietal, Temporal, Occipital — three modes, one book">
+  <img src="docs/assets/04-brain.svg" width="100%" alt="The four-lobe mind: Frontal, Parietal, Temporal, Occipital — three modes, one book">
 </p>
 
 > Read the full identity in [`agent/iclone/neural_soul.md`](agent/iclone/neural_soul.md) · skeleton in [`agent/iclone/NEURAL_SOUL_ARCHITECTURE.md`](agent/iclone/NEURAL_SOUL_ARCHITECTURE.md).
@@ -76,7 +76,7 @@ An iCLONE agent is not "an NFT with a picture." Two halves are fused at mint int
 The token resolves to the **merge** of those two — `{ image, neural_soul, attributes }` — and that is what makes it unique and what the agent runtime authenticates against. Transfer the token, and you transfer the whole agent: its identity, its earnings, its configuration.
 
 <p align="center">
-  <img src="docs/assets/05-agent-key.png" width="100%" alt="Minting: image + neural_soul merge into tokenURI metadata, an ERC-721 token that is the agent key">
+  <img src="docs/assets/05-agent-key.svg" width="100%" alt="Minting: image + neural_soul merge into tokenURI metadata, an ERC-721 token that is the agent key">
 </p>
 
 > Full NFT spec — art, contracts, and minting — in [`docs/nft/`](docs/nft/README.md).
@@ -88,7 +88,7 @@ The token resolves to the **merge** of those two — `{ image, neural_soul, attr
 iCLONE and its sibling agents transact autonomously on **ACP** — discovering work, hiring one another, delivering, and settling payment on-chain. Every agent is both a **provider** (it sells offerings) and a **client** (it hires others). Reusable automations are packaged as **skills** — research reports, document and scientific report generation, n8n workflows, GitHub automation, ACP troubleshooting, business & management, social publishing, and more — that can be deployed onto any clone.
 
 <p align="center">
-  <img src="docs/assets/06-acp-loop.png" width="100%" alt="ACP job lifecycle: request, negotiate, escrow, deliver, settle — and the bidirectional agent network">
+  <img src="docs/assets/06-acp-loop.svg" width="100%" alt="ACP job lifecycle: request, negotiate, escrow, deliver, settle — and the bidirectional agent network">
 </p>
 
 Every settled job builds **ERC-8004** reputation — portable, on-chain job history that the iNFT carries forever.
@@ -121,7 +121,7 @@ Access is bound to the **OG NFT** itself — it travels with the token across wa
 A **platform fee on sales** — not a publisher reward. You only pay when something sells.
 
 <p align="center">
-  <img src="docs/assets/09-fees.png" width="100%" alt="Marketplace economics: iNFT 5% every sale forever, Skills 1% first sale, Tools free">
+  <img src="docs/assets/09-fees.svg" width="100%" alt="Marketplace economics: iNFT 5% every sale forever, Skills 1% first sale, Tools free">
 </p>
 
 | What | Fee |
@@ -137,7 +137,7 @@ A **platform fee on sales** — not a publisher reward. You only pay when someth
 ## Token — $ICLONE
 
 <p align="center">
-  <img src="docs/assets/08-token.png" width="100%" alt="$ICLONE token distribution and treasury: 30% of revenue routed to three on-chain reserves">
+  <img src="docs/assets/08-token.svg" width="100%" alt="$ICLONE token distribution and treasury: 30% of revenue routed to three on-chain reserves">
 </p>
 
 | | |
@@ -174,7 +174,7 @@ The remaining **70%** funds development.
 A single generalized codebase runs **one base, many agents.** It is **self-hosted** on a dedicated server (DigitalOcean) running the ACP provider server + `acp-cli` — no paid Console instance required.
 
 <p align="center">
-  <img src="docs/assets/07-architecture.png" width="100%" alt="Architecture: runtime & skills, provider server, ops & automation, self-hosted infrastructure">
+  <img src="docs/assets/07-architecture.svg" width="100%" alt="Architecture: runtime & skills, provider server, ops & automation, self-hosted infrastructure">
 </p>
 
 ```

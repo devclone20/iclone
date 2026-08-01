@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
+  <defs>
+    <linearGradient id="limeline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9fe016" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#9fe016" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1100" height="500" rx="14" fill="#0d1117"/>
+  <rect x="1.5" y="1.5" width="1097" height="497" rx="13" fill="none" stroke="#30363d" stroke-width="3"/>
+  <rect x="0" y="492" width="1100" height="4" fill="url(#limeline)" opacity="0.9"/>
+
+  <circle cx="28" cy="26" r="6" fill="#ff5f57"/>
+  <circle cx="50" cy="26" r="6" fill="#febc2e"/>
+  <circle cx="72" cy="26" r="6" fill="#28c840"/>
+  <g stroke="#9fe016" fill="none" stroke-width="1.6" stroke-linecap="round">
+    <rect x="101" y="15.5" width="20" height="17" rx="6"/>
+    <line x1="111" y1="15.5" x2="111" y2="11.5"/>
+  </g>
+  <circle cx="111" cy="10" r="1.6" fill="#9fe016"/>
+  <circle cx="106.8" cy="22" r="1.7" fill="#9fe016"/>
+  <circle cx="115.2" cy="22" r="1.7" fill="#9fe016"/>
+  <path d="M107 27 Q111 30 115 27" stroke="#9fe016" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <text x="550" y="31" text-anchor="middle" font-size="13" fill="#8b949e">architecture — one base, many agents · fully self-hosted</text>
+
+  <!-- stack -->
+  <g font-size="12">
+    <rect x="40" y="72" width="760" height="82" rx="10" fill="#161b22" stroke="#9fe016" stroke-width="2"/>
+    <text x="62" y="102" fill="#9fe016" font-weight="bold" font-size="14">RUNTIME &amp; SKILLS</text>
+    <text x="62" y="128" fill="#c9d1d9">agent.py · execution engine · crypto / platform / acp skills</text>
+
+    <rect x="40" y="176" width="760" height="82" rx="10" fill="#161b22" stroke="#5ed3d8" stroke-width="2"/>
+    <text x="62" y="206" fill="#5ed3d8" font-weight="bold" font-size="14">PROVIDER SERVER</text>
+    <text x="62" y="232" fill="#c9d1d9">server.py — ACP polling, resilient · no paid Console required</text>
+
+    <rect x="40" y="280" width="760" height="82" rx="10" fill="#161b22" stroke="#b39ddb" stroke-width="2"/>
+    <text x="62" y="310" fill="#b39ddb" font-weight="bold" font-size="14">OPS &amp; AUTOMATION</text>
+    <text x="62" y="336" fill="#c9d1d9">training scheduler · monitoring · deploy kit</text>
+
+    <rect x="40" y="384" width="760" height="82" rx="10" fill="#161b22" stroke="#6ea8ff" stroke-width="2"/>
+    <text x="62" y="414" fill="#6ea8ff" font-weight="bold" font-size="14">SELF-HOSTED INFRA</text>
+    <text x="62" y="440" fill="#c9d1d9">DigitalOcean droplet · acp-cli · keys in env, never in code</text>
+  </g>
+  <g stroke="#566070" stroke-width="2" fill="none">
+    <path d="M420 154 420 172"/><path d="M414 166 420 174 426 166"/>
+    <path d="M420 258 420 276"/><path d="M414 270 420 278 426 270"/>
+    <path d="M420 362 420 380"/><path d="M414 374 420 382 426 374"/>
+  </g>
+
+  <!-- isolation panel -->
+  <rect x="830" y="72" width="230" height="394" rx="10" fill="#161b22" stroke="#f0a14a" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="850" y="104" fill="#f0a14a" font-weight="bold" font-size="13">PER-AGENT ISOLATION</text>
+  <text x="850" y="130" fill="#8b949e" font-size="11">same codebase, many clones —</text>
+  <text x="850" y="148" fill="#8b949e" font-size="11">isolation driven by env:</text>
+  <g font-size="11">
+    <rect x="850" y="170" width="190" height="34" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="864" y="192" fill="#c9d1d9">ACP_CONFIG_DIR</text>
+    <rect x="850" y="216" width="190" height="34" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="864" y="238" fill="#c9d1d9">ICLONE_AGENT_NAME</text>
+    <rect x="850" y="262" width="190" height="34" rx="8" fill="#0d1117" stroke="#30363d" stroke-width="1.5"/>
+    <text x="864" y="284" fill="#c9d1d9">ICLONE_OFFERINGS_FILE</text>
+  </g>
+  <text x="850" y="330" fill="#566070" font-size="11">iCLONE governs; sibling</text>
+  <text x="850" y="348" fill="#566070" font-size="11">agents run beside it on</text>
+  <text x="850" y="366" fill="#566070" font-size="11">the same base.</text>
+  <text x="850" y="404" fill="#8b949e" font-size="11">TDD first — tests written</text>
+  <text x="850" y="422" fill="#8b949e" font-size="11">before every implementation.</text>
+</svg>
