@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">
   <defs>
     <linearGradient id="limeline" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#9fe016" stop-opacity="0.9"/>
-      <stop offset="1" stop-color="#9fe016" stop-opacity="0.1"/>
+      <stop offset="0" stop-color="#c48b96" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#c48b96" stop-opacity="0.1"/>
     </linearGradient>
   </defs>
 
@@ -13,14 +13,14 @@
   <circle cx="28" cy="26" r="6" fill="#ff5f57"/>
   <circle cx="50" cy="26" r="6" fill="#febc2e"/>
   <circle cx="72" cy="26" r="6" fill="#28c840"/>
-  <g stroke="#9fe016" fill="none" stroke-width="1.6" stroke-linecap="round">
+  <g stroke="#c48b96" fill="none" stroke-width="1.6" stroke-linecap="round">
     <rect x="101" y="15.5" width="20" height="17" rx="6"/>
     <line x1="111" y1="15.5" x2="111" y2="11.5"/>
   </g>
-  <circle cx="111" cy="10" r="1.6" fill="#9fe016"/>
-  <circle cx="106.8" cy="22" r="1.7" fill="#9fe016"/>
-  <circle cx="115.2" cy="22" r="1.7" fill="#9fe016"/>
-  <path d="M107 27 Q111 30 115 27" stroke="#9fe016" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <circle cx="111" cy="10" r="1.6" fill="#c48b96"/>
+  <circle cx="106.8" cy="22" r="1.7" fill="#c48b96"/>
+  <circle cx="115.2" cy="22" r="1.7" fill="#c48b96"/>
+  <path d="M107 27 Q111 30 115 27" stroke="#c48b96" stroke-width="1.6" fill="none" stroke-linecap="round"/>
   <text x="550" y="31" text-anchor="middle" font-size="13" fill="#8b949e">anatomy of an iNFT — four parts, one non-fungible key</text>
 
   <!-- connectors -->
@@ -37,8 +37,8 @@
 
   <!-- corner parts -->
   <g font-size="12">
-    <rect x="40" y="70" width="300" height="96" rx="10" fill="#161b22" stroke="#9fe016" stroke-width="2"/>
-    <text x="60" y="98" fill="#9fe016" font-weight="bold">AI AGENT</text>
+    <rect x="40" y="70" width="300" height="96" rx="10" fill="#161b22" stroke="#c48b96" stroke-width="2"/>
+    <text x="60" y="98" fill="#c48b96" font-weight="bold">AI AGENT</text>
     <text x="60" y="122" fill="#c9d1d9">Pi coding agent runtime</text>
     <text x="60" y="142" fill="#566070" font-size="11">works · learns · earns</text>
 
@@ -59,8 +59,8 @@
   </g>
 
   <!-- center -->
-  <rect x="400" y="195" width="300" height="110" rx="10" fill="#161b22" stroke="#9fe016" stroke-width="2.5"/>
-  <text x="550" y="230" text-anchor="middle" fill="#9fe016" font-weight="bold" font-size="18">iNFT</text>
+  <rect x="400" y="195" width="300" height="110" rx="10" fill="#161b22" stroke="#c48b96" stroke-width="2.5"/>
+  <text x="550" y="230" text-anchor="middle" fill="#c48b96" font-weight="bold" font-size="18">iNFT</text>
   <text x="550" y="254" text-anchor="middle" fill="#c9d1d9" font-size="12">agent + NFT fused into one token</text>
   <text x="550" y="276" text-anchor="middle" fill="#566070" font-size="11">whoever holds it, holds the agent</text>
 
