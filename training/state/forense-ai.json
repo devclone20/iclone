@@ -1,7 +1,8 @@
 {
   "next_module": 2,
-  "sessions": 1,
-  "drills_passed": 3,
+  "sessions": 2,
+  "drills_passed": 7,
   "drills_failed": 0,
-  "last_session": "2026-08-07"
+  "last_session": "2026-08-07",
+  "next_specialty": 2
 }
