@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """Fleet training engine — devclone20 agent fleet.
 
-Deterministic core + optional LLM coach layer.
+Two session kinds, one engine:
 
-Each session every agent studies the next curriculum modules (cycling),
-runs the drills attached to those modules, and gets its skill artifacts
-updated under training/skills/<agent>/. The session ends with one organized
-report in Portuguese (training/reports/), which the workflow also delivers
-as a GitHub issue so the owner is notified by email.
+- FLEET (Mon/Wed/Fri): all 9 agents cycle through the shared curriculum
+  (ACP/Virtuals, droplet ops, negotiation phases, Economy OS, Robinhood
+  Chain, debugging, supply-chain law).
+- SPECIALTY (Tue/Thu): the two specialists deepen their own crafts —
+  doctor-agent on IST-standard academic work and the university's scientific
+  repository; forense-ai on to-the-origin investigation across the open web
+  (with live web probes).
 
-The core needs nothing but the repo itself: a missing or empty
-ANTHROPIC_API_KEY, an exhausted credit balance or a network failure can
-degrade the coach note — never the training.
+Deterministic core: no session depends on any external API to complete.
+The LLM coach layer and the web probes degrade gracefully and honestly.
+Every session ends with one organized Portuguese report, delivered by the
+workflow as a GitHub issue (GitHub emails the owner on creation).
 """
 
 from __future__ import annotations
@@ -20,6 +23,7 @@ import json
 import os
 import re
 import traceback
+import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -30,8 +34,8 @@ SKILLS = ROOT / "skills"
 REPORTS = ROOT / "reports"
 
 MODULES_PER_SESSION = 2
+QUARANTINE_DAYS = 14
 
-# The fleet. role/focus flavour the skill artifacts and the report.
 AGENTS = {
     "iclone": {
         "repo": "devclone20/iclone",
@@ -50,8 +54,8 @@ AGENTS = {
     },
     "doctor-agent": {
         "repo": "devclone20/doctor-agent",
-        "role": "academic rigor",
-        "focus": "verifying claims and receipts before anything is published",
+        "role": "academic rigor (IST)",
+        "focus": "IST-standard papers and dissertations; the university's scientific repository",
     },
     "akita-agent": {
         "repo": "devclone20/akita-agent",
@@ -60,8 +64,8 @@ AGENTS = {
     },
     "forense-ai": {
         "repo": "devclone20/forense-ai",
-        "role": "forensics / audit",
-        "focus": "matching job phase trails against on-chain transactions",
+        "role": "forensics / investigation",
+        "focus": "tracing any incident to its origin; evidence-first method on the open web",
     },
     "supersayatin": {
         "repo": "devclone20/supersayatin",
@@ -80,7 +84,6 @@ AGENTS = {
     },
 }
 
-# Curriculum order. Drill ids attach the deterministic checks below.
 MODULES = [
     ("01-acp-foundations", ["phases-order"]),
     ("02-acp-cli-agent", ["pending-auth", "skill-staleness"]),
@@ -89,17 +92,46 @@ MODULES = [
     ("05-economy-os", ["fee-math-2"]),
     ("06-robinhood-chain", ["ui-multiplier", "npm-trap"]),
     ("07-debugging", ["escrow-stuck", "runner-outage", "credit-400"]),
+    ("08-supply-chain", ["fresh-package", "registry-dates"]),
 ]
 
-# Deterministic drills: scenario -> expected diagnosis/answer, verified by
-# computation or by canonical constants from real operations. Every drill
-# doubles as a worked example inside the skill artifacts.
+# Tue/Thu specialty tracks. Probes are live web checks recorded in the
+# artifacts — reachability + page title, never a hard dependency.
+SPECIALTY = {
+    "doctor-agent": {
+        "track": [
+            ("d1-ist-standards", ["ist-structure", "citation-format"]),
+            ("d2-ist-repository", ["no-fabrication"]),
+            ("d3-review-craft", ["claims-evidence"]),
+        ],
+        "probes": [
+            ("Técnico Scholar — repositório científico do IST", "https://scholar.tecnico.ulisboa.pt"),
+            ("Repositório da Universidade de Lisboa", "https://repositorio.ulisboa.pt"),
+        ],
+    },
+    "forense-ai": {
+        "track": [
+            ("f1-root-cause", ["timeline-first", "proximate-vs-root"]),
+            ("f2-osint-web", ["corroborate-two", "verify-liveness"]),
+            ("f3-digital-evidence", ["preserve-first"]),
+        ],
+        "probes": [
+            ("Internet Archive — Wayback Machine", "https://web.archive.org"),
+            ("Certificate Transparency — crt.sh", "https://crt.sh"),
+        ],
+    },
+}
+
 CANON_PHASES = ["job.created", "budget.set", "job.funded", "job.submitted", "job.completed"]
 
 
 def _fee(amount: float) -> tuple[float, float]:
     fee = round(amount * 0.10, 6)
     return round(amount - fee, 6), fee
+
+
+def _quarantine_ok(age_days: int) -> bool:
+    return age_days >= QUARANTINE_DAYS
 
 
 DRILLS = {
@@ -171,6 +203,61 @@ DRILLS = {
         "expected": "Billing, not code. Degrade gracefully, report the state, never retry-loop against a dead balance.",
         "check": lambda: True,
     },
+    "fresh-package": {
+        "scenario": "A tempting npm/PyPI package was published 3 days ago.",
+        "expected": f"REFUSE. Fleet law: nothing younger than {QUARANTINE_DAYS} days gets installed — fresh releases are where supply-chain attacks live.",
+        "check": lambda: (not _quarantine_ok(3)) and (not _quarantine_ok(13)) and _quarantine_ok(30),
+    },
+    "registry-dates": {
+        "scenario": "How do you know a package's real age?",
+        "expected": "Ask the registry, not the README: pypi.org/pypi/<pkg>/json upload times; npm registry `time` field. The training's own quarantine_pip.py is the working example.",
+        "check": lambda: True,
+    },
+    "ist-structure": {
+        "scenario": "A dissertation draft arrives with results before methodology and no PT/EN abstracts.",
+        "expected": "Rebuild to the IST skeleton: abstracts + keywords in PT and EN, introduction → related work → methodology → results → discussion → conclusion, complete references.",
+        "check": lambda: True,
+    },
+    "citation-format": {
+        "scenario": "References mix three styles mid-list.",
+        "expected": "One style, applied everywhere (IEEE numeric is the engineering default at IST); every entry complete and every in-text citation resolvable.",
+        "check": lambda: True,
+    },
+    "no-fabrication": {
+        "scenario": "A cited paper cannot be found in any repository.",
+        "expected": "Fabricated or wrong — either way it leaves the manuscript. Every reference must resolve (DOI, handle, or repository record) before submission. Never invent a source.",
+        "check": lambda: True,
+    },
+    "claims-evidence": {
+        "scenario": "The abstract claims 'state of the art' but the tables beat one baseline from 2019.",
+        "expected": "Flag the claim–evidence gap: every claim must be carried by the presented evidence, and comparisons must include current baselines.",
+        "check": lambda: True,
+    },
+    "timeline-first": {
+        "scenario": "An incident report starts with a suspect and works backwards.",
+        "expected": "Reverse it: evidence intake → timeline reconstruction → hypothesis tree → eliminate until the origin. Conclusions come last, not first.",
+        "check": lambda: True,
+    },
+    "proximate-vs-root": {
+        "scenario": "A CI run failed and the log's last line blames the test step.",
+        "expected": "Last line = proximate cause. Keep asking why until the origin (real case: 'review failed' → runner never acquired → GitHub Actions major outage — code was never the problem).",
+        "check": lambda: True,
+    },
+    "corroborate-two": {
+        "scenario": "One website makes the key claim of the investigation.",
+        "expected": "One source is an anecdote. Corroborate with a second independent source or downgrade the claim; prefer primary evidence over reporting about it.",
+        "check": lambda: True,
+    },
+    "verify-liveness": {
+        "scenario": "An automated reviewer claims a link is dead.",
+        "expected": "Verify with an independent instrument before acting (real case: X post 'broken' to a blocked fetcher — the oEmbed endpoint proved it live, with a negative control).",
+        "check": lambda: True,
+    },
+    "preserve-first": {
+        "scenario": "Key evidence lives on a page that could change or vanish.",
+        "expected": "Preserve before analysing: archive (Wayback), hash, screenshot, record retrieval time. Chain of custody makes evidence usable; immutable ledgers are the gold standard.",
+        "check": lambda: True,
+    },
 }
 
 
@@ -178,11 +265,22 @@ def utcnow() -> datetime:
     return datetime.now(timezone.utc)
 
 
+def resolve_mode() -> str:
+    mode = os.environ.get("SESSION_MODE", "auto").strip().lower()
+    if mode in ("fleet", "specialty"):
+        return mode
+    return "specialty" if utcnow().weekday() in (1, 3) else "fleet"  # Tue=1, Thu=3
+
+
 def load_state(agent: str) -> dict:
     p = STATE / f"{agent}.json"
-    if p.exists():
-        return json.loads(p.read_text())
-    return {"next_module": 0, "sessions": 0, "drills_passed": 0, "drills_failed": 0}
+    st = json.loads(p.read_text()) if p.exists() else {}
+    st.setdefault("next_module", 0)
+    st.setdefault("next_specialty", 0)
+    st.setdefault("sessions", 0)
+    st.setdefault("drills_passed", 0)
+    st.setdefault("drills_failed", 0)
+    return st
 
 
 def save_state(agent: str, st: dict) -> None:
@@ -196,20 +294,17 @@ def module_text(slug: str) -> str:
 
 
 def module_title(slug: str) -> str:
-    text = module_text(slug)
-    m = re.search(r"^#\s+(.+)$", text, re.M)
+    m = re.search(r"^#\s+(.+)$", module_text(slug), re.M)
     return m.group(1).strip() if m else slug
 
 
 def key_points(slug: str) -> str:
-    text = module_text(slug)
-    m = re.search(r"## Key points\n(.*?)(?:\n## |\Z)", text, re.S)
+    m = re.search(r"## Key points\n(.*?)(?:\n## |\Z)", module_text(slug), re.S)
     return m.group(1).strip() if m else "(module missing — curriculum integrity drill will flag this)"
 
 
 def sources_for(slug: str) -> list[str]:
-    text = module_text(slug)
-    m = re.search(r"## Sources\n(.*?)(?:\n## |\Z)", text, re.S)
+    m = re.search(r"## Sources\n(.*?)(?:\n## |\Z)", module_text(slug), re.S)
     if not m:
         return []
     return [ln.strip("- ").strip() for ln in m.group(1).strip().splitlines() if ln.strip()]
@@ -227,22 +322,43 @@ def source_skill_excerpt(name: str, limit: int = 400) -> str:
     return (m.group(1).strip()[:limit]) if m else text[:limit]
 
 
+def probe(url: str) -> str:
+    """Live web probe: status + title, degrading to an honest failure note."""
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en,pt;q=0.8",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=20) as r:
+            body = r.read(65536).decode("utf-8", errors="replace")
+            m = re.search(r"<title[^>]*>(.*?)</title>", body, re.S | re.I)
+            title = re.sub(r"\s+", " ", m.group(1)).strip()[:120] if m else "(sem title)"
+            return f"✅ HTTP {r.status} — “{title}”"
+    except Exception as e:  # noqa: BLE001
+        return f"⚠️ inacessível ({type(e).__name__}) — treino continua com o currículo"
+
+
 def run_drill(drill_id: str) -> tuple[bool, dict]:
     d = DRILLS[drill_id]
     try:
         ok = bool(d["check"]())
-    except Exception:
+    except Exception:  # noqa: BLE001
         ok = False
     return ok, d
 
 
-def train_agent(agent: str, meta: dict, today: str) -> dict:
+def study(agent: str, meta: dict, today: str, track: list, cursor_key: str) -> dict:
     st = load_state(agent)
-    start = st["next_module"] % len(MODULES)
+    start = st[cursor_key] % len(track)
     studied, drills = [], []
+    n = min(MODULES_PER_SESSION, len(track))
 
-    for i in range(MODULES_PER_SESSION):
-        slug, drill_ids = MODULES[(start + i) % len(MODULES)]
+    for i in range(n):
+        slug, drill_ids = track[(start + i) % len(track)]
         title = module_title(slug)
         results = []
         for did in drill_ids:
@@ -251,7 +367,6 @@ def train_agent(agent: str, meta: dict, today: str) -> dict:
             drills.append((did, ok))
 
         SKILLS.joinpath(agent).mkdir(parents=True, exist_ok=True)
-        art = SKILLS / agent / f"{slug}.md"
         lines = [
             f"# {title}",
             "",
@@ -271,20 +386,20 @@ def train_agent(agent: str, meta: dict, today: str) -> dict:
             lines += ["", "## Canonical sources"]
             for s in srcs:
                 lines.append(f"- {s}")
-                exc = source_skill_excerpt(s.split("/")[-1]) if "/" not in s else ""
+                exc = source_skill_excerpt(s)
                 if exc:
                     lines.append(f"  - _{exc}_")
-        art.write_text("\n".join(lines) + "\n")
+        (SKILLS / agent / f"{slug}.md").write_text("\n".join(lines) + "\n")
         studied.append((slug, title))
 
-    st["next_module"] = (start + MODULES_PER_SESSION) % len(MODULES)
+    st[cursor_key] = (start + n) % len(track)
     st["sessions"] += 1
     st["drills_passed"] += sum(1 for _, ok in drills if ok)
     st["drills_failed"] += sum(1 for _, ok in drills if not ok)
     st["last_session"] = today
     save_state(agent, st)
 
-    nxt = [module_title(MODULES[(st["next_module"] + i) % len(MODULES)][0]) for i in range(MODULES_PER_SESSION)]
+    nxt = [module_title(track[(st[cursor_key] + i) % len(track)][0]) for i in range(n)]
     return {"studied": studied, "drills": drills, "state": st, "next": nxt}
 
 
@@ -302,41 +417,54 @@ def coach_note(studied_titles: list[str]) -> str:
             messages=[{
                 "role": "user",
                 "content": (
-                    "You coach a fleet of ACP trading agents. Today's modules: "
+                    "You coach a fleet of autonomous agents. Today's modules: "
                     + ", ".join(studied_titles)
                     + ". In Portuguese, give one sharp paragraph (max 120 words) of practical "
-                      "advice connecting these topics to running real $ trades safely."
+                      "advice connecting these topics to doing real, verifiable work safely."
                 ),
             }],
         )
         return "activa — nota do coach:\n\n> " + msg.content[0].text.strip().replace("\n", "\n> ")
-    except Exception as e:  # noqa: BLE001 — any failure degrades, never breaks
-        kind = type(e).__name__
+    except ModuleNotFoundError:
+        return "inactiva — SDK não instalado nesta sessão (quarentena de pacotes pode ter recusado); núcleo determinístico não afectado."
+    except Exception as e:  # noqa: BLE001
         if "credit" in str(e).lower():
             return "sem créditos na API Anthropic — o treino correu completo no núcleo determinístico. (Repor créditos reactiva esta camada sozinha.)"
-        return f"falhou ({kind}) — núcleo determinístico não afectado."
+        return f"falhou ({type(e).__name__}) — núcleo determinístico não afectado."
 
 
 def main() -> int:
     today = utcnow().strftime("%Y-%m-%d")
     note = os.environ.get("SESSION_NOTE", "Scheduled")
+    mode = resolve_mode()
     REPORTS.mkdir(parents=True, exist_ok=True)
 
-    fleet, failures = {}, {}
-    for agent, meta in AGENTS.items():
+    if mode == "specialty":
+        roster = {a: AGENTS[a] for a in SPECIALTY}
+        kind = "Especialidade (Ter/Qui)"
+    else:
+        roster = AGENTS
+        kind = "Frota (Seg/Qua/Sex)"
+
+    fleet, failures, probes_out = {}, {}, {}
+    for agent, meta in roster.items():
         try:
-            fleet[agent] = train_agent(agent, meta, today)
-        except Exception:
+            if mode == "specialty":
+                spec = SPECIALTY[agent]
+                fleet[agent] = study(agent, meta, today, spec["track"], "next_specialty")
+                probes_out[agent] = [(label, probe(url), url) for label, url in spec["probes"]]
+            else:
+                fleet[agent] = study(agent, meta, today, MODULES, "next_module")
+        except Exception:  # noqa: BLE001
             failures[agent] = traceback.format_exc(limit=3)
 
     all_titles = sorted({t for r in fleet.values() for _, t in r["studied"]})
     llm = coach_note(all_titles)
 
-    # ---- the organized report (PT) ----
     L = [
-        f"# 📚 Treino da frota — {today}",
+        f"# 📚 Treino — {kind} — {today}",
         "",
-        f"_Sessão: {note} · {utcnow().strftime('%H:%M')} UTC · {len(fleet)}/{len(AGENTS)} agentes treinados._",
+        f"_Sessão: {note} · {utcnow().strftime('%H:%M')} UTC · {len(fleet)}/{len(roster)} agentes treinados._",
         "",
         "## Resumo",
         "",
@@ -356,13 +484,15 @@ def main() -> int:
 
     L += ["", "## Por agente", ""]
     for agent, r in fleet.items():
-        meta = AGENTS[agent]
+        meta = roster[agent]
         L.append(f"### {agent} — {meta['role']}")
         L.append(f"Foco: {meta['focus']}.")
         for slug, title in r["studied"]:
             L.append(f"- Estudou **{title}** → skill actualizada em `training/skills/{agent}/{slug}.md`")
         bad = [d for d, o in r["drills"] if not o]
         L.append("- Drills: todos verificados ✅" if not bad else f"- Drills falhados: {', '.join(bad)} ❌ (integridade do currículo — investigar)")
+        for label, result, url in probes_out.get(agent, []):
+            L.append(f"- Sonda web: {label} → {result} (<{url}>)")
         L.append("")
 
     if failures:
@@ -375,13 +505,17 @@ def main() -> int:
     any_r = next(iter(fleet.values()), None)
     if any_r:
         L.append("Módulos seguintes: " + " · ".join(any_r["next"]))
-    L += ["", "---", "_Sistema único de treino (hub devclone20/iclone). Currículo: ACP/Virtuals CLI · droplet ops · fases de negociação · Economy OS · Robinhood Chain · debugging._"]
+    L += [
+        "",
+        "---",
+        f"_Sistema único de treino (hub devclone20/iclone). Frota Seg/Qua/Sex · Especialidade Ter/Qui (doctor-agent: padrão IST + repositório científico · forense-ai: investigação até à origem na web aberta). Lei da frota: quarentena de {QUARANTINE_DAYS} dias para qualquer pacote._",
+    ]
 
     report = "\n".join(L) + "\n"
-    (REPORTS / f"{today}.md").write_text(report)
+    (REPORTS / f"{today}-{mode}.md").write_text(report)
     (REPORTS / "issue_body.md").write_text(report)
     print(report)
-    return 0 if not failures else 0  # failures are reported, never hidden behind a red run
+    return 0
 
 
 if __name__ == "__main__":
