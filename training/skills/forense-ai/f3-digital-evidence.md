@@ -1,6 +1,6 @@
 # Digital evidence — preserve first, analyse second
 
-_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-11._
+_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-13._
 _Agent focus: tracing any incident to its origin; evidence-first method on the open web._
 
 ## Key points
