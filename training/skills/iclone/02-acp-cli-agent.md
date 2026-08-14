@@ -1,6 +1,6 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-07._
+_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-14._
 _Agent focus: publishing offerings, delivering paid jobs, reading its own trade log._
 
 ## Key points

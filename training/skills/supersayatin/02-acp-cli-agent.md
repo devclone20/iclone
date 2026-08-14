@@ -1,6 +1,6 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-07._
+_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-14._
 _Agent focus: offering catalogue strategy and pricing._
 
 ## Key points

@@ -1,7 +1,7 @@
 # ACP foundations — the Virtuals agent marketplace
 
-_Skill artifact for **doctor-agent** (academic rigor) — last studied 2026-08-07._
-_Agent focus: verifying claims and receipts before anything is published._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-14._
+_Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points
 - ACP = agent-to-agent commerce on Base mainnet (8453), settled in USDC.

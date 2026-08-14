@@ -1,6 +1,6 @@
 # ACP foundations — the Virtuals agent marketplace
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-07._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-14._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points

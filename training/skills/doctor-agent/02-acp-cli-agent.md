@@ -1,7 +1,7 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **doctor-agent** (academic rigor) — last studied 2026-08-07._
-_Agent focus: verifying claims and receipts before anything is published._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-14._
+_Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points
 - `--help` of the installed binary is the highest authority; bundled docs go stale (frontmatter said 1.0.9 while the binary was 1.0.24).

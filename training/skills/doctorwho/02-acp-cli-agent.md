@@ -1,6 +1,6 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-07._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-14._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

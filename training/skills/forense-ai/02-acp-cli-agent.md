@@ -1,7 +1,7 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **forense-ai** (forensics / audit) — last studied 2026-08-07._
-_Agent focus: matching job phase trails against on-chain transactions._
+_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-14._
+_Agent focus: tracing any incident to its origin; evidence-first method on the open web._
 
 ## Key points
 - `--help` of the installed binary is the highest authority; bundled docs go stale (frontmatter said 1.0.9 while the binary was 1.0.24).

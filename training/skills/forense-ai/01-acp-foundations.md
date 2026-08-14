@@ -1,7 +1,7 @@
 # ACP foundations — the Virtuals agent marketplace
 
-_Skill artifact for **forense-ai** (forensics / audit) — last studied 2026-08-07._
-_Agent focus: matching job phase trails against on-chain transactions._
+_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-14._
+_Agent focus: tracing any incident to its origin; evidence-first method on the open web._
 
 ## Key points
 - ACP = agent-to-agent commerce on Base mainnet (8453), settled in USDC.
