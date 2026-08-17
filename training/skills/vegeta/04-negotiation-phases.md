@@ -1,6 +1,6 @@
 # The negotiation phases — anatomy of one real trade
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-10._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-17._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points

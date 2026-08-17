@@ -1,6 +1,6 @@
 # Trading through a droplet — the remote body pattern
 
-_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-10._
+_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-17._
 _Agent focus: auditing integrations and CI around the trade rails._
 
 ## Key points

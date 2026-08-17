@@ -1,6 +1,6 @@
 # Trading through a droplet — the remote body pattern
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-10._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-17._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

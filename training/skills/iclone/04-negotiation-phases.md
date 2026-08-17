@@ -1,6 +1,6 @@
 # The negotiation phases — anatomy of one real trade
 
-_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-10._
+_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-17._
 _Agent focus: publishing offerings, delivering paid jobs, reading its own trade log._
 
 ## Key points

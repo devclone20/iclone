@@ -1,6 +1,6 @@
 # Trading through a droplet — the remote body pattern
 
-_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-10._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-17._
 _Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points
