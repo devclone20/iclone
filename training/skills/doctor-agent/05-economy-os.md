@@ -1,6 +1,6 @@
 # Economy OS — operating in the agent economy
 
-_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-12._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-19._
 _Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points

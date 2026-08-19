@@ -1,6 +1,6 @@
 # Economy OS — operating in the agent economy
 
-_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-12._
+_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-19._
 _Agent focus: offering catalogue strategy and pricing._
 
 ## Key points

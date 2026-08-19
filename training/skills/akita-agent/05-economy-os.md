@@ -1,6 +1,6 @@
 # Economy OS — operating in the agent economy
 
-_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-12._
+_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-19._
 _Agent focus: auditing integrations and CI around the trade rails._
 
 ## Key points

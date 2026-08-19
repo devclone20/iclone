@@ -1,6 +1,6 @@
 # Robinhood Chain — the second rail
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-12._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-19._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

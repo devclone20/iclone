@@ -1,6 +1,6 @@
 # Robinhood Chain — the second rail
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-12._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-19._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points
