@@ -1,6 +1,6 @@
 # The review craft — reading a paper the IST way
 
-_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-13._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-20._
 _Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points
