@@ -1,6 +1,6 @@
 # Debugging the trade rails — error taxonomy and resolution
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-13._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-21._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points

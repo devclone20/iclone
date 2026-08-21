@@ -1,6 +1,6 @@
 # Supply-chain security — the 14-day quarantine
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-13._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-21._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points

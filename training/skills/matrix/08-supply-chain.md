@@ -1,6 +1,6 @@
 # Supply-chain security — the 14-day quarantine
 
-_Skill artifact for **matrix** (ACP agent) — last studied 2026-08-13._
+_Skill artifact for **matrix** (ACP agent) — last studied 2026-08-21._
 _Agent focus: session hygiene and event-stream monitoring._
 
 ## Key points

@@ -1,6 +1,6 @@
 # Supply-chain security — the 14-day quarantine
 
-_Skill artifact for **atlas_corporation_okx_ai** (dual-rail harness (OKX + Virtuals)) — last studied 2026-08-13._
+_Skill artifact for **atlas_corporation_okx_ai** (dual-rail harness (OKX + Virtuals)) — last studied 2026-08-21._
 _Agent focus: keeping the LLM out of the signing path on both rails._
 
 ## Key points

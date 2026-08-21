@@ -1,6 +1,6 @@
 # Supply-chain security — the 14-day quarantine
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-13._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-21._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

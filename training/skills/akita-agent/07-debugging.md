@@ -1,6 +1,6 @@
 # Debugging the trade rails — error taxonomy and resolution
 
-_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-13._
+_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-21._
 _Agent focus: auditing integrations and CI around the trade rails._
 
 ## Key points

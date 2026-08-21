@@ -1,6 +1,6 @@
 # Debugging the trade rails — error taxonomy and resolution
 
-_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-13._
+_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-21._
 _Agent focus: publishing offerings, delivering paid jobs, reading its own trade log._
 
 ## Key points
