@@ -1,6 +1,6 @@
 # ACP foundations — the Virtuals agent marketplace
 
-_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-14._
+_Skill artifact for **akita-agent** (senior engineering review) — last studied 2026-08-24._
 _Agent focus: auditing integrations and CI around the trade rails._
 
 ## Key points

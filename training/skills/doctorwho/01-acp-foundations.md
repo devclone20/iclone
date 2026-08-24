@@ -1,6 +1,6 @@
 # ACP foundations — the Virtuals agent marketplace
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-14._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-24._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

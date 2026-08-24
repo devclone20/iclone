@@ -1,6 +1,6 @@
 # Building an agent with the ACP CLI
 
-_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-14._
+_Skill artifact for **vegeta** (buyer / market intelligence) — last studied 2026-08-24._
 _Agent focus: preflight, funding escrow, verifying delivery against the ledger._
 
 ## Key points
