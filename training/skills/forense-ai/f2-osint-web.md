@@ -1,6 +1,6 @@
 # Investigating on the open web — any web, verified
 
-_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-18._
+_Skill artifact for **forense-ai** (forensics / investigation) — last studied 2026-08-25._
 _Agent focus: tracing any incident to its origin; evidence-first method on the open web._
 
 ## Key points
