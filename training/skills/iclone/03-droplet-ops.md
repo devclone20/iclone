@@ -1,6 +1,6 @@
 # Trading through a droplet — the remote body pattern
 
-_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-17._
+_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-26._
 _Agent focus: publishing offerings, delivering paid jobs, reading its own trade log._
 
 ## Key points

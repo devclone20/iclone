@@ -1,6 +1,6 @@
 # The negotiation phases — anatomy of one real trade
 
-_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-17._
+_Skill artifact for **doctorwho** (research deliverables) — last studied 2026-08-26._
 _Agent focus: producing the reports that sellers get paid for._
 
 ## Key points

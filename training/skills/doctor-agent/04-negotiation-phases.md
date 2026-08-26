@@ -1,6 +1,6 @@
 # The negotiation phases — anatomy of one real trade
 
-_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-17._
+_Skill artifact for **doctor-agent** (academic rigor (IST)) — last studied 2026-08-26._
 _Agent focus: IST-standard papers and dissertations; the university's scientific repository._
 
 ## Key points

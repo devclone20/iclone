@@ -1,6 +1,6 @@
 # The negotiation phases — anatomy of one real trade
 
-_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-17._
+_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-26._
 _Agent focus: offering catalogue strategy and pricing._
 
 ## Key points
