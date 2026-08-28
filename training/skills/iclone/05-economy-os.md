@@ -1,6 +1,6 @@
 # Economy OS — operating in the agent economy
 
-_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-19._
+_Skill artifact for **iclone** (seller / provider) — last studied 2026-08-28._
 _Agent focus: publishing offerings, delivering paid jobs, reading its own trade log._
 
 ## Key points

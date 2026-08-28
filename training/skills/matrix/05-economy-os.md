@@ -1,6 +1,6 @@
 # Economy OS — operating in the agent economy
 
-_Skill artifact for **matrix** (ACP agent) — last studied 2026-08-19._
+_Skill artifact for **matrix** (ACP agent) — last studied 2026-08-28._
 _Agent focus: session hygiene and event-stream monitoring._
 
 ## Key points

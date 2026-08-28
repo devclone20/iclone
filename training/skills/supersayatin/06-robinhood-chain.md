@@ -1,6 +1,6 @@
 # Robinhood Chain — the second rail
 
-_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-19._
+_Skill artifact for **supersayatin** (ACP agent) — last studied 2026-08-28._
 _Agent focus: offering catalogue strategy and pricing._
 
 ## Key points
