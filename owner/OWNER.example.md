@@ -1,8 +1,8 @@
 # OWNER PROFILE — worked example (illustrative, fictional)
 
 > This is an **example** so you can see the shape. During forge, your assistant
-> interviews you and writes YOUR version into `.pi/owner.local.md`, then appends it to
-> your local `.pi/APPEND_SYSTEM.md` and untracks that file — so your real profile
+> interviews you and writes YOUR version into `.hermes/owner.local.md`, then appends it to
+> your local `SOUL.md` and untracks that file — so your real profile
 > lives on your machine only and is never committed or pushed. The person below is
 > fictional; nothing here is anyone's real data.
 

@@ -12,6 +12,20 @@
 *.pfx
 secrets/
 credentials/
+auth.json
+.hermes/auth.json
+.hermes/trust.json
+
+# Per-owner personal data (PII) — LOCAL ONLY, never committed or pushed
+.hermes/owner.local.md
+**/owner.local.md
+*.local
+*.local.*
+
+# Hermes runtime state
+.hermes/sessions/
+.hermes/npm/
+.hermes/git/
 
 # Python
 __pycache__/

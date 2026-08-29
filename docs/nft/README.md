@@ -2,7 +2,9 @@
 
 > The NFT **is** the agent. Whoever holds the token owns the AI agent and governs everything inside it.
 
-This folder documents how an iCLONE agent becomes a unique, non-fungible on-chain asset on **Base**, and how the art + soul are fused into a single token.
+This folder documents how an iCLONE agent becomes a unique, non-fungible on-chain asset, and how the art + soul are fused into a single token.
+
+> **The launch is multi-chain.** The collection lands first on **Robinhood Chain** (chain ID 4663, an Arbitrum-Orbit L2 — [docs.robinhood.com/chain](https://docs.robinhood.com/chain/connecting)), then on **Base** (Ethereum L2, chain ID 8453), with further chains after those. The contracts, art pipeline and mint flow below are written against **Base**; `identity.json` carries the authoritative chain block.
 
 ## The core idea — NFT = agent key
 

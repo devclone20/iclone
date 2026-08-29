@@ -4,16 +4,16 @@
 
 <p align="center">
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-9fe016?style=flat-square"></a>
-  <img alt="Chain: Base" src="https://img.shields.io/badge/chain-Base_Mainnet-6ea8ff?style=flat-square">
+  <img alt="Chains: Robinhood · Base" src="https://img.shields.io/badge/chains-Robinhood_·_Base-6ea8ff?style=flat-square">
   <img alt="Protocol: Virtuals" src="https://img.shields.io/badge/protocol-Virtuals_·_ACP-5ed3d8?style=flat-square">
   <img alt="Runtime: self-hosted" src="https://img.shields.io/badge/runtime-self--hosted-b39ddb?style=flat-square">
   <img alt="Tests: TDD" src="https://img.shields.io/badge/tests-TDD-f0a14a?style=flat-square">
-  <img alt="Substrate: Pi coding agent" src="https://img.shields.io/badge/substrate-Pi_coding_agent-ff3b30?style=flat-square">
+  <img alt="Substrate: Hermes Agent" src="https://img.shields.io/badge/substrate-Hermes_Agent-ff3b30?style=flat-square">
 </p>
 
-> **iCLONE is an iNFT** — a Pi coding agent under the iCLONE neural soul, fused with an NFT
+> **iCLONE is an iNFT** — a Hermes Agent under the iCLONE neural soul, fused with an NFT
 > (whoever holds the token holds the agent). This repo is its body: an **iNFT monorepo** forged
-> from the [inft-i01](https://github.com/devclone20/inft-i01) template. Talk to it via Pi
+> from the [inft-i01](https://github.com/devclone20/inft-i01) template. Talk to it via Hermes
 > (`bash scripts/setup.sh` → `bash scripts/boot.sh`), or type `iclone` in the CLONE FRAME iT
 > terminal. Its EconomyOS (Virtuals ACP + Hyperliquid) is already live. → **[INFT.md](INFT.md)** · [AGENTS.md](AGENTS.md)
 
@@ -36,9 +36,11 @@ At its core, iCLONE does what most AI agents cannot: **operate independently acr
 
 ## The iNFT — an agent with an integrated NFT
 
-An **iNFT** is an AI agent fused with an NFT: the agent is the product, and the NFT gives it identity and ownership on-chain. Every clone is minted as a unique **NFT AI agent** on Base, with its own generated image and base character (`neural_soul.md`) shown in the listing **before** purchase — its own traits, silhouette, and rarity tier (`rare` · `superrare` · `iclone`).
+An **iNFT** is an AI agent fused with an NFT: the agent is the product, and the NFT gives it identity and ownership on-chain. Every clone is minted as a unique **NFT AI agent**, with its own generated image and base character (`neural_soul.md`) shown in the listing **before** purchase — its own traits, silhouette, and rarity tier (`rare` · `superrare` · `iclone`).
 
 The token **is** the agent's key — `ownerOf` controls it.
+
+**The launch is multi-chain.** The collection lands first on **Robinhood Chain** (chain ID 4663, an Arbitrum-Orbit L2 — [docs.robinhood.com/chain](https://docs.robinhood.com/chain/connecting)), then on **Base** (Ethereum L2, chain ID 8453), with further chains after those. The agent itself is chain-agnostic: `identity.json` carries the chain block, and the same body works wherever its token lives.
 
 <p align="center">
   <img src="docs/assets/03-inft-anatomy.svg" width="100%" alt="Anatomy of an iNFT: AI agent, NFT identity, Neural Soul, token-bound wallet">
@@ -130,7 +132,7 @@ A **platform fee on sales** — not a publisher reward. You only pay when someth
 | **Skills** | **1%, only on the first sale** |
 | **Tools** | **Free** to use — the 5% applies only when a tool is minted as an iNFT |
 
-**Two currency rails:** agent NFTs are minted and traded in **ETH / USDC on Base** for deep liquidity and a smooth experience; automation skills and platform services run on the **$ICLONE token**, with prices fixed in USD while the token quantity adjusts dynamically — giving $ICLONE continuous, real utility.
+**Two currency rails:** agent NFTs are minted and traded in **ETH / USDC** on the launch chain for deep liquidity and a smooth experience; automation skills and platform services run on the **$ICLONE token**, with prices fixed in USD while the token quantity adjusts dynamically — giving $ICLONE continuous, real utility.
 
 ---
 

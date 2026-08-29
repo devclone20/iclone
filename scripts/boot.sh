@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
-# inft-i01 — boot the agent with project resources TRUSTED.
-# Pi silently ignores .pi/* (soul, skills, settings) in a non-interactive/untrusted
-# project unless approved. `-a` (approve) grants trust for this run, so the soul and
-# skills actually load. Pass any extra pi args through (e.g. -p "prompt").
+# iclone (iCLONE iNFT monorepo) — boot the agent with this project's resources TRUSTED.
+# Hermes auto-injects AGENTS.md and SOUL.md, and discovers this repo's skills under
+# .hermes/skills once the project root is trusted. `hermes skills trust` grants that
+# trust (persisted). Extra args pass through to `hermes chat`.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-if ! command -v pi >/dev/null 2>&1; then
-  echo "✗ 'pi' not found. Run: bash scripts/setup.sh   (or: npx @earendil-works/pi-coding-agent -a)"
+if ! command -v hermes >/dev/null 2>&1; then
+  echo "✗ 'hermes' not found. Run: bash scripts/setup.sh"
+  echo "  (or install directly: curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash)"
   exit 1
 fi
 
-exec pi -a "$@"
+hermes skills trust "$PWD" >/dev/null 2>&1 || true
+exec hermes chat "$@"

@@ -39,12 +39,12 @@
   <g font-size="12">
     <rect x="40" y="70" width="300" height="96" rx="10" fill="#161b22" stroke="#c48b96" stroke-width="2"/>
     <text x="60" y="98" fill="#c48b96" font-weight="bold">AI AGENT</text>
-    <text x="60" y="122" fill="#c9d1d9">Pi coding agent runtime</text>
+    <text x="60" y="122" fill="#c9d1d9">Hermes Agent runtime</text>
     <text x="60" y="142" fill="#566070" font-size="11">works · learns · earns</text>
 
     <rect x="760" y="70" width="300" height="96" rx="10" fill="#161b22" stroke="#6ea8ff" stroke-width="2"/>
     <text x="780" y="98" fill="#6ea8ff" font-weight="bold">NFT IDENTITY</text>
-    <text x="780" y="122" fill="#c9d1d9">ERC-721 on Base Mainnet</text>
+    <text x="780" y="122" fill="#c9d1d9">ERC-721 — Robinhood · Base</text>
     <text x="780" y="142" fill="#566070" font-size="11">image stored fully on-chain</text>
 
     <rect x="40" y="334" width="300" height="96" rx="10" fill="#161b22" stroke="#b39ddb" stroke-width="2"/>

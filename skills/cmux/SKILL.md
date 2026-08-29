@@ -152,7 +152,7 @@ These rules come from the `cmux-workspace` skill and prevent agents from yanking
 
 ## Common Pitfalls
 
-- **Pi/Pi-like socket connection failures from external processes** → default `cmuxOnly` mode; either run inside a cmux terminal or change socket mode.
+- **Agent-CLI socket connection failures from external processes** → default `cmuxOnly` mode; either run inside a cmux terminal or change socket mode.
 - **macOS only.** No Linux/Windows port.
 - **WKWebView ≠ CDP.** Don't expect Playwright-equivalent network mocking or viewport emulation.
 - **Resume strips sensitive env vars.** Re-inject tokens at resume time if the agent needs them.

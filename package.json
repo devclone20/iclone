@@ -2,7 +2,7 @@
   "name": "inft-iclone",
   "version": "2.1.0",
   "private": true,
-  "description": "iCLONE — an iNFT (Pi coding agent under the iCLONE neural soul of CLONE FRAME), with a live ACP economy. This package.json wires only the interactive Pi substrate; the Python economy runtime lives in apps/agent/iclone.",
+  "description": "iCLONE — an iNFT (Hermes Agent under the iCLONE neural soul of CLONE FRAME), with a live ACP economy. This package.json wires only the interactive Hermes substrate; the Python economy runtime lives in apps/agent/iclone.",
   "repository": "github:devclone20/iclone",
   "license": "MIT",
   "scripts": {

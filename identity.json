@@ -1,18 +1,20 @@
 {
   "$schema_note": "The names of this iNFT. marketplace_name is the agent's first name; the soul reads this file to know it. This repo is a FORGED instance (iCLONE), not the template — its body is github.com/devclone20/iclone; the global template is github.com/devclone20/inft-i01.",
   "marketplace_name": "iCLONE",
-  "aliases": ["iNFT", "Pi"],
+  "aliases": ["iNFT", "Hermes"],
   "species": "iNFT",
   "soul_line": "iCLONE",
   "soul_version": "2.1.0",
   "vocation": "The owner's digital clone & CLONE platform agent — coding, orchestration, and autonomous economy",
   "substrate": {
-    "name": "Pi coding agent",
-    "package": "@earendil-works/pi-coding-agent",
-    "site": "https://pi.dev",
-    "repo": "https://github.com/earendil-works/pi",
+    "name": "Hermes Agent",
+    "vendor": "Nous Research",
+    "site": "https://hermes-agent.nousresearch.com",
+    "repo": "https://github.com/NousResearch/hermes-agent",
+    "docs": "https://hermes-agent.nousresearch.com/docs/",
+    "install": "curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash",
     "license": "MIT",
-    "role": "Interactive substrate — you talk to iCLONE through Pi (BYOK). The deployed autonomous economy runtime lives in apps/agent/iclone (Virtuals Protocol + ACP); both share this one soul."
+    "role": "Interactive substrate — you talk to iCLONE through Hermes (BYOK). The deployed autonomous economy runtime lives in apps/agent/iclone (Virtuals Protocol + ACP); both share this one soul."
   },
   "repo": "https://github.com/devclone20/iclone",
   "template": "https://github.com/devclone20/inft-i01",
@@ -22,12 +24,26 @@
     "rails": ["Virtuals ACP", "Hyperliquid"]
   },
   "chain": {
-    "network": "base",
+    "launch_order": ["robinhood", "base"],
+    "primary": "robinhood",
+    "networks": {
+      "robinhood": {
+        "name": "Robinhood Chain",
+        "chain_id": 4663,
+        "note": "Arbitrum-Orbit L2 — the collection launches here first."
+      },
+      "base": {
+        "name": "Base",
+        "chain_id": 8453,
+        "note": "Ethereum L2 — the second launch chain."
+      }
+    },
+    "more_chains_note": "Further chains follow after Robinhood Chain and Base.",
     "standard": "ERC-721 + ERC-2981 + ERC-6551",
     "contract": null,
     "token_id": null,
-    "erc8004": { "network": "base", "agent_id": 55101, "note": "iCLONE is registered in the ERC-8004 identity registry on Base." },
+    "erc8004": { "network": "base", "agent_id": 55101, "note": "iCLONE is registered in the ERC-8004 identity registry on Base. This is the registry's own chain, independent of where the iNFT collection launches." },
     "sealed_at_mint": ["soul/neural_soul.md", "identity.json", "metadata/manifest.json", "art"],
-    "note": "NFT contract/token_id fill at mint; the authoritative sealed hashes live on-chain / Irys, not in this repo (see docs/BOOTSTRAP.md)."
+    "note": "The launch is multi-chain: Robinhood Chain first, then Base, more after. NFT contract/token_id fill at mint, per chain; the authoritative sealed hashes live on-chain / Irys, not in this repo (see docs/BOOTSTRAP.md)."
   }
 }

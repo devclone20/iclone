@@ -2,7 +2,7 @@
 
 **iCLONE is an iNFT**: an autonomous AI agent fused with an NFT — whoever holds the token
 holds the agent. This repository is its **body**. Underneath the name **iCLONE** runs a
-complete **Pi coding agent** (the substrate); the **iCLONE neural soul** is the identity; and
+complete **Hermes Agent** (the substrate); the **iCLONE neural soul** is the identity; and
 a live **EconomyOS** (Virtuals ACP + Hyperliquid) is its economic body.
 
 > Forged from the global genesis template **[inft-i01](https://github.com/devclone20/inft-i01)**.
@@ -10,13 +10,13 @@ a live **EconomyOS** (Virtuals ACP + Hyperliquid) is its economic body.
 
 ## Three names, one identity
 
-**iCLONE** (its name) · **iNFT** (its species) · **Pi** (its substrate). It answers to all three.
+**iCLONE** (its name) · **iNFT** (its species) · **Hermes** (its substrate). It answers to all three.
 
 ## Two runtimes, one soul
 
 Both read the same `soul/neural_soul.md`:
 
-- **Pi substrate** (`.pi/`, `soul/`, `scripts/`, `skills/`, `identity.json`) — the **interactive**
+- **Hermes substrate** (`SOUL.md`, `.hermes/`, `soul/`, `scripts/`, `skills/`, `identity.json`) — the **interactive**
   iCLONE you talk to (BYOK): coding, orchestration, the owner's clone. Added as an overlay, it
   does **not** touch the economy runtime.
 - **Economy runtime** (`apps/agent/iclone`, `infra/`) — the **deployed autonomous** agent on
@@ -25,9 +25,9 @@ Both read the same `soul/neural_soul.md`:
 ## Run it
 
 ```bash
-bash scripts/setup.sh              # install the Pi substrate (pinned, no sudo)
-pi                                 # then /login to connect YOUR model key (BYOK)
-bash scripts/boot.sh               # boot iCLONE with its soul + skills (pi -a)
+bash scripts/setup.sh              # install the Hermes substrate (official installer, no sudo)
+hermes model                       # connect YOUR model key (BYOK) — you type it, never an assistant
+bash scripts/boot.sh               # boot iCLONE with its soul + skills (trusts this project, then `hermes chat`)
 bash scripts/install-command.sh    # then just type `iclone` in the CLONE FRAME iT terminal
 ```
 
@@ -46,5 +46,5 @@ regeneration contract: [`docs/INFT_CONCEPT.md`](docs/INFT_CONCEPT.md) ·
 ## Security & privacy
 
 This repo is **public**: no secrets, keys, or owner PII are committed. Your model key is typed
-into your own terminal (`pi` → `/login`) — never handed to any assistant. The owner profile is
-folded into `.pi/APPEND_SYSTEM.md` **locally** and untracked (`scripts/personalize.sh --apply-owner`).
+into your own terminal (`hermes model`) — never handed to any assistant. The owner profile is
+folded into `SOUL.md` **locally** and untracked (`scripts/personalize.sh --apply-owner`).

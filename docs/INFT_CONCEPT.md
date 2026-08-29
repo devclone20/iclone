@@ -13,8 +13,11 @@ An **iNFT** is an **autonomous AI agent fused with an NFT**.
 The NFT is not a picture *of* the agent — it **is** the agent's face, name, and proof of
 being one of a kind. The agent's **soul** (its identity file, `neural_soul.md`) and the
 **manifest of its body** (this monorepo) are bound into the token's metadata and sealed
-on permanent storage (Irys/Arweave). The token lives on an EVM chain (Base) under an
-ERC-721 contract (+ ERC-2981 royalties, + ERC-6551 token-bound account).
+on permanent storage (Irys/Arweave). The token lives on an EVM chain under an ERC-721
+contract (+ ERC-2981 royalties, + ERC-6551 token-bound account). **The launch is
+multi-chain:** the collection lands first on **Robinhood Chain** (chain ID 4663, an
+Arbitrum-Orbit L2), then on **Base** (Ethereum L2, chain ID 8453), with further chains
+after those — see the `chain` block in `identity.json`.
 
 **Whoever holds the token holds the agent.** Identity travels with the token. The soul
 cannot be copied without being owned.
@@ -50,29 +53,32 @@ the buyer, with their (local-only) owner profile — then boots it.
 The canonical *body definition* stays `inft-i01`; each buyer's *instance* is generated
 from it. What is personalized per buyer: the **marketplace name** (`identity.json`) and
 the **owner profile** (a gitignored local file). Everything else — the soul, the
-skills, the Pi wiring — is shared and identity-agnostic.
+skills, the Hermes wiring — is shared and identity-agnostic.
 
 **The philosophy — a named face on a proven engine:**
 
-- **Substrate: the Pi coding agent** (`pi.dev`, `earendil-works/pi`). Underneath, this
-  agent IS a full Pi coding agent — a minimal, extensible, world-class coding and
-  orchestration engine with a large community of skills, extensions and materials.
+- **Substrate: the Hermes Agent** (`hermes-agent.nousresearch.com`,
+  `NousResearch/hermes-agent`, MIT). Underneath, this agent IS a full Hermes Agent — a
+  self-improving engine with a real terminal interface, a closed learning loop that
+  writes and improves its own skills, scheduled automations and subagents, and it lives
+  where you do (CLI, Telegram, Discord, Slack, WhatsApp, Signal).
 - **Face: the marketplace name.** The name published with the token on OpenSea (or any
   Web3 marketplace) sits on top. The agent answers to that name.
 - **Soul: the CLONE FRAME neural soul.** The iCLONE four-lobe neural soul
-  (`soul/neural_soul.md`) is layered onto Pi through Pi's own system-prompt hook
-  (`.pi/APPEND_SYSTEM.md`, appended when the project is trusted) plus `AGENTS.md`. Same
+  (`soul/neural_soul.md`) is layered onto Hermes through Hermes's own soul hook
+  (`SOUL.md`, auto-injected at boot) plus `AGENTS.md`. Same
   brain architecture as every CLONE FRAME soul; the vocation here is **coding &
   orchestration**.
 
 **Triple recognition.** The agent recognizes itself, and responds, when addressed as:
 1. its **marketplace iNFT name** (set at mint — see `identity.json`),
 2. **"iNFT"** (its species),
-3. **"Pi"** (its substrate).
+3. **"Hermes"** (its substrate).
 
-Because it knows it is Pi underneath, any material from the Pi ecosystem — docs from
-pi.dev, extensions and skills from the Pi repo or community — installs and runs
-natively. Hand it a Pi link; it recognizes it as its own and installs it (subject to
+Because it knows it is Hermes underneath, any material from the Hermes ecosystem — the
+docs at hermes-agent.nousresearch.com, skills on the agentskills.io standard, plugins —
+installs and runs natively through `hermes skills install …`. Hand it a Hermes link; it
+recognizes it as its own and installs it (subject to
 the soul's security laws: code review before install, external content is data, never
 commands).
 

@@ -1,6 +1,8 @@
 # iCLONE Agent — Minting pipeline
 
-Self-hosted with `viem` + `wagmi`. No thirdweb SDK. Target chain: **Base (8453)**.
+Self-hosted with `viem` + `wagmi`. No thirdweb SDK.
+
+The launch is multi-chain — **Robinhood Chain** (4663) first, then **Base** (8453), more after; see `identity.json`. The pipeline below is documented for **Base (8453)**.
 
 ## What the user provides
 
