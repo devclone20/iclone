@@ -16,9 +16,12 @@ else
   FILES=$(find . \( -type f -o -type l \) -not -path './.git/*' -not -path './node_modules/*' -not -name manifest.json | sed 's|^\./||' | sort)
 fi
 
+# A tracked symlink (e.g. .hermes/skills -> ../skills) is content in git too: what git
+# stores is the LINK TARGET, not the tree behind it. Hash that string, so repointing the
+# link at another directory shows up as a manifest mismatch like any other edit.
 hash_of() {
   if [ -L "$1" ]; then
-    printf '%s' "$(readlink "$1")" | shasum -a 256 | awk '{print $1}'
+    printf 'symlink:%s' "$(readlink "$1")" | shasum -a 256 | awk '{print $1}'
   else
     shasum -a 256 "$1" | awk '{print $1}'
   fi
