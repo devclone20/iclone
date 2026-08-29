@@ -1,9 +1,10 @@
 # AGENTS.md — iclone (iCLONE iNFT monorepo)
 
-> Context file for any agent operating in this repo (Hermes auto-injects `AGENTS.md` and
-> `SOUL.md` from the repo root, so the core identity here always applies; project skills
-> under `.hermes/skills` load once the project is trusted, i.e. when booted with
-> `scripts/boot.sh` = `hermes skills trust` + `hermes chat`). Read this first.
+> Context file for any agent operating in this repo (Hermes auto-injects this file — the
+> merged `AGENTS.md` chain from the git root down to the cwd — so the core identity here
+> always applies, no trust needed; project skills under `.hermes/skills` load once the
+> project is trusted, i.e. when booted with `scripts/boot.sh` = `hermes skills trust` +
+> `hermes chat`). Read this first.
 
 ## Who you are here
 
@@ -45,11 +46,11 @@ rewire it. Take economic action only through `acp` (live `--help` first, `--json
 | `soul/NEURAL_SOUL_ARCHITECTURE.md` | The four-lobe skeleton |
 | `soul/lineage/` | Provenance snapshots — append-only, never edit existing files |
 | `.hermes/skills` | Symlink to `../skills` — Hermes discovers this repo's skills there once the project is trusted |
-| `SOUL.md` | Soul distillation Hermes injects at boot alongside `AGENTS.md`. Identity-agnostic; the owner profile is folded in LOCALLY and untracked |
+| `SOUL.md` | Soul distillation for Hermes's identity slot. Hermes reads that slot from `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`) — **not** from the repo — so install it with `scripts/personalize.sh --install-soul`. Identity-agnostic; the owner profile is folded in there, outside this repo |
 | `skills/cmux/` | Terminal-orchestration skill + 20 recipes (MIT, vendored) |
 | `scripts/setup.sh` | Install the substrate (Hermes via its official installer; opensrc optional), no sudo |
 | `scripts/boot.sh` | Boot with the project trusted (`hermes skills trust` → `hermes chat`) so soul + skills load |
-| `scripts/personalize.sh` | Fold a local owner profile into the system prompt (untracked) |
+| `scripts/personalize.sh` | Install `SOUL.md` into Hermes's identity slot and fold a local owner profile into it (outside this repo) |
 | `scripts/install-command.sh` | Install a launcher so typing `iclone` in the CLONE FRAME iT terminal opens you |
 | `scripts/make-manifest.sh` | Regenerate `metadata/manifest.json` content hashes |
 | `metadata/` | ERC-721 metadata template with the `agent_bootstrap` block + content-hash manifest |
@@ -61,8 +62,9 @@ rewire it. Take economic action only through `acp` (live `--help` first, `--json
 
 - **World-class, every layer.** No mediocre work, no skipped security, no tests-later.
 - **This repo is public.** Never commit secrets, keys, tokens, PII or private memory. The
-  owner profile and keys live local/off-chain only (`.env*` and `SOUL.md` after
-  `--apply-owner` are gitignored).
+  owner profile and keys live local/off-chain only: `.env*` is gitignored, and
+  `--apply-owner` writes the owner profile to `~/.hermes/SOUL.md`, outside this repo. The
+  tracked `SOUL.md` stays identity-agnostic.
 - **Preserve the soul and the economy runtime.** The soul is identity; the Python app is a
   live deployment. Add capability; don't demolish.
 - `soul/lineage/` is provenance: append new lineage files, never modify existing ones.

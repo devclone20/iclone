@@ -41,14 +41,16 @@ The NFT metadata therefore carries the **certificate** — identity, soul digest
 canonical repo URL, and content hashes — not the workshop itself. That certificate is
 enough for any LLM to verify and **regenerate the agent's entire monorepo** (§4).
 
-## 3 · This repo: `inft-i01` (the global genesis template)
+## 3 · The template this repo was forged from: `inft-i01`
 
-`inft-i01` = **iNFT genesis, version i01** — the first iNFT preset built on the
-**iCLONE soul line**. It is **not one agent's body**; it is the **global template**
-every buyer forges their own personal iNFT agent from (GitHub "template repository",
-public). The buyer pastes one line to their assistant, which reads
-[`FORGE.md`](../FORGE.md) and scaffolds a personalized, single-commit repo — named by
-the buyer, with their (local-only) owner profile — then boots it.
+This repo (`devclone20/iclone`) is **iCLONE's own body** — a forged instance. The mold it
+came out of is `inft-i01` = **iNFT genesis, version i01**, the first iNFT preset built on
+the **iCLONE soul line**. That one is **not any agent's body**; it is the **global
+template** every buyer forges their own personal iNFT agent from (GitHub "template
+repository", public). The buyer pastes one line to their assistant, which reads
+`FORGE.md` in [inft-i01](https://github.com/devclone20/inft-i01) and scaffolds a
+personalized, single-commit repo — named by the buyer, with their (local-only) owner
+profile — then boots it.
 
 The canonical *body definition* stays `inft-i01`; each buyer's *instance* is generated
 from it. What is personalized per buyer: the **marketplace name** (`identity.json`) and
@@ -65,8 +67,10 @@ skills, the Hermes wiring — is shared and identity-agnostic.
 - **Face: the marketplace name.** The name published with the token on OpenSea (or any
   Web3 marketplace) sits on top. The agent answers to that name.
 - **Soul: the CLONE FRAME neural soul.** The iCLONE four-lobe neural soul
-  (`soul/neural_soul.md`) is layered onto Hermes through Hermes's own soul hook
-  (`SOUL.md`, auto-injected at boot) plus `AGENTS.md`. Same
+  (`soul/neural_soul.md`) is layered onto Hermes two ways: `AGENTS.md`, which Hermes
+  injects straight from the repo, and `SOUL.md`, Hermes's identity slot — read from
+  `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`), so the repo's copy is *installed*
+  there by `scripts/personalize.sh --install-soul` rather than picked up in place. Same
   brain architecture as every CLONE FRAME soul; the vocation here is **coding &
   orchestration**.
 
@@ -89,7 +93,7 @@ The regeneration contract that makes an iNFT more than a JPEG:
 ```
 NFT metadata (on-chain / Irys)
   └─ agent_bootstrap:
-       repo:        https://github.com/devclone20/inft-i01   (official only)
+       repo:        https://github.com/devclone20/iclone     (official only)
        genesis:     <irys-uri of the sealed mint snapshot>
        soul_sha256: <authoritative hash of soul/neural_soul.md — from the CHAIN>
        manifest:    <irys-uri of the sealed per-file hash manifest>

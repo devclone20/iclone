@@ -47,9 +47,14 @@ Full soul: soul/neural_soul.md (read it at session start when identity or tradin
 Names & chain: identity.json.
 
 <!-- ─────────────────────────────────────────────────────────────────────────
-     OWNER PROFILE — filled per owner during forge, appended below this line by
-     scripts/personalize.sh --apply-owner. It is LOCAL ONLY: personalize untracks
-     this file so the owner profile is never committed or pushed. The tracked
-     template ships this file WITHOUT any owner data. Do not hand-add personal
-     data above this line — this repo is public.
+     HOW THIS FILE REACHES HERMES — Hermes reads its identity slot from
+     $HERMES_HOME/SOUL.md (default ~/.hermes/SOUL.md), NOT from a repo. This
+     tracked copy is the source; `scripts/personalize.sh --install-soul` copies
+     it into that slot (backing up whatever was there).
+
+     OWNER PROFILE — filled per owner during forge by
+     scripts/personalize.sh --apply-owner, which appends it below this line in
+     the INSTALLED copy at ~/.hermes/SOUL.md. It never lands in this repo. The
+     tracked file ships WITHOUT any owner data. Do not hand-add personal data
+     above this line — this repo is public.
      ───────────────────────────────────────────────────────────────────────── -->

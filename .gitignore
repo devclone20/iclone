@@ -13,19 +13,18 @@
 secrets/
 credentials/
 auth.json
-.hermes/auth.json
-.hermes/trust.json
 
 # Per-owner personal data (PII) — LOCAL ONLY, never committed or pushed
-.hermes/owner.local.md
 **/owner.local.md
 *.local
 *.local.*
 
-# Hermes runtime state
-.hermes/sessions/
-.hermes/npm/
-.hermes/git/
+# Hermes keeps ALL of its state — auth.json, config.yaml (which is where project trust
+# is recorded), sessions, skills — in $HERMES_HOME (~/.hermes), outside this repo. The
+# only project-local Hermes path is .hermes/skills, the tracked symlink to ../skills.
+# Anything else that appears under .hermes/ here is local scratch: ignore it.
+.hermes/*
+!.hermes/skills
 
 # Python
 __pycache__/

@@ -65,7 +65,7 @@ PYTHONPATH=. python -m agent.iclone.social.run
 ```
 
 Config is environment-driven (`agent/iclone/social/config.py`). Template:
-[`ops/social/x.env.example`](../../../ops/social/x.env.example). **Defaults are safe:**
+[`infra/ops/social/x.env.example`](../../../../infra/ops/social/x.env.example). **Defaults are safe:**
 disabled, dry-run, nothing posts until you provide keys and flip `X_ENABLED=true`.
 
 ## Deploy (separate automation on the droplet)

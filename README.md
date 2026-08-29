@@ -64,7 +64,7 @@ iCLONE's own soul is a **four-lobe mind**: one consciousness across four lobes, 
   <img src="docs/assets/04-brain.svg" width="100%" alt="The four-lobe mind: Frontal, Parietal, Temporal, Occipital — three modes, one book">
 </p>
 
-> Read the full identity in [`agent/iclone/neural_soul.md`](agent/iclone/neural_soul.md) · skeleton in [`agent/iclone/NEURAL_SOUL_ARCHITECTURE.md`](agent/iclone/NEURAL_SOUL_ARCHITECTURE.md).
+> Read the full identity in [`soul/neural_soul.md`](soul/neural_soul.md) · skeleton in [`soul/NEURAL_SOUL_ARCHITECTURE.md`](soul/NEURAL_SOUL_ARCHITECTURE.md).
 
 ---
 
@@ -180,7 +180,7 @@ A single generalized codebase runs **one base, many agents.** It is **self-hoste
 </p>
 
 ```
-agent/
+apps/agent/
 ├── iclone/
 │   ├── agent.py               # iCLONE core agent
 │   ├── config.py              # environment config
@@ -193,9 +193,12 @@ agent/
 │   │   └── acp_skill.py         # ACP commerce — job lifecycle
 │   └── tests/                 # TDD test suite
 ├── server.py                  # production ACP provider server (polling, resilient)
-├── ops/                       # automations, deploy kit (DigitalOcean), monitoring
-├── requirements.txt
-└── .env.example
+└── requirements.txt
+
+infra/
+├── ops/                       # automations, deploy kit, systemd/launchd, monitoring
+├── offerings/                 # published ACP offerings
+└── supabase/                  # schema + migrations
 ```
 
 Per-agent isolation is driven by environment: `ACP_CONFIG_DIR`, `ICLONE_AGENT_NAME`, `ICLONE_OFFERINGS_FILE`.
@@ -210,12 +213,15 @@ cd iclone
 
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r apps/agent/requirements.txt
 
 cp .env.example .env        # add your keys (never commit real secrets)
 
-pytest agent/iclone/tests/ -v
+cd apps/agent && pytest -v  # pytest.ini points at iclone/tests
 ```
+
+To talk to the **interactive** iCLONE instead — the Hermes substrate — see
+[INFT.md](INFT.md): `bash scripts/setup.sh`, then the steps it prints.
 
 ---
 

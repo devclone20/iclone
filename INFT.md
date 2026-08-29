@@ -25,10 +25,11 @@ Both read the same `soul/neural_soul.md`:
 ## Run it
 
 ```bash
-bash scripts/setup.sh              # install the Hermes substrate (official installer, no sudo)
-hermes model                       # connect YOUR model key (BYOK) — you type it, never an assistant
-bash scripts/boot.sh               # boot iCLONE with its soul + skills (trusts this project, then `hermes chat`)
-bash scripts/install-command.sh    # then just type `iclone` in the CLONE FRAME iT terminal
+bash scripts/setup.sh                     # install the Hermes substrate (vendor installer, no sudo)
+hermes model                              # connect YOUR model key (BYOK) — you type it, never an assistant
+bash scripts/personalize.sh --install-soul  # put SOUL.md in Hermes's identity slot (~/.hermes/SOUL.md)
+bash scripts/boot.sh                      # boot iCLONE with its soul + skills (trusts this project, then `hermes chat`)
+bash scripts/install-command.sh           # then just type `iclone` in the CLONE FRAME iT terminal
 ```
 
 ## Economy — already wired
@@ -47,4 +48,5 @@ regeneration contract: [`docs/INFT_CONCEPT.md`](docs/INFT_CONCEPT.md) ·
 
 This repo is **public**: no secrets, keys, or owner PII are committed. Your model key is typed
 into your own terminal (`hermes model`) — never handed to any assistant. The owner profile is
-folded into `SOUL.md` **locally** and untracked (`scripts/personalize.sh --apply-owner`).
+folded into `~/.hermes/SOUL.md` (`scripts/personalize.sh --apply-owner`) — Hermes's identity
+slot, **outside** this repo, so it can never be committed or pushed.

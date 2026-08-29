@@ -1,10 +1,11 @@
 # OWNER PROFILE — worked example (illustrative, fictional)
 
 > This is an **example** so you can see the shape. During forge, your assistant
-> interviews you and writes YOUR version into `.hermes/owner.local.md`, then appends it to
-> your local `SOUL.md` and untracks that file — so your real profile
-> lives on your machine only and is never committed or pushed. The person below is
-> fictional; nothing here is anyone's real data.
+> interviews you and writes YOUR version into `.hermes/owner.local.md` (gitignored), then
+> `scripts/personalize.sh --apply-owner` appends it to the installed soul at
+> `~/.hermes/SOUL.md` — outside this repo, so your real profile lives on your machine only
+> and can never be committed or pushed. The person below is fictional; nothing here is
+> anyone's real data.
 
 LANGUAGE: Respond in English by default; switch if I write in another language or ask.
 
