@@ -62,20 +62,22 @@ done
 command -v hermes  >/dev/null 2>&1 && say "  ✓ hermes $(hermes --version 2>/dev/null || echo installed) ($INSTALL_MODE)"
 command -v opensrc >/dev/null 2>&1 && say "  ✓ opensrc installed"
 
-# The soul is the one piece Hermes does NOT read from the repo: its identity slot is
-# $HERMES_HOME/SOUL.md. Report the slot; installing it is a separate, explicit step.
-SOUL_SLOT="${HERMES_HOME:-$HOME/.hermes}/SOUL.md"
-if grep -qF 'founder-mind and official agent of the CLONE platform' "$SOUL_SLOT" 2>/dev/null; then
-  say "  ✓ $SOUL_SLOT carries the iCLONE soul"
+# AGENTS.md is the only file Hermes injects from a project, so it is where the soul
+# has to live. (A repo SOUL.md is never read: Hermes reads its identity slot from
+# $HERMES_HOME/SOUL.md alone, and that slot belongs to the owner, not to this repo.)
+if grep -qF 'founder-mind and official agent of the CLONE platform' AGENTS.md 2>/dev/null; then
+  say "  ✓ AGENTS.md carries the iCLONE soul (injected from this repo, no trust needed)"
 else
-  say "  ! $SOUL_SLOT does not carry the iCLONE soul yet (step 2 below)"
+  say "  ✗ AGENTS.md does NOT carry the iCLONE soul — the agent would boot as stock Hermes"
+  exit 1
 fi
 
 NAME="$(python3 -c "import json;print(json.load(open('identity.json'))['marketplace_name'])" 2>/dev/null || echo 'iCLONE')"
 say ""
 say "── Substrate ready. Next:"
 say "   1) Connect a model: hermes model    (you type the key, never the assistant)"
-say "   2) Install soul:    bash scripts/personalize.sh --install-soul   (SOUL.md → $SOUL_SLOT)"
-say "   3) Boot:            bash scripts/boot.sh   (trusts this project, then 'hermes chat')"
-say "   4) Terminal:        bash scripts/install-command.sh   (then type '$NAME' in the CLONE FRAME iT terminal)"
+say "   2) Boot:            bash scripts/boot.sh   (trusts this project, then 'hermes chat')"
+say "   3) Terminal:        bash scripts/install-command.sh   (then type '$NAME' in the CLONE FRAME iT terminal)"
+say "   The soul needs no install step — it travels in AGENTS.md, which Hermes injects"
+say "   from this repo. (Want it in every project too? bash scripts/personalize.sh --stage-soul)"
 say "   Current name: \"$NAME\" — it also answers to \"iNFT\" and \"Hermes\"."

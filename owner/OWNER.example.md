@@ -1,11 +1,16 @@
 # OWNER PROFILE — worked example (illustrative, fictional)
 
 > This is an **example** so you can see the shape. During forge, your assistant
-> interviews you and writes YOUR version into `.hermes/owner.local.md` (gitignored), then
-> `scripts/personalize.sh --apply-owner` appends it to the installed soul at
-> `~/.hermes/SOUL.md` — outside this repo, so your real profile lives on your machine only
-> and can never be committed or pushed. The person below is fictional; nothing here is
-> anyone's real data.
+> interviews you and writes YOUR version into `.hermes/owner.local.md` (gitignored).
+> `scripts/personalize.sh --apply-owner` then folds it together with the soul into
+> `.hermes/SOUL.local.md` — also gitignored, so your real profile never enters a tracked
+> file and can never be committed or pushed. It takes effect only once **you** copy that
+> staged file into `~/.hermes/SOUL.md`, Hermes's identity slot; the script prints the
+> command but never runs it, because that slot is your own global soul across every
+> project and is not this repo's to overwrite. (The agent's *identity* needs none of this
+> — that rides in the tracked `AGENTS.md`, which Hermes injects from the repo. This is
+> only about teaching it your personal preferences.) The person below is fictional;
+> nothing here is anyone's real data.
 
 LANGUAGE: Respond in English by default; switch if I write in another language or ask.
 

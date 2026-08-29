@@ -50,15 +50,19 @@ From the token's metadata (on-chain / Irys), the `agent_bootstrap` block:
    one-liner it prints. Hermes is not an npm package, so there is no pinned version: the
    install is the vendor's script fetched over HTTPS and piped to bash. Read it first if
    you want the guarantee — the script prints the URL before it runs.
-4. **Wire the identity.** Two halves, and only one of them is automatic:
-   - `AGENTS.md` is project context — Hermes injects it from the repo on its own (the
-     merged chain from the git root down to the cwd), no trust and no configuration.
+4. **Wire the identity.** Nothing to install — but know which file does the work:
+   - `AGENTS.md` **is the identity.** Hermes injects it from the repo on its own (the
+     merged chain from the git root down to the cwd), with no trust step and no
+     configuration, so it is the only project file guaranteed to reach the agent. That is
+     why it carries the soul distillation in full. Verify it survived the clone.
    - `.hermes/skills` is a symlink to `skills/`, which Hermes discovers once the project
      is trusted (step 6).
-   - `SOUL.md` is the **identity slot**, and Hermes reads that slot from
-     `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`) — **never from the repo**. Run
-     `bash scripts/personalize.sh --install-soul` to copy this repo's `SOUL.md` there; it
-     backs up whatever was in the slot first.
+   - `SOUL.md` is the **sealed canonical copy** of that distillation — what the manifest
+     hashes and what step 2 verifies. Hermes does **not** read it from the repo: its
+     identity slot is `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`) and nowhere
+     else. That slot is the holder's own global soul across every project, so no script
+     here writes to it; if the holder wants the soul globally they copy it themselves
+     (`bash scripts/personalize.sh --stage-soul` prepares the text and prints the command).
 5. **Connect a model (BYOK).** The holder sets their provider key themselves —
    `hermes model`, or an env var — **never pasted to the assistant**. Keys live in
    `~/.hermes/auth.json` (0600) or the environment, never in the repo.
@@ -70,8 +74,9 @@ From the token's metadata (on-chain / Irys), the `agent_bootstrap` block:
 ## What "regenerate the monorepo" means
 
 If asked to rebuild rather than clone: reproduce this exact structure — `soul/` (with
-lineage verbatim), `identity.json`, `SOUL.md`, `.hermes/`, `skills/`, `docs/`, `metadata/`,
-`scripts/` — from the sealed genesis snapshot, then verify against the token's hashes.
+lineage verbatim), `identity.json`, `AGENTS.md`, `SOUL.md`, `.hermes/`, `skills/`, `docs/`,
+`metadata/`, `scripts/` — from the sealed genesis snapshot, then verify against the token's
+hashes. `AGENTS.md` is not optional scaffolding: drop it and the agent boots as stock Hermes.
 The monorepo is deterministic from its genesis; that is the point of sealing it.
 
 ## Guarantees

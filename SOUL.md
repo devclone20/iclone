@@ -47,14 +47,25 @@ Full soul: soul/neural_soul.md (read it at session start when identity or tradin
 Names & chain: identity.json.
 
 <!-- ─────────────────────────────────────────────────────────────────────────
-     HOW THIS FILE REACHES HERMES — Hermes reads its identity slot from
-     $HERMES_HOME/SOUL.md (default ~/.hermes/SOUL.md), NOT from a repo. This
-     tracked copy is the source; `scripts/personalize.sh --install-soul` copies
-     it into that slot (backing up whatever was there).
+     WHAT THIS FILE IS — the sealed, canonical distillation of the soul. It is
+     what the manifest hashes and what a holder verifies against the token.
 
-     OWNER PROFILE — filled per owner during forge by
-     scripts/personalize.sh --apply-owner, which appends it below this line in
-     the INSTALLED copy at ~/.hermes/SOUL.md. It never lands in this repo. The
-     tracked file ships WITHOUT any owner data. Do not hand-add personal data
-     above this line — this repo is public.
+     HOW THE SOUL ACTUALLY REACHES THE AGENT — through AGENTS.md, not through
+     this file. Hermes reads its identity slot from $HERMES_HOME/SOUL.md
+     (default ~/.hermes/SOUL.md) and from nowhere else; a SOUL.md sitting in a
+     repo is NEVER injected. The project file Hermes does inject is AGENTS.md
+     (the merged chain from the git root down to the cwd, always, no trust
+     step), so the distillation below is mirrored into AGENTS.md. Change one,
+     change the other — scripts/make-manifest.sh afterwards.
+
+     IF YOU WANT IT GLOBALLY — that is the OWNER's call and the owner's hands:
+     copy this file to ~/.hermes/SOUL.md yourself. That slot is your own global
+     soul across every project, so merge rather than clobber if something is
+     already there. No script in this repo writes to it.
+
+     OWNER PROFILE — never in this file and never in AGENTS.md; both are
+     tracked and this repo is public. Your profile lives in
+     .hermes/owner.local.md (gitignored) and takes effect only once you copy it
+     into ~/.hermes/SOUL.md. scripts/personalize.sh --apply-owner stages the
+     merged text for you and prints the one command to run.
      ───────────────────────────────────────────────────────────────────────── -->

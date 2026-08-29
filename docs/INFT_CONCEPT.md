@@ -67,12 +67,15 @@ skills, the Hermes wiring — is shared and identity-agnostic.
 - **Face: the marketplace name.** The name published with the token on OpenSea (or any
   Web3 marketplace) sits on top. The agent answers to that name.
 - **Soul: the CLONE FRAME neural soul.** The iCLONE four-lobe neural soul
-  (`soul/neural_soul.md`) is layered onto Hermes two ways: `AGENTS.md`, which Hermes
-  injects straight from the repo, and `SOUL.md`, Hermes's identity slot — read from
-  `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`), so the repo's copy is *installed*
-  there by `scripts/personalize.sh --install-soul` rather than picked up in place. Same
-  brain architecture as every CLONE FRAME soul; the vocation here is **coding &
-  orchestration**.
+  (`soul/neural_soul.md`) is layered onto Hermes through **`AGENTS.md`** — the one project
+  file Hermes injects straight from the repo (the merged chain from the git root down to
+  the cwd), always, with no trust step. So a distillation of the soul lives in `AGENTS.md`
+  and the agent is itself from the first message of a bare clone. `SOUL.md` at the root is
+  the sealed canonical copy of that text — what the manifest hashes and what a holder
+  verifies against the token — but Hermes never reads it from a repo: its identity slot is
+  `$HERMES_HOME/SOUL.md` (default `~/.hermes/SOUL.md`), the owner's own global soul, which
+  only the owner installs. Same brain architecture as every CLONE FRAME soul; the vocation
+  here is **coding & orchestration**.
 
 **Triple recognition.** The agent recognizes itself, and responds, when addressed as:
 1. its **marketplace iNFT name** (set at mint — see `identity.json`),

@@ -3,17 +3,23 @@
 #
 #   personalize.sh "Agent Name"     Set the marketplace name (won't clobber an
 #                                   already-personalized name without --force).
-#   personalize.sh --install-soul   Copy this repo's SOUL.md into Hermes's identity
-#                                   slot ($HERMES_HOME/SOUL.md, default
-#                                   ~/.hermes/SOUL.md), backing up what was there.
-#   personalize.sh --apply-owner    Same, then fold .hermes/owner.local.md into the
-#                                   INSTALLED soul. The owner profile lands outside
-#                                   this repo, so it can never be committed.
+#   personalize.sh --stage-soul     Stage the soul for the OWNER to install into
+#                                   their own Hermes home. Writes the gitignored
+#                                   .hermes/SOUL.local.md and prints the command.
+#   personalize.sh --apply-owner    Same, with .hermes/owner.local.md folded in,
+#                                   so the owner profile never touches a tracked
+#                                   file. Still the owner who installs it.
 #   Flags: --force  overwrite an existing name.
 #
-# Why the copy: Hermes reads its identity slot from $HERMES_HOME/SOUL.md only — a
-# SOUL.md sitting in a project directory is never loaded. (AGENTS.md *is* read from
-# the repo; that half needs no install.)
+# WHERE THE SOUL ACTUALLY COMES FROM: AGENTS.md. Hermes injects AGENTS.md straight
+# from the repo — always, no trust step — and it carries the soul distillation, so a
+# fresh clone already boots as iCLONE with nothing installed.
+#
+# $HERMES_HOME/SOUL.md (default ~/.hermes/SOUL.md) is a different thing: Hermes reads
+# its identity slot from there and only there (a repo SOUL.md is never read), and that
+# slot is the OWNER'S GLOBAL SOUL, shared by every project on the machine. This script
+# therefore NEVER writes to it. It stages the text and prints the copy command; the
+# owner decides whether to install it and how to merge with whatever is already there.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
@@ -21,54 +27,54 @@ PLACEHOLDER="iNFT i01"
 SENTINEL="<!-- OWNER-PROFILE-APPLIED -->"
 HERMES_HOME_DIR="${HERMES_HOME:-$HOME/.hermes}"
 SOUL_SLOT="$HERMES_HOME_DIR/SOUL.md"
+STAGED=".hermes/SOUL.local.md"
 
 say() { printf '%s\n' "$*"; }
 
-# Copy the tracked SOUL.md into Hermes's identity slot. Never clobbers silently:
-# an existing, different soul is backed up next to it first.
-install_soul() {
-  [ -f SOUL.md ] || { say "✗ SOUL.md not found in the repo root."; exit 1; }
-  mkdir -p "$HERMES_HOME_DIR"
-
-  if [ -f "$SOUL_SLOT" ] && cmp -s SOUL.md "$SOUL_SLOT"; then
-    say "✓ $SOUL_SLOT already carries this soul (idempotent)."
-    return 0
-  fi
-
+# Print how to install a staged file into the owner's global slot — never do it here.
+print_install_hint() {
+  say ""
+  say "  This is the OWNER's global soul, shared by every project, so this script does"
+  say "  not write it. To install it yourself:"
   if [ -f "$SOUL_SLOT" ]; then
-    local backup="$SOUL_SLOT.bak.$(date -u +%Y%m%dT%H%M%SZ)"
-    cp "$SOUL_SLOT" "$backup"
-    say "  ↳ previous soul backed up to $backup"
+    say ""
+    say "      ⚠ $SOUL_SLOT already exists — read both and MERGE by hand."
+    say "        Overwriting it would replace your global soul for every project."
+    say "        diff:  diff \"$SOUL_SLOT\" \"$PWD/$STAGED\""
+  else
+    say ""
+    say "      cp \"$PWD/$STAGED\" \"$SOUL_SLOT\""
   fi
-
-  cp SOUL.md "$SOUL_SLOT"
-  chmod 600 "$SOUL_SLOT"
-  say "✓ SOUL.md installed into Hermes's identity slot → $SOUL_SLOT"
+  say ""
+  say "  Optional either way: AGENTS.md already gives this repo its soul."
 }
 
-apply_owner() {
-  local prof=".hermes/owner.local.md"
-  [ -f "$prof" ] || { say "✗ $prof not found. Write the owner profile there first (see owner/OWNER.example.md)."; exit 1; }
+# Stage the tracked SOUL.md (plus, optionally, the owner profile) for the owner.
+stage_soul() {
+  local with_owner="${1:-}"
+  [ -f SOUL.md ] || { say "✗ SOUL.md not found in the repo root."; exit 1; }
+  mkdir -p .hermes
 
-  # Check the sentinel BEFORE installing: an already-personalized slot no longer matches
-  # the tracked SOUL.md, so re-installing would back it up and throw the profile away.
-  if grep -qF "$SENTINEL" "$SOUL_SLOT" 2>/dev/null; then
-    say "✓ Owner profile already applied to $SOUL_SLOT — nothing to do (idempotent)."
+  if [ "$with_owner" = "--with-owner" ]; then
+    local prof=".hermes/owner.local.md"
+    [ -f "$prof" ] || { say "✗ $prof not found. Write the owner profile there first (see owner/OWNER.example.md)."; exit 1; }
+    { cat SOUL.md; printf '\n%s\n\n## OWNER PROFILE\n\n' "$SENTINEL"; cat "$prof"; } > "$STAGED"
+    say "✓ Soul + owner profile staged → $STAGED"
   else
-    install_soul
-    { printf '\n%s\n\n## OWNER PROFILE\n\n' "$SENTINEL"; cat "$prof"; } >> "$SOUL_SLOT"
-    say "✓ Owner profile folded into $SOUL_SLOT (outside this repo — never committed)."
+    cp SOUL.md "$STAGED"
+    say "✓ Soul staged → $STAGED"
   fi
+  chmod 600 "$STAGED"
 
-  # Safety check: the owner profile source must be ignored, and the installed soul
-  # must live outside the working tree.
+  # The staged file may carry PII, so it must never be committable.
   if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    git check-ignore -q "$prof" && say "  ✓ $prof is gitignored" || say "  ⚠ $prof is NOT ignored — do not push until fixed"
-    case "$SOUL_SLOT" in
-      "$PWD"/*) say "  ⚠ $SOUL_SLOT is INSIDE this repo — do not push until fixed" ;;
-      *)        say "  ✓ $SOUL_SLOT is outside this repo" ;;
-    esac
+    if git check-ignore -q "$STAGED"; then
+      say "  ✓ $STAGED is gitignored — it can never be committed"
+    else
+      say "  ⚠ $STAGED is NOT ignored — do not push until fixed"
+    fi
   fi
+  print_install_hint
 }
 
 set_name() {
@@ -107,13 +113,28 @@ PY
   say "  Your agent answers to \"$newname\", \"iNFT\", and \"Hermes\"."
 }
 
+usage() {
+  say "Usage: personalize.sh \"Agent Name\" [--force]"
+  say "       personalize.sh --stage-soul      (SOUL.md → $STAGED, for you to install)"
+  say "       personalize.sh --apply-owner     (stage-soul + fold in the owner profile)"
+  say ""
+  say "The soul reaches the agent through AGENTS.md, which Hermes injects from this repo."
+  say "$SOUL_SLOT is your own global soul — this script never writes it."
+}
+
 case "${1:-}" in
-  ""|-h|--help)
-    say "Usage: personalize.sh \"Agent Name\" [--force]"
-    say "       personalize.sh --install-soul     (SOUL.md → $SOUL_SLOT)"
-    say "       personalize.sh --apply-owner      (install-soul + fold the owner profile)"
-    exit 0 ;;
-  --install-soul) install_soul ;;
-  --apply-owner)  apply_owner ;;
+  ""|-h|--help)   usage ;;
+  --stage-soul)   stage_soul ;;
+  --apply-owner)  stage_soul --with-owner ;;
+  --install-soul)
+    say "✗ --install-soul is gone: it wrote to $SOUL_SLOT, which is your own global"
+    say "  soul, not this repo's to overwrite. The repo's soul now travels in AGENTS.md,"
+    say "  which Hermes injects automatically — nothing to install."
+    say "  To keep a global copy anyway:  bash scripts/personalize.sh --stage-soul"
+    exit 2 ;;
+  -*)
+    say "✗ Unknown flag: $1"
+    usage
+    exit 2 ;;
   *) set_name "$1" "${2:-}" ;;
 esac
