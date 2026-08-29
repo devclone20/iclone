@@ -189,7 +189,6 @@ agent/
 │   │   ├── crypto_skill.py      # crypto research & market intelligence
 │   │   ├── platform_skill.py    # CLONE FRAME platform services
 │   │   └── acp_skill.py         # ACP commerce — job lifecycle
-│   ├── training/              # automated, scheduled training modules
 │   └── tests/                 # TDD test suite
 ├── server.py                  # production ACP provider server (polling, resilient)
 ├── ops/                       # automations, deploy kit (DigitalOcean), monitoring
@@ -214,7 +213,6 @@ pip install -r requirements.txt
 cp .env.example .env        # add your keys (never commit real secrets)
 
 pytest agent/iclone/tests/ -v
-python3 -m agent.iclone.training.scheduler
 ```
 
 ---
@@ -224,7 +222,6 @@ python3 -m agent.iclone.training.scheduler
 - **TDD first** — tests written before every implementation.
 - **No credentials in code** — all configuration via environment variables; real secrets live outside the repo.
 - **Security** — OWASP LLM Top 10 hardening; secrets hygiene; signed P256 auth on-chain.
-- **Training** — automated sessions compound agent knowledge continuously.
 - **Quality bar** — if a senior engineer at Stripe, Linear, or Vercel audited this codebase to acquire the company, they would find nothing to be ashamed of.
 
 ---

@@ -9,7 +9,6 @@ Topologia **viva** (não a antiga de 4 agentes):
 | **iCLONE** | PROVIDER (executa offerings) | `0x44cc25d55a4291b92f52062ba023ca1f14206664` | `iclone-server` |
 | **VEGETA** | CLIENT (cria/financia/fecha jobs) | `0xe09f40114af6c78788a8003da127c49c56158584` | `iclone-vegeta` |
 | token keep-alive | mantém ambos os tokens vivos (20 min) | — | `iclone-token-refresh` |
-| training | ciclo de treino 2×/dia (07:00 + 19:00 UTC) | — | `iclone-training.timer` |
 
 **Auth sem browser:** os tokens estão no keychain do Mac. `migrate-tokens.sh` extrai-os
 e injecta-os no droplet via `acp configure --token`. Cutover limpo — só uma máquina
@@ -96,7 +95,6 @@ ssh root@$IP 'bash /opt/iclone/ops/do/start-services.sh'
 ssh root@$IP 'systemctl status iclone-server iclone-vegeta iclone-token-refresh --no-pager'
 ssh root@$IP 'tail -f /var/log/iclone/server.log'
 ssh root@$IP 'tail -f /var/log/iclone/vegeta.log'
-ssh root@$IP 'systemctl list-timers iclone-training.timer --no-pager'
 ```
 
 Confirma que ambos os agentes autenticam:

@@ -40,7 +40,7 @@ Config dirs (isolados por agente): `~/.config/acp-iclone/acp`, `~/.config/acp-ve
 - `iclone-vegeta` — VEGETA client (contrata iCLONE)
 - `iclone-client` — iCLONE client (contrata VEGETA)
 - `iclone-token-refresh` — keep-alive (whoami 20min)
-- `iclone-training.timer` — treino 07:00+19:00 UTC
+- `iclone-training.timer` — treino 07:00+19:00 UTC *(removido 2026-08-29 — sistema de treino desmontado por ordem do dono; novo treino será construído de raiz)*
 - `iclone-bootstrap.timer` — scan de mercado cada 30min
 
 **INATIVOS (instalados, disabled):** `iclone-{doctorwho,supersayatin,matrix}-{server,client}`

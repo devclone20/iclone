@@ -23,7 +23,6 @@ rsync -avz --delete \
     --exclude='__pycache__' --exclude='*.pyc' \
     --exclude='.DS_Store' \
     --exclude='ops/launchd' \
-    --exclude='training_reports' \
     --exclude='node_modules' \
     "${LOCAL_DIR}/" "root@${DROPLET_IP}:${REMOTE_DIR}/"
 echo "✓ Code synced"
